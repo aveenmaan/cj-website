@@ -1,0 +1,1622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CJ's Liquors — Fremont's Premier Liquor Store</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --blue:        #1a3a8f;
+            --blue-dark:   #0d2266;
+            --blue-mid:    #1e4aad;
+            --gold:        #F5C518;
+            --gold-dark:   #d4a800;
+            --gold-light:  #ffd740;
+            --white:       #ffffff;
+            --off-white:   #f7f6f0;
+            --light-gray:  #eeeef5;
+            --text-dark:   #1a1a2e;
+            --text-mid:    #4a4a6a;
+            --text-light:  #888;
+            --font-heading: 'Montserrat', sans-serif;
+            --font-body:    'Open Sans', sans-serif;
+            --shadow-sm:  0 2px 8px rgba(26,58,143,.08);
+            --shadow-md:  0 8px 32px rgba(26,58,143,.14);
+            --shadow-lg:  0 20px 60px rgba(26,58,143,.20);
+            --radius:     8px;
+            --radius-lg:  16px;
+            --ease:       cubic-bezier(.4,0,.2,1);
+        }
+
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-dark);
+            background: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* ── TOP BAR ─────────────────────────────────────────── */
+        .top-bar {
+            background: var(--blue-dark);
+            color: rgba(255,255,255,.8);
+            font-size: 12.5px;
+            padding: 8px 0;
+            border-bottom: 2px solid var(--gold);
+        }
+        .top-bar-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+        }
+        .top-bar-left { display:flex; align-items:center; gap:24px; }
+        .top-bar-item { display:flex; align-items:center; gap:6px; }
+        .top-bar-item .ti { color:var(--gold); }
+        .top-bar a { color:inherit; text-decoration:none; transition:color .2s; }
+        .top-bar a:hover { color:var(--gold); }
+        .tb-pill {
+            background: var(--gold);
+            color: var(--blue-dark);
+            font-family: var(--font-heading);
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: .8px;
+            text-transform: uppercase;
+            padding: 3px 12px;
+            border-radius: 20px;
+        }
+
+        /* ── HEADER ──────────────────────────────────────────── */
+        .header {
+            background: var(--blue);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: box-shadow .3s;
+        }
+        .header.scrolled { box-shadow: 0 4px 28px rgba(13,34,102,.55); }
+
+        .header-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+            height: 68px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        /* Logo */
+        .logo { display:flex; align-items:center; gap:12px; text-decoration:none; flex-shrink:0; }
+        .logo-badge {
+            background: var(--gold);
+            color: var(--blue-dark);
+            font-family: var(--font-heading);
+            font-weight: 900;
+            font-size: 20px;
+            letter-spacing: -.5px;
+            padding: 7px 16px;
+            border-radius: 6px;
+            line-height: 1;
+            box-shadow: 0 3px 14px rgba(245,197,24,.38);
+            transition: transform .25s var(--ease), box-shadow .25s;
+        }
+        .logo-badge:hover { transform:translateY(-2px); box-shadow:0 6px 22px rgba(245,197,24,.5); }
+        .logo-sub {
+            color: rgba(255,255,255,.6);
+            font-size: 10.5px;
+            letter-spacing: 1.8px;
+            text-transform: uppercase;
+            line-height: 1.4;
+        }
+
+        /* Primary nav */
+        .primary-nav { display:flex; align-items:center; list-style:none; gap:2px; }
+        .primary-nav > li { position:relative; }
+        .primary-nav > li > a {
+            color: rgba(255,255,255,.88);
+            text-decoration: none;
+            font-family: var(--font-heading);
+            font-size: 12.5px;
+            font-weight: 600;
+            letter-spacing: .2px;
+            padding: 7px 11px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            transition: background .2s, color .2s;
+            white-space: nowrap;
+        }
+        .primary-nav > li > a:hover,
+        .primary-nav > li > a.active {
+            background: rgba(255,255,255,.12);
+            color: var(--gold);
+        }
+        .nav-pill {
+            background: var(--gold);
+            color: var(--blue-dark);
+            font-size: 8.5px;
+            font-weight: 800;
+            padding: 2px 6px;
+            border-radius: 10px;
+            letter-spacing: .5px;
+            text-transform: uppercase;
+        }
+        .arr { font-size: 9px; opacity:.65; transition: transform .2s; }
+        .primary-nav > li:hover .arr { transform:rotate(180deg); }
+
+        /* Dropdown */
+        .dropdown {
+            position: absolute;
+            top: calc(100% + 6px);
+            left: 0;
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
+            padding: 8px;
+            min-width: 176px;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(-8px);
+            transition: opacity .2s, transform .2s;
+            border-top: 3px solid var(--gold);
+        }
+        .primary-nav > li:hover .dropdown {
+            opacity: 1;
+            pointer-events: all;
+            transform: translateY(0);
+        }
+        .dropdown a {
+            display: block;
+            padding: 8px 12px;
+            color: var(--text-dark);
+            text-decoration: none;
+            font-family: var(--font-body);
+            font-size: 13.5px;
+            font-weight: 500;
+            border-radius: 4px;
+            transition: background .15s, padding-left .15s;
+        }
+        .dropdown a:hover { background:var(--light-gray); color:var(--blue); padding-left:16px; }
+
+        /* Header right */
+        .h-right { display:flex; align-items:center; gap:10px; }
+        .cart-btn {
+            background: var(--gold);
+            color: var(--blue-dark);
+            border: none;
+            padding: 8px 18px;
+            border-radius: 6px;
+            font-family: var(--font-heading);
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background .2s, transform .2s;
+        }
+        .cart-btn:hover { background:var(--gold-dark); transform:translateY(-1px); }
+        .cart-count {
+            background: var(--blue-dark);
+            color: white;
+            font-size: 10px;
+            width: 18px; height: 18px;
+            border-radius: 50%;
+            display: flex; align-items:center; justify-content:center;
+            font-weight: 700;
+        }
+        .hamburger {
+            display: none;
+            background: none; border: none; cursor: pointer;
+            padding: 8px; flex-direction: column; gap: 5px;
+        }
+        .hamburger span {
+            display: block; width: 24px; height: 2px;
+            background: white; border-radius: 2px;
+            transition: transform .25s, opacity .25s;
+        }
+
+        /* Mobile nav */
+        .mobile-nav {
+            display: none;
+            background: var(--blue-dark);
+            padding: 12px 20px 20px;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .mobile-nav.open { display:flex; }
+        .mobile-nav a {
+            color: rgba(255,255,255,.82);
+            text-decoration: none;
+            font-family: var(--font-heading);
+            font-size: 13.5px;
+            font-weight: 600;
+            padding: 9px 12px;
+            border-radius: 6px;
+            transition: background .15s, color .15s;
+        }
+        .mobile-nav a:hover { background:rgba(255,255,255,.08); color:var(--gold); }
+        .mnav-sep {
+            font-size: 10px; font-weight: 700; letter-spacing: 2.5px;
+            text-transform: uppercase; color: var(--gold);
+            padding: 10px 12px 4px;
+        }
+
+        /* ── HERO ─────────────────────────────────────────────── */
+        .hero {
+            background: var(--blue-dark);
+            min-height: 88vh;
+            display: flex; align-items: center;
+            position: relative; overflow: hidden;
+        }
+        .hero-grid {
+            position: absolute; inset: 0;
+            background-image:
+                linear-gradient(rgba(245,197,24,.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(245,197,24,.04) 1px, transparent 1px);
+            background-size: 56px 56px;
+        }
+        .hero-glow {
+            position: absolute; top:10%; right:8%;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(245,197,24,.09) 0%, transparent 65%);
+            pointer-events: none;
+        }
+        /* Decorative large bottle silhouette */
+        .hero-deco {
+            position: absolute; right: 6%; bottom: 0;
+            display: flex; align-items: flex-end; gap: 18px;
+            opacity: .07; pointer-events: none;
+            filter: blur(1px);
+        }
+        .hero-deco-bottle {
+            background: var(--gold);
+            border-radius: 50% 50% 8px 8px / 40px 40px 8px 8px;
+            position: relative;
+        }
+        .hero-deco-bottle::before {
+            content:''; position:absolute; top:-44px; left:50%; transform:translateX(-50%);
+            width: 38%; height: 48px; background:var(--gold); border-radius:8px 8px 0 0;
+        }
+        .hero-deco-bottle::after {
+            content:''; position:absolute; top:-58px; left:50%; transform:translateX(-50%);
+            width: 24%; height: 18px; background:var(--gold); border-radius:4px 4px 0 0;
+        }
+
+        .hero-content {
+            position: relative; z-index: 2;
+            max-width: 1280px; margin: 0 auto;
+            padding: 100px 24px 80px;
+            width: 100%;
+        }
+        .hero-eyebrow {
+            display: inline-flex; align-items:center; gap:8px;
+            background: rgba(245,197,24,.14);
+            border: 1px solid rgba(245,197,24,.3);
+            color: var(--gold);
+            font-family: var(--font-heading);
+            font-size: 10.5px; font-weight:700; letter-spacing:2.5px;
+            text-transform: uppercase;
+            padding: 6px 16px; border-radius:20px;
+            margin-bottom: 28px;
+            animation: fadeUp .6s var(--ease) both;
+        }
+        .hero-title {
+            font-family: var(--font-heading);
+            font-size: clamp(44px, 7.5vw, 88px);
+            font-weight: 900;
+            color: white;
+            line-height: 1.03;
+            letter-spacing: -2.5px;
+            margin-bottom: 24px;
+            max-width: 720px;
+            animation: fadeUp .6s var(--ease) .1s both;
+        }
+        .hero-title .hl {
+            color: var(--gold);
+            position: relative;
+            display: inline-block;
+        }
+        .hero-title .hl::after {
+            content:'';
+            position:absolute; bottom:6px; left:0; right:0;
+            height:5px; background:var(--gold);
+            border-radius:3px; opacity:.3;
+        }
+        .hero-sub {
+            font-family: var(--font-body);
+            font-size: 18px; font-weight:300;
+            color: rgba(255,255,255,.6);
+            line-height: 1.75;
+            max-width: 500px;
+            margin-bottom: 44px;
+            animation: fadeUp .6s var(--ease) .2s both;
+        }
+        .hero-ctas {
+            display: flex; gap:14px; flex-wrap:wrap;
+            animation: fadeUp .6s var(--ease) .3s both;
+        }
+        .btn-blue {
+            background: rgba(255,255,255,.1);
+            color: white;
+            border: 2px solid rgba(255,255,255,.22);
+            padding: 14px 30px; border-radius:8px;
+            font-family: var(--font-heading); font-size:13.5px; font-weight:700;
+            letter-spacing:.3px; text-decoration:none;
+            display:inline-flex; align-items:center; gap:8px;
+            transition: background .25s, border-color .25s, transform .25s;
+        }
+        .btn-blue:hover { background:rgba(255,255,255,.18); border-color:rgba(255,255,255,.45); transform:translateY(-2px); }
+        .btn-gold {
+            background: var(--gold);
+            color: var(--blue-dark);
+            border: none;
+            padding: 14px 30px; border-radius:8px;
+            font-family: var(--font-heading); font-size:13.5px; font-weight:700;
+            letter-spacing:.3px; text-decoration:none;
+            display:inline-flex; align-items:center; gap:8px;
+            box-shadow: 0 4px 22px rgba(245,197,24,.32);
+            transition: background .25s, transform .25s, box-shadow .25s;
+        }
+        .btn-gold:hover { background:var(--gold-dark); transform:translateY(-2px); box-shadow:0 8px 32px rgba(245,197,24,.5); }
+
+        .hero-stats {
+            display: flex; gap: 44px;
+            margin-top: 60px; padding-top:40px;
+            border-top: 1px solid rgba(255,255,255,.1);
+            animation: fadeUp .6s var(--ease) .4s both;
+            flex-wrap: wrap;
+        }
+        .hs-num {
+            font-family: var(--font-heading);
+            font-size: 34px; font-weight:900;
+            color: var(--gold); line-height:1; margin-bottom:4px;
+        }
+        .hs-lbl { font-size:11px; color:rgba(255,255,255,.45); letter-spacing:1.2px; text-transform:uppercase; }
+
+        /* ── SERVICES ─────────────────────────────────────────── */
+        .services { background:var(--off-white); padding:80px 24px; }
+        .container { max-width:1280px; margin:0 auto; }
+        .section-hd { text-align:center; margin-bottom:52px; }
+        .sec-eyebrow {
+            display:block; font-family:var(--font-heading);
+            font-size:10.5px; font-weight:700; letter-spacing:3px;
+            text-transform:uppercase; color:var(--blue); margin-bottom:12px;
+        }
+        .sec-title {
+            font-family: var(--font-heading);
+            font-size: clamp(28px,4vw,42px); font-weight:800;
+            color: var(--text-dark); letter-spacing:-1px; line-height:1.15;
+        }
+        .sec-title span { color:var(--blue); }
+
+        .pillars { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+        .pillar {
+            background:white; border-radius:var(--radius-lg);
+            padding:38px 32px;
+            border:1px solid rgba(26,58,143,.07);
+            border-top: 4px solid var(--gold);
+            box-shadow: var(--shadow-sm);
+            position:relative; overflow:hidden;
+            transition:transform .3s var(--ease), box-shadow .3s;
+        }
+        .pillar::after {
+            content:''; position:absolute; bottom:0; left:0; right:0; height:3px;
+            background:linear-gradient(90deg,var(--blue),var(--blue-mid));
+            transform:scaleX(0); transform-origin:left; transition:transform .4s;
+        }
+        .pillar:hover { transform:translateY(-7px); box-shadow:var(--shadow-lg); }
+        .pillar:hover::after { transform:scaleX(1); }
+        .pillar-ico { font-size:44px; margin-bottom:22px; display:block; }
+        .pillar h3 {
+            font-family:var(--font-heading); font-size:20px; font-weight:800;
+            color:var(--blue-dark); margin-bottom:10px; letter-spacing:-.3px;
+        }
+        .pillar p { font-size:14px; line-height:1.75; color:var(--text-mid); }
+        .pillar-tag {
+            display:inline-block; background:rgba(245,197,24,.18);
+            color:var(--blue-dark); font-family:var(--font-heading);
+            font-size:10.5px; font-weight:700; padding:4px 12px;
+            border-radius:20px; margin-top:18px; letter-spacing:.4px;
+        }
+
+        /* ── CATEGORIES ───────────────────────────────────────── */
+        .categories { background:white; padding:80px 24px; }
+        .cat-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+        .cat-card {
+            border-radius:var(--radius-lg); overflow:hidden;
+            position:relative; aspect-ratio:3/4; cursor:pointer;
+        }
+        .cat-bg {
+            position:absolute; inset:0;
+            transition: transform .65s cubic-bezier(.4,0,.2,1);
+        }
+        .cat-card:hover .cat-bg { transform:scale(1.07); }
+        .cat-card.wine   .cat-bg { background:linear-gradient(155deg,#180820 0%,#46133a 40%,#891f52 70%,#be2e5d 100%); }
+        .cat-card.spirits .cat-bg { background:linear-gradient(155deg,#09162d 0%,#163360 40%,#245aa5 70%,#1a4690 100%); }
+        .cat-card.beer   .cat-bg { background:linear-gradient(155deg,#160e00 0%,#3c2200 40%,#7d4d04 70%,#c2860b 100%); }
+        .cat-overlay {
+            position:absolute; inset:0;
+            background:linear-gradient(to top,rgba(0,0,0,.86) 0%,rgba(0,0,0,.28) 50%,transparent 100%);
+        }
+        .cat-deco {
+            position:absolute; top:28px; right:28px; font-size:76px;
+            opacity:.14; transform:rotate(14deg);
+            transition: opacity .3s, transform .3s;
+        }
+        .cat-card:hover .cat-deco { opacity:.24; transform:rotate(4deg) scale(1.12); }
+        .cat-body {
+            position:absolute; bottom:0; left:0; right:0;
+            padding:32px; z-index:2;
+        }
+        .cat-lbl {
+            font-family:var(--font-heading); font-size:10px; font-weight:700;
+            letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:8px;
+        }
+        .cat-name {
+            font-family:var(--font-heading); font-size:38px; font-weight:900;
+            color:white; line-height:1; letter-spacing:-1.5px; margin-bottom:10px;
+        }
+        .cat-desc { font-size:13px; color:rgba(255,255,255,.68); line-height:1.55; margin-bottom:20px; }
+        .btn-wht {
+            display:inline-flex; align-items:center; gap:8px;
+            padding:10px 22px; border:2px solid rgba(255,255,255,.45); border-radius:6px;
+            color:white; font-family:var(--font-heading); font-size:13px; font-weight:700;
+            text-decoration:none; transition:background .2s, border-color .2s, color .2s;
+        }
+        .btn-wht:hover { background:var(--gold); border-color:var(--gold); color:var(--blue-dark); }
+
+        /* ── SALE BANNER ──────────────────────────────────────── */
+        .sale-strip {
+            background: var(--gold);
+            padding: 32px 24px;
+            text-align:center;
+            position:relative; overflow:hidden;
+        }
+        .sale-strip::before, .sale-strip::after {
+            content:'★  SALE  ★  SALE  ★  SALE  ★  SALE  ★  SALE  ★  SALE  ★';
+            position:absolute; left:0; right:0;
+            font-family:var(--font-heading); font-size:10px; font-weight:700;
+            letter-spacing:4px; color:rgba(13,34,102,.1); white-space:nowrap;
+        }
+        .sale-strip::before { top:7px; }
+        .sale-strip::after  { bottom:7px; }
+        .sale-headline {
+            font-family:var(--font-heading); font-weight:900; letter-spacing:-.5px;
+            font-size:clamp(18px,3vw,26px); color:var(--blue-dark);
+        }
+        .sale-sub { font-size:14px; color:rgba(13,34,102,.65); margin-top:5px; }
+        .sale-cta {
+            display:inline-flex; align-items:center; gap:8px; margin-top:18px;
+            background:var(--blue-dark); color:var(--gold);
+            padding:11px 26px; border-radius:7px;
+            font-family:var(--font-heading); font-size:13px; font-weight:700;
+            text-decoration:none; transition:background .2s, transform .2s;
+        }
+        .sale-cta:hover { background:var(--blue); transform:translateY(-2px); }
+
+        /* ── PRODUCTS ─────────────────────────────────────────── */
+        .products { background:var(--off-white); padding:80px 24px; }
+        .prod-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+        .prod-card {
+            background:white; border-radius:var(--radius-lg); overflow:hidden;
+            box-shadow:var(--shadow-sm); border:1px solid rgba(26,58,143,.06);
+            transition:transform .3s var(--ease), box-shadow .3s;
+        }
+        .prod-card:hover { transform:translateY(-7px); box-shadow:var(--shadow-lg); }
+        .prod-img {
+            height:200px; display:flex; align-items:center; justify-content:center;
+            position:relative; overflow:hidden;
+        }
+        .prod-card.don-julio .prod-img { background:linear-gradient(135deg,#1a3a8f,#2a5fa3,#1e4aad); }
+        .prod-card.hennessy  .prod-img { background:linear-gradient(135deg,#291700,#5a3600,#8a5800); }
+        .prod-card.casamigos .prod-img { background:linear-gradient(135deg,#0d3320,#1a5a38,#2a7a50); }
+        .prod-card.johnnie   .prod-img { background:linear-gradient(135deg,#181818,#303030,#202020); }
+        .prod-card.kim       .prod-img { background:linear-gradient(135deg,#1a3c1a,#2a6028,#3a8040); }
+        .prod-card.bluemoon  .prod-img { background:linear-gradient(135deg,#001840,#002a66,#00347c); }
+        .prod-art {
+            font-size:66px;
+            filter:drop-shadow(0 8px 24px rgba(0,0,0,.38));
+            transition:transform .3s var(--ease);
+        }
+        .prod-card:hover .prod-art { transform:scale(1.1) translateY(-5px); }
+        .prod-img img {
+            max-height:160px; max-width:80%; object-fit:contain;
+            filter:drop-shadow(0 8px 28px rgba(0,0,0,.5));
+            transition:transform .3s var(--ease);
+        }
+        .prod-card:hover .prod-img img { transform:scale(1.08) translateY(-6px); }
+        .prod-badge {
+            position:absolute; top:12px; left:12px;
+            background:var(--gold); color:var(--blue-dark);
+            font-family:var(--font-heading); font-size:9px; font-weight:800;
+            padding:3px 10px; border-radius:20px; letter-spacing:1px; text-transform:uppercase;
+        }
+        .prod-body { padding:20px; }
+        .prod-cat {
+            font-family:var(--font-heading); font-size:9.5px; font-weight:700;
+            letter-spacing:2px; text-transform:uppercase; color:var(--blue); margin-bottom:5px;
+        }
+        .prod-name {
+            font-family:var(--font-heading); font-size:19px; font-weight:800;
+            color:var(--text-dark); letter-spacing:-.3px; line-height:1.2; margin-bottom:3px;
+        }
+        .prod-sub { font-size:12.5px; color:var(--text-light); margin-bottom:16px; }
+        .prod-foot { display:flex; align-items:center; justify-content:space-between; }
+        .prod-price {
+            font-family:var(--font-heading); font-size:25px; font-weight:900; color:var(--blue-dark);
+        }
+        .prod-price span { font-size:12px; font-weight:500; color:var(--text-light); }
+        .btn-cart {
+            background:var(--gold); color:var(--blue-dark); border:none;
+            padding:9px 18px; border-radius:6px;
+            font-family:var(--font-heading); font-size:12px; font-weight:700;
+            cursor:pointer; transition:background .2s, color .2s, transform .2s;
+            letter-spacing:.3px;
+        }
+        .btn-cart:hover { background:var(--blue); color:white; transform:scale(1.05); }
+        .btn-call {
+            background: var(--gold); color: var(--blue-dark);
+            padding: 9px 18px; border-radius: 6px;
+            font-family: var(--font-heading); font-size: 12px; font-weight: 700;
+            text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
+            transition: background .2s, color .2s, transform .2s; letter-spacing: .3px;
+        }
+        .btn-call:hover { background: var(--blue); color: white; transform: scale(1.05); }
+        .prod-empty { grid-column:1/-1; text-align:center; padding:60px 20px; color:var(--text-mid); font-size:15px; }
+        .prod-stock {
+            margin-top: 10px; font-size: 11px; font-weight: 700;
+            font-family: var(--font-heading); letter-spacing: .4px; text-transform: uppercase;
+            display: flex; align-items: center; gap: 5px;
+        }
+        .prod-stock::before { content:''; width:7px; height:7px; border-radius:50%; flex-shrink:0; }
+        .filter-bar {
+            display: none; align-items: center; justify-content: space-between;
+            margin-bottom: 28px; padding: 12px 20px;
+            background: var(--light-gray); border-radius: var(--radius);
+            border-left: 4px solid var(--blue);
+        }
+        .filter-bar.visible { display: flex; }
+        .filter-label {
+            font-family: var(--font-heading); font-size: 13px; font-weight: 700;
+            color: var(--blue-dark); letter-spacing: .2px;
+        }
+        .filter-label span { color: var(--blue); }
+        .filter-clear {
+            background: var(--blue); color: white; border: none;
+            padding: 6px 14px; border-radius: 20px;
+            font-family: var(--font-heading); font-size: 11px; font-weight: 700;
+            cursor: pointer; letter-spacing: .5px; transition: background .2s;
+        }
+        .filter-clear:hover { background: var(--blue-dark); }
+        .search-wrap {
+            position: relative; max-width: 520px; margin: 0 auto 32px;
+        }
+        .search-wrap svg {
+            position: absolute; left: 16px; top: 50%; transform: translateY(-50%);
+            width: 18px; height: 18px; color: var(--text-light); pointer-events: none;
+            flex-shrink: 0;
+        }
+        .search-input {
+            width: 100%; padding: 14px 46px 14px 46px;
+            border: 2px solid var(--light-gray);
+            border-radius: 10px;
+            font-family: var(--font-body); font-size: 15px; color: var(--text-dark);
+            background: white; outline: none;
+            transition: border-color .2s, box-shadow .2s;
+        }
+        .search-input:focus {
+            border-color: var(--blue);
+            box-shadow: 0 0 0 4px rgba(26,58,143,.1);
+        }
+        .search-input::placeholder { color: var(--text-light); }
+        .search-clear {
+            position: absolute; right: 14px; top: 50%; transform: translateY(-50%);
+            background: var(--light-gray); border: none; border-radius: 50%;
+            width: 22px; height: 22px; cursor: pointer; font-size: 13px;
+            color: var(--text-mid); display: none; align-items: center; justify-content: center;
+            transition: background .15s;
+        }
+        .search-clear.visible { display: flex; }
+        .search-clear:hover { background: #ddd; }
+        .no-results {
+            grid-column: 1/-1; text-align: center; padding: 60px 20px;
+            color: var(--text-mid);
+        }
+        .no-results strong { display: block; font-size: 18px; color: var(--text-dark); margin-bottom: 8px; }
+
+        /* ── PRODUCT CARD (minimal) ───────────────────────────────── */
+        .prod-card { cursor: pointer; }
+        .prod-view {
+            font-family: var(--font-heading); font-size: 11px; font-weight: 700;
+            color: var(--blue); letter-spacing: .8px; text-transform: uppercase;
+            margin-top: 12px; opacity: 0; transform: translateY(5px);
+            transition: opacity .2s, transform .2s;
+        }
+        .prod-card:hover .prod-view { opacity: 1; transform: translateY(0); }
+
+        /* ── MODAL ────────────────────────────────────────────────── */
+        .modal-overlay {
+            position: fixed; inset: 0; z-index: 3000;
+            background: rgba(13,34,102,.6);
+            backdrop-filter: blur(5px);
+            display: flex; align-items: center; justify-content: center;
+            padding: 20px;
+            opacity: 0; pointer-events: none;
+            transition: opacity .25s;
+        }
+        .modal-overlay.open { opacity: 1; pointer-events: all; }
+        .modal {
+            background: white; border-radius: 20px;
+            max-width: 780px; width: 100%;
+            max-height: 90vh; overflow-y: auto;
+            position: relative;
+            transform: translateY(24px) scale(.97);
+            transition: transform .28s var(--ease);
+            box-shadow: 0 40px 100px rgba(13,34,102,.35);
+        }
+        .modal-overlay.open .modal { transform: translateY(0) scale(1); }
+        .modal-close {
+            position: absolute; top: 14px; right: 14px; z-index: 10;
+            background: rgba(0,0,0,.08); border: none; border-radius: 50%;
+            width: 36px; height: 36px; font-size: 18px; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            color: white; transition: background .15s;
+        }
+        .modal-close:hover { background: rgba(0,0,0,.22); }
+        .modal-inner { display: grid; grid-template-columns: 1fr 1fr; }
+        .modal-img-panel {
+            min-height: 320px; display: flex; align-items: center; justify-content: center;
+            border-radius: 20px 0 0 20px; padding: 40px; position: relative; overflow: hidden;
+        }
+        .modal-img-panel img {
+            max-width: 100%; max-height: 280px; object-fit: contain;
+            filter: drop-shadow(0 12px 36px rgba(0,0,0,.45));
+        }
+        .modal-img-panel .modal-art {
+            font-size: 110px;
+            filter: drop-shadow(0 12px 32px rgba(0,0,0,.4));
+        }
+        .modal-img-panel .prod-badge { top: 16px; left: 16px; font-size: 10px; }
+        .modal-info { padding: 40px 36px; display: flex; flex-direction: column; gap: 0; }
+        .modal-cat {
+            font-family: var(--font-heading); font-size: 10px; font-weight: 700;
+            letter-spacing: 2.5px; text-transform: uppercase; color: var(--blue); margin-bottom: 8px;
+        }
+        .modal-name {
+            font-family: var(--font-heading); font-size: 28px; font-weight: 900;
+            color: var(--text-dark); letter-spacing: -.5px; line-height: 1.15; margin-bottom: 14px;
+        }
+        .stars-row {
+            display: flex; align-items: center; gap: 3px; margin-bottom: 20px;
+        }
+        .star { font-size: 20px; line-height: 1; }
+        .star.full  { color: var(--gold); }
+        .star.empty { color: #ddd; }
+        .star.half  { position: relative; color: #ddd; }
+        .star.half::before {
+            content: '★'; position: absolute; left: 0; top: 0;
+            color: var(--gold); width: 50%; overflow: hidden; display: block;
+        }
+        .rating-num {
+            font-family: var(--font-heading); font-size: 13px; font-weight: 700;
+            color: var(--text-mid); margin-left: 6px;
+        }
+        .modal-desc {
+            font-size: 14.5px; line-height: 1.75; color: var(--text-mid);
+            margin-bottom: 24px; flex-grow: 1;
+        }
+        .modal-divider { border: none; border-top: 1px solid var(--light-gray); margin-bottom: 20px; }
+        .modal-price-row { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; flex-wrap: wrap; }
+        .modal-call-btn {
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            background: var(--gold); color: var(--blue-dark); text-decoration: none;
+            padding: 14px 24px; border-radius: 10px; width: 100%;
+            font-family: var(--font-heading); font-size: 15px; font-weight: 800;
+            letter-spacing: .3px; transition: background .2s, transform .2s;
+            box-shadow: 0 4px 18px rgba(245,197,24,.35);
+        }
+        .modal-call-btn:hover { background: var(--gold-dark); transform: translateY(-2px); }
+        @media (max-width: 640px) {
+            .modal-inner { grid-template-columns: 1fr; }
+            .modal-img-panel { border-radius: 20px 20px 0 0; min-height: 220px; }
+            .modal-close { color: var(--text-dark); }
+            .modal-info { padding: 28px 24px; }
+        }
+        .prod-stock.in-stock { color: #2a7a3a; }
+        .prod-stock.in-stock::before { background: #2a7a3a; }
+        .prod-stock.low-stock { color: #b86000; }
+        .prod-stock.low-stock::before { background: #b86000; }
+        .prod-stock.out-stock { color: #aaa; }
+        .prod-stock.out-stock::before { background: #ccc; }
+
+        /* ── ABOUT ────────────────────────────────────────────── */
+        .about { background:white; padding:80px 24px; }
+        .about-grid { display:grid; grid-template-columns:1fr 380px; gap:72px; align-items:start; }
+
+        .about-eyebrow {
+            display:inline-flex; align-items:center; gap:10px;
+            font-family:var(--font-heading); font-size:10.5px; font-weight:700;
+            letter-spacing:3px; text-transform:uppercase; color:var(--blue); margin-bottom:20px;
+        }
+        .about-eyebrow::before {
+            content:''; display:block; width:26px; height:2px; background:var(--gold);
+        }
+        .about-title {
+            font-family:var(--font-heading); font-size:clamp(30px,4vw,46px); font-weight:900;
+            color:var(--text-dark); letter-spacing:-1.2px; line-height:1.12; margin-bottom:24px;
+        }
+        .about-title span { color:var(--blue); }
+        .about-body { font-size:15.5px; line-height:1.82; color:var(--text-mid); margin-bottom:18px; }
+        .about-feats { display:flex; flex-direction:column; gap:10px; margin-top:26px; }
+        .about-feat {
+            display:flex; align-items:center; gap:12px;
+            font-size:14px; color:var(--text-dark); font-weight:500;
+        }
+        .about-feat::before {
+            content:''; display:block; width:8px; height:8px;
+            background:var(--gold); border-radius:50%; flex-shrink:0;
+        }
+
+        /* Store card */
+        .store-card {
+            background:var(--blue-dark); border-radius:var(--radius-lg);
+            overflow:hidden; box-shadow:var(--shadow-lg);
+        }
+        .sc-head {
+            background:var(--gold); padding:20px 24px;
+        }
+        .sc-head h3 {
+            font-family:var(--font-heading); font-size:17px; font-weight:800;
+            color:var(--blue-dark); letter-spacing:-.2px;
+        }
+        .sc-body { padding:28px 24px; display:flex; flex-direction:column; gap:20px; }
+        .sc-row { display:flex; align-items:flex-start; gap:14px; }
+        .sc-ico { font-size:20px; flex-shrink:0; margin-top:2px; }
+        .sc-content label {
+            display:block; font-family:var(--font-heading);
+            font-size:9.5px; font-weight:700; letter-spacing:2px;
+            text-transform:uppercase; color:var(--gold); margin-bottom:5px;
+        }
+        .sc-content p { font-size:13.5px; color:rgba(255,255,255,.82); line-height:1.65; }
+        .sc-content a { color:rgba(255,255,255,.82); text-decoration:none; }
+        .sc-content a:hover { color:var(--gold); }
+        .hours-tbl { display:flex; flex-direction:column; gap:4px; }
+        .hrow { display:flex; justify-content:space-between; font-size:13px; color:rgba(255,255,255,.78); }
+        .hrow .day { color:rgba(255,255,255,.45); }
+
+        /* ── FOOTER ───────────────────────────────────────────── */
+        .footer {
+            background:var(--blue-dark); color:rgba(255,255,255,.62);
+            padding:60px 24px 32px; border-top:3px solid var(--gold);
+        }
+        .foot-grid {
+            display:grid; grid-template-columns:220px 1fr 1fr;
+            gap:52px; max-width:1280px; margin:0 auto;
+            padding-bottom:48px; border-bottom:1px solid rgba(255,255,255,.08);
+        }
+        .foot-brand .logo-badge { margin-bottom:16px; display:inline-flex; }
+        .foot-tag { font-size:13px; line-height:1.75; color:rgba(255,255,255,.45); margin-bottom:20px; }
+        .socials { display:flex; gap:10px; }
+        .social-a {
+            width:36px; height:36px; border-radius:8px;
+            background:rgba(255,255,255,.08); display:flex; align-items:center; justify-content:center;
+            font-size:15px; text-decoration:none; color:rgba(255,255,255,.65);
+            transition:background .2s, color .2s, transform .2s;
+        }
+        .social-a:hover { background:var(--gold); color:var(--blue-dark); transform:translateY(-3px); }
+        .foot-col h4 {
+            font-family:var(--font-heading); font-size:12px; font-weight:700;
+            color:white; letter-spacing:1.2px; text-transform:uppercase; margin-bottom:20px;
+        }
+        .foot-col h4::after { content:''; display:block; width:22px; height:2px; background:var(--gold); margin-top:8px; }
+        .foot-links { list-style:none; display:flex; flex-direction:column; gap:8px; }
+        .foot-links a {
+            color:rgba(255,255,255,.5); text-decoration:none; font-size:13.5px;
+            transition:color .2s, padding-left .2s;
+        }
+        .foot-links a:hover { color:var(--gold); padding-left:4px; }
+        .fc-row { display:flex; gap:10px; margin-bottom:12px; font-size:13px; color:rgba(255,255,255,.5); line-height:1.55; }
+        .fc-ico { color:var(--gold); flex-shrink:0; margin-top:1px; }
+        .fc-row a { color:rgba(255,255,255,.5); text-decoration:none; }
+        .fc-row a:hover { color:var(--gold); }
+
+        .foot-bottom {
+            max-width:1280px; margin:30px auto 0;
+            display:flex; justify-content:space-between; align-items:center;
+            flex-wrap:wrap; gap:18px;
+        }
+        .foot-copy { font-size:11.5px; color:rgba(255,255,255,.28); }
+        .pay-icons { display:flex; gap:8px; align-items:center; }
+        .pay {
+            background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.12);
+            border-radius:4px; padding:4px 10px;
+            font-family:var(--font-heading); font-size:11px; font-weight:700;
+            color:rgba(255,255,255,.45); letter-spacing:.5px;
+        }
+        .foot-legal { display:flex; gap:18px; }
+        .foot-legal a { font-size:11.5px; color:rgba(255,255,255,.28); text-decoration:none; transition:color .2s; }
+        .foot-legal a:hover { color:var(--gold); }
+
+        /* ── ANIMATIONS ───────────────────────────────────────── */
+        @keyframes fadeUp {
+            from { opacity:0; transform:translateY(28px); }
+            to   { opacity:1; transform:translateY(0); }
+        }
+        .reveal {
+            opacity:0; transform:translateY(22px);
+            transition:opacity .6s var(--ease), transform .6s var(--ease);
+        }
+        .reveal.in { opacity:1; transform:translateY(0); }
+        .reveal:nth-child(2) { transition-delay:.1s; }
+        .reveal:nth-child(3) { transition-delay:.2s; }
+        .reveal:nth-child(4) { transition-delay:.3s; }
+        .reveal:nth-child(5) { transition-delay:.4s; }
+        .reveal:nth-child(6) { transition-delay:.5s; }
+
+        /* ── RESPONSIVE ───────────────────────────────────────── */
+        @media (max-width:1024px) {
+            .foot-grid { grid-template-columns:1fr 1fr; gap:40px; }
+            .about-grid { grid-template-columns:1fr; gap:48px; }
+        }
+        @media (max-width:768px) {
+            .top-bar-left .top-bar-item:not(:first-child) { display:none; }
+            .primary-nav, .h-desktop-cart { display:none; }
+            .hamburger { display:flex; }
+            .pillars { grid-template-columns:1fr; }
+            .cat-grid { grid-template-columns:1fr; }
+            .cat-card { aspect-ratio:16/9; }
+            .prod-grid { grid-template-columns:1fr 1fr; }
+            .foot-grid { grid-template-columns:1fr; gap:32px; }
+            .foot-bottom { flex-direction:column; align-items:flex-start; }
+            .hero-stats { gap:22px; }
+        }
+        @media (max-width:500px) {
+            .prod-grid { grid-template-columns:1fr; }
+            .hero-ctas { flex-direction:column; }
+            .hero-stats { flex-wrap:wrap; gap:18px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ── TOP BAR ──────────────────────────────────────────────────── -->
+<div class="top-bar">
+    <div class="top-bar-inner">
+        <div class="top-bar-left">
+            <div class="top-bar-item">
+                <span class="ti">📍</span>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=4949+Stevenson+Blvd+%23+Q,+Fremont,+CA+94538" target="_blank" rel="noopener">4949 Stevenson Blvd # Q, Fremont, CA 94538</a>
+            </div>
+            <div class="top-bar-item">
+                <span class="ti">📞</span>
+                <a href="tel:+15106566367">(510) 656-6367</a>
+            </div>
+        </div>
+        <div>
+            <span class="tb-pill">⏰ Open Daily 8AM – 2AM</span>
+        </div>
+    </div>
+</div>
+
+<!-- ── HEADER ────────────────────────────────────────────────────── -->
+<header class="header" id="header">
+    <div class="header-inner">
+
+        <a href="#" class="logo">
+            <span class="logo-badge">CJ's Liquors</span>
+            <span class="logo-sub">Fremont, CA<br>Est. 1998</span>
+        </a>
+
+        <nav aria-label="Primary">
+            <ul class="primary-nav">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#shop">Shop All</a></li>
+                <li>
+                    <a href="#products" onclick="filterByCategory('wine')">Wine <span class="arr">▾</span></a>
+                    <div class="dropdown">
+                        <a href="#products" onclick="filterByCategory('wine')">🍷 Red Wine</a>
+                        <a href="#products" onclick="filterByCategory('wine')">🥂 White Wine</a>
+                        <a href="#products" onclick="filterByCategory('wine')">🌸 Rosé</a>
+                        <a href="#products" onclick="filterByCategory('wine')">✨ Sparkling</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#products" onclick="filterByCategory('spirits')">Spirits <span class="arr">▾</span></a>
+                    <div class="dropdown">
+                        <a href="#products" onclick="filterByCategory('spirits')">🥃 Whiskey</a>
+                        <a href="#products" onclick="filterByCategory('spirits')">🍸 Vodka</a>
+                        <a href="#products" onclick="filterByCategory('spirits')">🌵 Tequila</a>
+                        <a href="#products" onclick="filterByCategory('spirits')">🍹 Rum</a>
+                        <a href="#products" onclick="filterByCategory('spirits')">🍋 Gin</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#products" onclick="filterByCategory('beer')">Beer <span class="arr">▾</span></a>
+                    <div class="dropdown">
+                        <a href="#products" onclick="filterByCategory('beer')">🍺 IPA</a>
+                        <a href="#products" onclick="filterByCategory('beer')">🍻 Ale</a>
+                        <a href="#products" onclick="filterByCategory('beer')">🍺 Lager</a>
+                        <a href="#products" onclick="filterByCategory('beer')">🖤 Stout</a>
+                    </div>
+                </li>
+                <li><a href="#products" onclick="filterByCategory('sale')">On Sale <span class="nav-pill">HOT</span></a></li>
+                <li><a href="#products" onclick="filterByCategory('new')">New Arrivals <span class="nav-pill">NEW</span></a></li>
+                <li><a href="#about">Store Info</a></li>
+            </ul>
+        </nav>
+
+        <div class="h-right">
+            <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile nav -->
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
+        <a href="#">Home</a>
+        <a href="#shop">Shop All</a>
+        <span class="mnav-sep">Wine</span>
+        <a href="#" style="padding-left:28px">Red Wine</a>
+        <a href="#" style="padding-left:28px">White Wine</a>
+        <a href="#" style="padding-left:28px">Rosé</a>
+        <a href="#" style="padding-left:28px">Sparkling</a>
+        <span class="mnav-sep">Spirits</span>
+        <a href="#" style="padding-left:28px">Whiskey</a>
+        <a href="#" style="padding-left:28px">Vodka</a>
+        <a href="#" style="padding-left:28px">Tequila</a>
+        <a href="#" style="padding-left:28px">Rum</a>
+        <a href="#" style="padding-left:28px">Gin</a>
+        <span class="mnav-sep">Beer</span>
+        <a href="#" style="padding-left:28px">IPA</a>
+        <a href="#" style="padding-left:28px">Ale</a>
+        <a href="#" style="padding-left:28px">Lager</a>
+        <a href="#" style="padding-left:28px">Stout</a>
+        <a href="#products" onclick="filterByCategory('sale')">🔥 On Sale</a>
+        <a href="#products" onclick="filterByCategory('new')">✨ New Arrivals</a>
+        <a href="#about">Store Info</a>
+    </nav>
+</header>
+
+<!-- ── HERO ──────────────────────────────────────────────────────── -->
+<section class="hero" id="home">
+    <div class="hero-grid"></div>
+    <div class="hero-glow"></div>
+
+    <!-- Decorative bottles -->
+    <div class="hero-deco" aria-hidden="true">
+        <div class="hero-deco-bottle" style="width:60px;height:180px;"></div>
+        <div class="hero-deco-bottle" style="width:48px;height:240px;"></div>
+        <div class="hero-deco-bottle" style="width:64px;height:200px;"></div>
+        <div class="hero-deco-bottle" style="width:44px;height:160px;"></div>
+    </div>
+
+    <div class="hero-content">
+        <div class="hero-eyebrow">★ Fremont's Finest Since 1998</div>
+        <h1 class="hero-title">
+            Fremont's<br>
+            <span class="hl">Premier Liquor</span><br>
+            Destination
+        </h1>
+        <p class="hero-sub">
+            Discover our curated collection of rare spirits, fine wines,
+            and your favorite cold beers — all under one roof in the
+            heart of Fremont.
+        </p>
+        <div class="hero-ctas">
+            <a href="#shop" class="btn-blue">Explore Our Selection →</a>
+            <a href="tel:+15106566367" class="btn-gold">📞 Call to Order</a>
+        </div>
+        <div class="hero-stats">
+            <div>
+                <div class="hs-num">2,000+</div>
+                <div class="hs-lbl">Bottles in Stock</div>
+            </div>
+            <div>
+                <div class="hs-num">&lt;60</div>
+                <div class="hs-lbl">Min Delivery</div>
+            </div>
+            <div>
+                <div class="hs-num">25+</div>
+                <div class="hs-lbl">Years Serving Fremont</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── SERVICES ──────────────────────────────────────────────────── -->
+<section class="services" id="services">
+    <div class="container">
+        <div class="section-hd">
+            <span class="sec-eyebrow">Why CJ's Liquors</span>
+            <h2 class="sec-title">The <span>East Bay's Best</span> Liquor Experience</h2>
+        </div>
+        <div class="pillars">
+            <div class="pillar reveal">
+                <span class="pillar-ico">🚚</span>
+                <h3>Fast Fremont Delivery</h3>
+                <p>Order online or by phone and get your favorites delivered straight to your door anywhere in Fremont — fast, reliable, and hassle-free.</p>
+                <span class="pillar-tag">Under 60 Minutes</span>
+            </div>
+            <div class="pillar reveal">
+                <span class="pillar-ico">🧊</span>
+                <h3>Ice Cold Selection</h3>
+                <p>Step into our walk-in cooler packed with hundreds of chilled beers, ready-to-drink cocktails, wine, and more — always ice cold and ready to enjoy.</p>
+                <span class="pillar-tag">Walk-In Cooler</span>
+            </div>
+            <div class="pillar reveal">
+                <span class="pillar-ico">🏆</span>
+                <h3>Expert Staff</h3>
+                <p>Our passionate team knows every bottle on the shelf. Whether you need the perfect whiskey pairing or a special gift, we've got you covered.</p>
+                <span class="pillar-tag">Always Helpful</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── CATEGORIES ────────────────────────────────────────────────── -->
+<section class="categories" id="shop">
+    <div class="container">
+        <div class="section-hd">
+            <span class="sec-eyebrow">Browse by Category</span>
+            <h2 class="sec-title">Find Your <span>Perfect Bottle</span></h2>
+        </div>
+        <div class="cat-grid">
+            <div class="cat-card wine reveal">
+                <div class="cat-bg"></div>
+                <div class="cat-overlay"></div>
+                <div class="cat-deco" aria-hidden="true">🍷</div>
+                <div class="cat-body">
+                    <div class="cat-lbl">Featured Category</div>
+                    <div class="cat-name">Wine</div>
+                    <p class="cat-desc">Hand-selected California and imported labels. Reds, whites, rosés, and sparkling.</p>
+                    <a href="#products" class="btn-wht" onclick="filterByCategory('wine')">Browse Wine →</a>
+                </div>
+            </div>
+            <div class="cat-card spirits reveal">
+                <div class="cat-bg"></div>
+                <div class="cat-overlay"></div>
+                <div class="cat-deco" aria-hidden="true">🥃</div>
+                <div class="cat-body">
+                    <div class="cat-lbl">Featured Category</div>
+                    <div class="cat-name">Spirits</div>
+                    <p class="cat-desc">Rare bourbons, single malts, premium tequilas, and elite selections for every palate.</p>
+                    <a href="#products" class="btn-wht" onclick="filterByCategory('spirits')">Browse Spirits →</a>
+                </div>
+            </div>
+            <div class="cat-card beer reveal">
+                <div class="cat-bg"></div>
+                <div class="cat-overlay"></div>
+                <div class="cat-deco" aria-hidden="true">🍺</div>
+                <div class="cat-body">
+                    <div class="cat-lbl">Featured Category</div>
+                    <div class="cat-name">Beer</div>
+                    <p class="cat-desc">Craft IPAs, imported lagers, local ales, and classic favorites. Always ice cold.</p>
+                    <a href="#products" class="btn-wht" onclick="filterByCategory('beer')">Browse Beer →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── SALE STRIP ─────────────────────────────────────────────────── -->
+<div class="sale-strip">
+    <div class="sale-headline">🔥 This Week's Deals — Up to 30% Off Select Bottles</div>
+    <p class="sale-sub">New deals every week on top brands. Limited quantities — don't miss out.</p>
+    <a href="#products" class="sale-cta" onclick="filterByCategory('sale')">View All Deals →</a>
+</div>
+
+<!-- ── PRODUCTS ──────────────────────────────────────────────────── -->
+<section class="products" id="products">
+    <div class="container">
+        <div class="section-hd">
+            <span class="sec-eyebrow">Featured Products</span>
+            <h2 class="sec-title">Customer <span>Favorites</span></h2>
+        </div>
+        <div class="search-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+            <input id="search-input" class="search-input" type="search" placeholder="Search products, brands, categories…" autocomplete="off" oninput="onSearch(this.value)">
+            <button class="search-clear" id="search-clear" aria-label="Clear search" onclick="clearSearch()">×</button>
+        </div>
+        <div id="filter-bar" class="filter-bar">
+            <span class="filter-label">Showing: <span id="filter-label-text"></span></span>
+            <button class="filter-clear" onclick="clearFilter()">× Show All</button>
+        </div>
+        <div class="prod-grid" id="prod-grid"></div>
+    </div>
+</section>
+
+<!-- ── ABOUT ──────────────────────────────────────────────────────── -->
+<section class="about" id="about">
+    <div class="container">
+        <div class="about-grid">
+            <div>
+                <span class="about-eyebrow">About CJ's Liquors</span>
+                <h2 class="about-title">Fremont's <span>Family-Owned</span><br>Liquor Store</h2>
+                <p class="about-body">
+                    Since 1998, CJ's Liquors has been a cornerstone of the Fremont community.
+                    What started as a small neighborhood shop has grown into the East Bay's most
+                    trusted destination for fine wines, premium spirits, and a massive cold beer
+                    selection.
+                </p>
+                <p class="about-body">
+                    We believe in real relationships — with our customers, our suppliers, and our
+                    community. Our team personally selects every bottle on our shelves, ensuring
+                    you always get the best quality at the fairest prices. Whether you're
+                    celebrating a special occasion or just picking up something for the weekend,
+                    we're here to help you find exactly what you're looking for.
+                </p>
+                <div class="about-feats">
+                    <div class="about-feat">Family-owned and operated for over 25 years</div>
+                    <div class="about-feat">2,000+ bottles — largest selection in Fremont</div>
+                    <div class="about-feat">Walk-in cooler with hundreds of cold beer options</div>
+                    <div class="about-feat">Knowledgeable staff who know their product</div>
+                    <div class="about-feat">Fast delivery throughout Fremont and surrounding areas</div>
+                    <div class="about-feat">Special orders for rare and hard-to-find bottles</div>
+                </div>
+            </div>
+
+            <div class="store-card">
+                <div class="sc-head">
+                    <h3>📍 Store Information</h3>
+                </div>
+                <div class="sc-body">
+                    <div class="sc-row">
+                        <span class="sc-ico">📍</span>
+                        <div class="sc-content">
+                            <label>Address</label>
+                            <p><a href="https://www.google.com/maps/dir/?api=1&destination=4949+Stevenson+Blvd+%23+Q,+Fremont,+CA+94538" target="_blank" rel="noopener">Sundale Shopping Center<br>4949 Stevenson Blvd # Q<br>Fremont, CA 94538</a></p>
+                        </div>
+                    </div>
+                    <div class="sc-row">
+                        <span class="sc-ico">📞</span>
+                        <div class="sc-content">
+                            <label>Phone</label>
+                            <p><a href="tel:+15106566367">(510) 656-6367</a></p>
+                        </div>
+                    </div>
+                    <div class="sc-row">
+                        <span class="sc-ico">⏰</span>
+                        <div class="sc-content">
+                            <label>Hours</label>
+                            <div class="hours-tbl">
+                                <div class="hrow"><span class="day">Every Day</span><span>8:00 AM – 2:00 AM</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sc-row">
+                        <span class="sc-ico">✉️</span>
+                        <div class="sc-content">
+                            <label>Email</label>
+                            <p><a href="mailto:info@cjsliquors.com">info@cjsliquors.com</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────────────────────── -->
+<footer class="footer">
+    <div class="foot-grid">
+        <div class="foot-brand">
+            <div class="logo-badge">CJ's Liquors</div>
+            <p class="foot-tag">Fremont's premier destination for fine wines, premium spirits, and cold beer. Located in Sundale Shopping Center.</p>
+        </div>
+
+        <div class="foot-col">
+            <h4>Shop</h4>
+            <ul class="foot-links">
+                <li><a href="#products" onclick="filterByCategory('wine')">Wine</a></li>
+                <li><a href="#products" onclick="filterByCategory('spirits')">Spirits</a></li>
+                <li><a href="#products" onclick="filterByCategory('beer')">Beer</a></li>
+                <li><a href="#products" onclick="filterByCategory('sale')">On Sale</a></li>
+                <li><a href="#products" onclick="filterByCategory('new')">New Arrivals</a></li>
+                <li><a href="#products" onclick="clearFilter()">All Products</a></li>
+            </ul>
+        </div>
+
+        <div class="foot-col">
+            <h4>Contact</h4>
+            <div class="fc-row">
+                <span class="fc-ico">📍</span>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=4949+Stevenson+Blvd+%23+Q,+Fremont,+CA+94538" target="_blank" rel="noopener">Sundale Shopping Center<br>4949 Stevenson Blvd # Q<br>Fremont, CA 94538</a>
+            </div>
+            <div class="fc-row">
+                <span class="fc-ico">📞</span>
+                <a href="tel:+15106566367">(510) 656-6367</a>
+            </div>
+            <div class="fc-row">
+                <span class="fc-ico">⏰</span>
+                <span>Open Daily 8AM – 2AM</span>
+            </div>
+            <div class="fc-row">
+                <span class="fc-ico">ℹ️</span>
+                <a href="#about">About Us</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="foot-bottom">
+        <div class="foot-copy">© 2025 CJ's Liquors. All rights reserved. Must be 21+ to purchase alcohol.</div>
+        <div class="pay-icons">
+            <span class="pay">VISA</span>
+            <span class="pay">MC</span>
+            <span class="pay">AMEX</span>
+            <span class="pay">CASH</span>
+        </div>
+    </div>
+</footer>
+
+<!-- ── PRODUCT MODAL ──────────────────────────────────────────────── -->
+<div id="modal-overlay" class="modal-overlay" onclick="if(event.target===this)closeModal()">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <button class="modal-close" onclick="closeModal()" aria-label="Close">×</button>
+        <div class="modal-inner" id="modal-inner"></div>
+    </div>
+</div>
+
+<script>
+    // ═══════════════════════════════════════════════════════════════════
+    //  CJ'S LIQUORS — STORE CONFIGURATION
+    //  Edit the values in this section to update the website.
+    // ═══════════════════════════════════════════════════════════════════
+
+    // Store phone number — appears on "Call to Order" buttons
+    const PHONE = '+15106566367';
+
+    // ── GOOGLE SHEET SETUP ───────────────────────────────────────────
+    // To show products from a Google Sheet:
+    //   1. Open your Google Sheet
+    //   2. Go to File → Share → Publish to web
+    //   3. Choose your products tab → select "Comma-separated values (.csv)"
+    //   4. Click Publish, then copy the URL shown
+    //   5. Paste it below (between the quotes)
+    //
+    // The sheet must have these column headers in row 1:
+    //   Name | Category | Price | Unit | Description | Badge | Image | Emoji
+    //
+    //   Name        — e.g.  Don Julio 1942
+    //   Category    — e.g.  Tequila, Scotch Whisky, Red Wine, Craft Beer
+    //   Price       — number only, no $ sign  (e.g.  159.99)
+    //   Unit        — short label after price  (e.g.  btl, 6-pk, 750ml)
+    //   Description — one-line detail  (e.g.  Añejo Tequila · 750ml)
+    //   Badge       — optional promo tag  (e.g.  Top Seller, On Sale) — leave blank for none
+    //   Image       — direct URL to the product photo (paste any image link, e.g. from the brand's
+    //                 website or Google Drive). To use a Google Drive image: upload the photo, click
+    //                 "Share" → "Anyone with the link", then change the URL from
+    //                 .../file/d/FILE_ID/view  →  https://drive.google.com/uc?id=FILE_ID
+    //                 Leave blank to show the emoji instead.
+    //   Emoji       — fallback emoji shown if Image is blank  (e.g.  🥃  🍷  🍺  🍾  🌵)
+    //   Stock       — quantity in stock (e.g.  24). Shows green "X in stock", orange "X left — order
+    //                 soon" when 5 or fewer, and grayed out "Out of stock" when 0. Leave blank to
+    //                 hide the indicator entirely.
+    //   Rating      — customer rating out of 5, supports one decimal (e.g.  4.5). Shown as stars
+    //                 in the product detail popup. Leave blank to hide the rating.
+    const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vToDgWVzefEfIypyl2AtUdAGksHtSuD0LRp8NLE6pZ_KjGXHDhiyUI02PGcXbZhqKtEPuYRUfaBUK1m/pub?gid=0&single=true&output=csv'; // ← Paste your Google Sheet CSV URL here
+
+    // ── DEFAULT PRODUCTS ─────────────────────────────────────────────
+    // Displayed when the Google Sheet is not connected (or as a fallback).
+    // Edit these directly, or leave them until the sheet is set up.
+    const DEFAULT_PRODUCTS = [
+        { name: 'Don Julio 1942',       category: 'Tequila',       price: '159.99', unit: 'btl',  description: 'Añejo Tequila · 750ml',      badge: 'Top Seller',   image: '', emoji: '🥃', stock: '', rating: '' },
+        { name: 'Hennessy VS',          category: 'Cognac',        price: '39.99',  unit: 'btl',  description: 'Cognac · 750ml',             badge: 'Fan Favorite', image: '', emoji: '🍾', stock: '', rating: '' },
+        { name: 'Casamigos Blanco',     category: 'Tequila',       price: '44.99',  unit: 'btl',  description: 'Blanco Tequila · 750ml',     badge: '',             image: '', emoji: '🌵', stock: '', rating: '' },
+        { name: 'Johnnie Walker Black', category: 'Scotch Whisky', price: '32.99',  unit: 'btl',  description: 'Blended Scotch · 750ml',     badge: 'On Sale',      image: '', emoji: '🥃', stock: '', rating: '' },
+        { name: 'Kim Crawford',         category: 'White Wine',    price: '14.99',  unit: 'btl',  description: 'Sauvignon Blanc · 750ml',    badge: '',             image: '', emoji: '🍷', stock: '', rating: '' },
+        { name: 'Blue Moon',            category: 'Craft Beer',    price: '11.99',  unit: '6-pk', description: 'Belgian White Ale · 6-Pack', badge: '',             image: '', emoji: '🍺', stock: '', rating: '' },
+    ];
+
+    // ═══════════════════════════════════════════════════════════════════
+    //  END OF CONFIGURATION — no changes needed below this line
+    // ═══════════════════════════════════════════════════════════════════
+
+    // Category → background gradient mapping
+    function getGradient(category) {
+        const c = (category || '').toLowerCase();
+        if (c.includes('tequila'))                                                              return 'linear-gradient(135deg,#1a3a8f,#2a5fa3,#1e4aad)';
+        if (c.includes('cognac') || c.includes('brandy'))                                      return 'linear-gradient(135deg,#291700,#5a3600,#8a5800)';
+        if (c.includes('bourbon') || c.includes('whiskey') || c.includes('whisky') || c.includes('scotch')) return 'linear-gradient(135deg,#181818,#303030,#202020)';
+        if (c.includes('white wine') || c.includes('sauvignon') || c.includes('chardonnay'))   return 'linear-gradient(135deg,#1a3c1a,#2a6028,#3a8040)';
+        if (c.includes('wine') || c.includes('rosé') || c.includes('rose'))                    return 'linear-gradient(135deg,#180820,#46133a,#891f52)';
+        if (c.includes('beer'))                                                                 return 'linear-gradient(135deg,#001840,#002a66,#00347c)';
+        if (c.includes('vodka'))                                                                return 'linear-gradient(135deg,#1a1a2e,#2a2a4e,#16213e)';
+        if (c.includes('gin'))                                                                  return 'linear-gradient(135deg,#0d3320,#1a5a38,#2a7a50)';
+        if (c.includes('rum'))                                                                  return 'linear-gradient(135deg,#2d1400,#5c2800,#8a3d00)';
+        return 'linear-gradient(135deg,#1a3a8f,#2a5fa3,#1e4aad)';
+    }
+
+    // Stock quantity indicator
+    function stockHtml(stock) {
+        if (stock === '' || stock === undefined || stock === null) return '';
+        const n = parseInt(stock, 10);
+        if (isNaN(n)) return '';
+        if (n === 0) return '<div class="prod-stock out-stock">Out of stock</div>';
+        if (n <= 5)  return `<div class="prod-stock low-stock">${n} left — order soon</div>`;
+        return `<div class="prod-stock in-stock">${n} in stock</div>`;
+    }
+
+    // Escape HTML to prevent XSS from sheet data
+    function esc(s) {
+        return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    // Scroll-reveal observer (declared here so renderProducts can use it)
+    let revealObserver;
+    let renderedProducts = [];
+
+    // Star rating HTML
+    function starsHtml(rating) {
+        if (!rating) return '';
+        const r = Math.min(5, Math.max(0, parseFloat(rating) || 0));
+        if (!r) return '';
+        const full  = Math.floor(r);
+        const half  = (r - full) >= 0.5 ? 1 : 0;
+        const empty = 5 - full - half;
+        return `<div class="stars-row">
+            ${'<span class="star full">★</span>'.repeat(full)}
+            ${half ? '<span class="star half">★</span>' : ''}
+            ${'<span class="star empty">★</span>'.repeat(empty)}
+            <span class="rating-num">${r.toFixed(1)} / 5</span>
+        </div>`;
+    }
+
+    // Open product detail modal
+    function openModal(index) {
+        const p = renderedProducts[index];
+        if (!p) return;
+        document.getElementById('modal-inner').innerHTML = `
+            <div class="modal-img-panel" style="background:${getGradient(p.category)}">
+                ${p.image
+                    ? `<img src="${esc(p.image)}" alt="${esc(p.name)}" loading="lazy">`
+                    : `<span class="modal-art">${esc(p.emoji || '🍾')}</span>`}
+                ${p.badge ? `<span class="prod-badge">${esc(p.badge)}</span>` : ''}
+            </div>
+            <div class="modal-info">
+                <div class="modal-cat">${esc(p.category)}</div>
+                <h2 class="modal-name">${esc(p.name)}</h2>
+                ${starsHtml(p.rating)}
+                <p class="modal-desc">${esc(p.description) || 'No description available.'}</p>
+                <hr class="modal-divider">
+                <div class="modal-price-row">
+                    <div class="prod-price">$${parseFloat(p.price || 0).toFixed(2)} <span>/${esc(p.unit || 'btl')}</span></div>
+                    ${stockHtml(p.stock)}
+                </div>
+                <a href="tel:${PHONE}" class="modal-call-btn">📞 Call to Order</a>
+            </div>
+        `;
+        document.getElementById('modal-overlay').classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        document.getElementById('modal-overlay').classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    // Build and inject product cards into the grid
+    function renderProducts(products) {
+        renderedProducts = products;
+        const grid = document.getElementById('prod-grid');
+        if (!products.length) {
+            grid.innerHTML = '<p class="prod-empty">No products found. Check your Google Sheet setup.</p>';
+            return;
+        }
+        grid.innerHTML = products.map((p, i) => `
+            <div class="prod-card reveal" onclick="openModal(${i})" role="button" tabindex="0"
+                 aria-label="View details for ${esc(p.name)}">
+                <div class="prod-img" style="background:${getGradient(p.category)}">
+                    ${p.image ? `<img src="${esc(p.image)}" alt="${esc(p.name)}" loading="lazy">` : `<span class="prod-art">${esc(p.emoji || '🍾')}</span>`}
+                    ${p.badge ? `<span class="prod-badge">${esc(p.badge)}</span>` : ''}
+                </div>
+                <div class="prod-body">
+                    <div class="prod-cat">${esc(p.category)}</div>
+                    <div class="prod-name">${esc(p.name)}</div>
+                    <div class="prod-price">$${parseFloat(p.price || 0).toFixed(2)} <span>/${esc(p.unit || 'btl')}</span></div>
+                    <div class="prod-view">View Details →</div>
+                </div>
+            </div>
+        `).join('');
+        if (revealObserver) {
+            grid.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+        }
+    }
+
+    // Minimal CSV parser — handles quoted fields with commas inside
+    function parseCSVRow(line) {
+        const result = []; let cur = '', inQ = false;
+        for (const ch of line) {
+            if (ch === '"') { inQ = !inQ; continue; }
+            if (ch === ',' && !inQ) { result.push(cur); cur = ''; continue; }
+            cur += ch;
+        }
+        result.push(cur);
+        return result;
+    }
+    function parseCSV(text) {
+        const lines = text.split('\n').map(l => l.trimEnd()).filter(Boolean);
+        if (lines.length < 2) return [];
+        const headers = parseCSVRow(lines[0]).map(h => h.trim().toLowerCase());
+        return lines.slice(1).map(line => {
+            const vals = parseCSVRow(line);
+            const obj = {};
+            headers.forEach((h, i) => { obj[h] = (vals[i] || '').trim(); });
+            return obj;
+        }).filter(p => p.name);
+    }
+
+    // Fetch products from Google Sheet, fall back silently to defaults
+    async function loadFromSheet() {
+        if (!SHEET_CSV_URL) return;
+        try {
+            const res = await fetch(SHEET_CSV_URL + '&t=' + Date.now(), { cache: 'no-store' });
+            if (!res.ok) throw new Error('HTTP ' + res.status);
+            const products = parseCSV(await res.text());
+            if (products.length) { allProducts = products; applyFilter(); }
+        } catch (e) {
+            console.warn("[CJ's Liquors] Could not load Google Sheet:", e.message);
+        }
+    }
+
+    // ── STICKY HEADER ────────────────────────────────────────────────
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+        header.classList.toggle('scrolled', window.scrollY > 10);
+    }, { passive: true });
+
+    // ── HAMBURGER MENU ───────────────────────────────────────────────
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+    hamburger.addEventListener('click', () => {
+        const open = mobileNav.classList.toggle('open');
+        hamburger.setAttribute('aria-expanded', open);
+        const [s1, s2, s3] = hamburger.querySelectorAll('span');
+        if (open) {
+            s1.style.transform = 'rotate(45deg) translate(5px,5px)';
+            s2.style.opacity   = '0';
+            s3.style.transform = 'rotate(-45deg) translate(5px,-5px)';
+        } else {
+            s1.style.transform = s3.style.transform = '';
+            s2.style.opacity = '';
+        }
+    });
+
+    // ── SCROLL REVEAL ────────────────────────────────────────────────
+    revealObserver = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // ── ACTIVE NAV ON SCROLL ─────────────────────────────────────────
+    const secs = [...document.querySelectorAll('section[id]')];
+    const navAs = [...document.querySelectorAll('.primary-nav > li > a')];
+    window.addEventListener('scroll', () => {
+        let cur = '';
+        secs.forEach(s => { if (window.scrollY >= s.offsetTop - 110) cur = s.id; });
+        navAs.forEach(a => {
+            a.classList.toggle('active', a.getAttribute('href') === `#${cur}`);
+        });
+    }, { passive: true });
+
+    // ── SEARCH & FILTERING ───────────────────────────────────────────
+    let allProducts  = [];
+    let activeFilter = null;
+    let searchQuery  = '';
+    let searchTimer  = null;
+
+    function onSearch(val) {
+        clearTimeout(searchTimer);
+        searchTimer = setTimeout(() => {
+            searchQuery = val.trim();
+            const clearBtn = document.getElementById('search-clear');
+            if (clearBtn) clearBtn.classList.toggle('visible', searchQuery.length > 0);
+            applyFilter();
+        }, 180);
+    }
+
+    function clearSearch() {
+        const input = document.getElementById('search-input');
+        const clearBtn = document.getElementById('search-clear');
+        if (input) input.value = '';
+        if (clearBtn) clearBtn.classList.remove('visible');
+        searchQuery = '';
+        applyFilter();
+    }
+
+    function matchesSearch(p, q) {
+        const lower = q.toLowerCase();
+        return (p.name        || '').toLowerCase().includes(lower) ||
+               (p.category    || '').toLowerCase().includes(lower) ||
+               (p.description || '').toLowerCase().includes(lower) ||
+               (p.badge       || '').toLowerCase().includes(lower);
+    }
+
+    const CATEGORY_GROUPS = {
+        wine:    ['wine', 'rosé', 'rose', 'champagne', 'sparkling', 'sauvignon', 'chardonnay', 'merlot', 'pinot', 'cava', 'prosecco', 'riesling', 'moscato'],
+        spirits: ['tequila', 'mezcal', 'whiskey', 'whisky', 'scotch', 'bourbon', 'cognac', 'brandy', 'vodka', 'gin', 'rum', 'spirits', 'liqueur', 'schnapps'],
+        beer:    ['beer', 'ale', 'lager', 'ipa', 'stout', 'porter', 'pilsner', 'bock', 'sour', 'craft', 'cider'],
+        sale:    [], // matched via badge field
+        new:     [], // matched via badge field
+    };
+
+    function matchesFilter(product, group) {
+        if (group === 'sale') return (product.badge || '').toLowerCase().includes('sale');
+        if (group === 'new')  return (product.badge || '').toLowerCase().includes('new');
+        const c = (product.category || '').toLowerCase();
+        return (CATEGORY_GROUPS[group] || []).some(k => c.includes(k));
+    }
+
+    function filterByCategory(group) {
+        activeFilter = group;
+        applyFilter();
+    }
+
+    function clearFilter() {
+        activeFilter = null;
+        applyFilter();
+    }
+
+    function applyFilter() {
+        const bar   = document.getElementById('filter-bar');
+        const label = document.getElementById('filter-label-text');
+
+        let filtered = activeFilter
+            ? allProducts.filter(p => matchesFilter(p, activeFilter))
+            : allProducts;
+
+        if (searchQuery) {
+            filtered = filtered.filter(p => matchesSearch(p, searchQuery));
+        }
+
+        if (activeFilter && bar && label) {
+            const names = { wine: 'Wine', spirits: 'Spirits', beer: 'Beer', sale: 'On Sale', new: 'New Arrivals' };
+            label.textContent = names[activeFilter] || activeFilter;
+            bar.classList.add('visible');
+        } else if (bar) {
+            bar.classList.remove('visible');
+        }
+
+        if (!filtered.length && (activeFilter || searchQuery)) {
+            document.getElementById('prod-grid').innerHTML =
+                `<div class="no-results"><strong>No products found</strong>Try a different search or <button class="filter-clear" style="display:inline-flex" onclick="clearSearch();clearFilter()">clear all filters</button></div>`;
+        } else {
+            renderProducts(filtered);
+        }
+    }
+
+    // ── MODAL KEYBOARD SUPPORT ───────────────────────────────────────
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') closeModal();
+    });
+    document.addEventListener('keydown', e => {
+        if ((e.key === 'Enter' || e.key === ' ') && e.target.classList.contains('prod-card')) {
+            e.preventDefault();
+            e.target.click();
+        }
+    });
+
+    // ── INIT ─────────────────────────────────────────────────────────
+    allProducts = DEFAULT_PRODUCTS;
+    renderProducts(DEFAULT_PRODUCTS); // show defaults immediately
+    loadFromSheet();                   // then replace with sheet data if available
+</script>
+
+</body>
+</html>
