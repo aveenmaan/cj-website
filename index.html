@@ -560,6 +560,8 @@
             font-family:var(--font-heading); font-size:25px; font-weight:900; color:var(--blue-dark);
         }
         .prod-price span { font-size:12px; font-weight:500; color:var(--text-light); }
+        .price-orig { font-size:14px; font-weight:500; color:var(--text-light); text-decoration:line-through; margin-right:4px; }
+        .price-sale { color:#c0392b; }
         .btn-cart {
             background:var(--gold); color:var(--blue-dark); border:none;
             padding:9px 18px; border-radius:6px;
@@ -1284,7 +1286,7 @@
     //   5. Paste it below (between the quotes)
     //
     // The sheet must have these column headers in row 1:
-    //   Name | Category | Price | Unit | Description | Badge | Image | Emoji
+    //   Name | Category | Price | Sale Price | Unit | Description | Badge | Image | Emoji | Stock | Rating
     //
     //   Name        — e.g.  Don Julio 1942
     //   Category    — e.g.  Tequila, Scotch Whisky, Red Wine, Craft Beer
@@ -1371,6 +1373,16 @@
         </div>`;
     }
 
+    function priceHtml(p, large) {
+        const regular = parseFloat(p.price || 0).toFixed(2);
+        const sale = p['sale price'] ? parseFloat(p['sale price']).toFixed(2) : null;
+        const unit = `<span>/${esc(p.unit || 'btl')}</span>`;
+        if (sale) {
+            return `<div class="prod-price"><span class="price-orig">$${regular}</span> <span class="price-sale">$${sale}</span> ${unit}</div>`;
+        }
+        return `<div class="prod-price">$${regular} ${unit}</div>`;
+    }
+
     // Open product detail modal
     function openModal(index) {
         const p = renderedProducts[index];
@@ -1389,7 +1401,7 @@
                 <p class="modal-desc">${esc(p.description) || 'No description available.'}</p>
                 <hr class="modal-divider">
                 <div class="modal-price-row">
-                    <div class="prod-price">$${parseFloat(p.price || 0).toFixed(2)} <span>/${esc(p.unit || 'btl')}</span></div>
+                    ${priceHtml(p)}
                     ${stockHtml(p.stock)}
                 </div>
                 <a href="tel:${PHONE}" class="modal-call-btn">📞 Call to Order</a>
@@ -1422,7 +1434,7 @@
                 <div class="prod-body">
                     <div class="prod-cat">${esc(p.category)}</div>
                     <div class="prod-name">${esc(p.name)}</div>
-                    <div class="prod-price">$${parseFloat(p.price || 0).toFixed(2)} <span>/${esc(p.unit || 'btl')}</span></div>
+                    ${priceHtml(p)}
                     <div class="prod-view">View Details →</div>
                 </div>
             </div>
