@@ -559,9 +559,9 @@
         .prod-price {
             font-family:var(--font-heading); font-size:25px; font-weight:900; color:var(--blue-dark);
         }
-        .prod-price span { font-size:12px; font-weight:500; color:var(--text-light); }
-        .price-orig { font-size:14px; font-weight:500; color:var(--text-light); text-decoration:line-through; margin-right:4px; }
-        .price-sale { color:#c0392b; }
+        .prod-price .price-unit { font-size:12px; font-weight:500; color:var(--text-light); }
+        .price-orig { font-size:16px; font-weight:500; color:var(--text-light); text-decoration:line-through; margin-right:4px; }
+        .price-sale { font-size:25px; font-weight:900; color:#c0392b; }
         .btn-cart {
             background:var(--gold); color:var(--blue-dark); border:none;
             padding:9px 18px; border-radius:6px;
@@ -1376,7 +1376,7 @@
     function priceHtml(p, large) {
         const regular = parseFloat(p.price || 0).toFixed(2);
         const sale = p['sale price'] ? parseFloat(p['sale price']).toFixed(2) : null;
-        const unit = `<span>/${esc(p.unit || 'btl')}</span>`;
+        const unit = `<span class="price-unit">/${esc(p.unit || 'btl')}</span>`;
         if (sale) {
             return `<div class="prod-price"><span class="price-orig">$${regular}</span> <span class="price-sale">$${sale}</span> ${unit}</div>`;
         }
