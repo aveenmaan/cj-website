@@ -522,7 +522,7 @@ body {
 }
 .sec-title span { color:var(--blue); }
 
-.pillars { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+.pillars { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 400px)); justify-content:center; gap:24px; }
 .pillar {
     background:white; border-radius:var(--radius-lg);
     padding:38px 32px;
