@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 CJ's Liquors — Image Map Injector
-Reads product_images.json and patches index.html to use the image map.
+Reads product_images.json and patches shop.js to use the image map.
 Run AFTER find_product_images.py has completed.
 """
 
@@ -9,7 +9,7 @@ import json, os, re
 
 BASE = os.path.dirname(__file__)
 JSON_FILE  = os.path.join(BASE, "product_images.json")
-HTML_FILE  = os.path.join(BASE, "index.html")
+HTML_FILE  = os.path.join(BASE, "shop.js")
 
 def main():
     if not os.path.exists(JSON_FILE):

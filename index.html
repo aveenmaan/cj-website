@@ -4,894 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CJ's Liquors — Fremont's Premier Liquor Store</title>
+    <meta name="description" content="CJ's Liquors — Fremont's premier liquor store since 1998. Shop beer, wine & spirits at 4949 Stevenson Blvd, Fremont, CA. Open daily 8AM–2AM. Call (510) 656-6367.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://cjsliquors.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="CJ's Liquors — Fremont's Premier Liquor Store">
+    <meta property="og:description" content="Fremont's premier liquor store since 1998. Beer, wine & spirits at 4949 Stevenson Blvd. Open daily 8AM–2AM.">
+    <meta property="og:url" content="https://cjsliquors.com/">
+    <meta property="og:site_name" content="CJ's Liquors">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="CJ's Liquors — Fremont's Premier Liquor Store">
+    <meta name="twitter:description" content="Fremont's premier liquor store since 1998. Beer, wine & spirits at 4949 Stevenson Blvd. Open daily 8AM–2AM.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --blue:        #1a3a8f;
-            --blue-dark:   #0d2266;
-            --blue-mid:    #1e4aad;
-            --gold:        #F5C518;
-            --gold-dark:   #d4a800;
-            --gold-light:  #ffd740;
-            --white:       #ffffff;
-            --off-white:   #f7f6f0;
-            --light-gray:  #eeeef5;
-            --text-dark:   #1a1a2e;
-            --text-mid:    #4a4a6a;
-            --text-light:  #888;
-            --font-heading: 'Montserrat', sans-serif;
-            --font-body:    'Open Sans', sans-serif;
-            --shadow-sm:  0 2px 8px rgba(26,58,143,.08);
-            --shadow-md:  0 8px 32px rgba(26,58,143,.14);
-            --shadow-lg:  0 20px 60px rgba(26,58,143,.20);
-            --radius:     8px;
-            --radius-lg:  16px;
-            --ease:       cubic-bezier(.4,0,.2,1);
-        }
-
-        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-
-        html { scroll-behavior: smooth; }
-
-        body {
-            font-family: var(--font-body);
-            color: var(--text-dark);
-            background: var(--white);
-            overflow-x: hidden;
-        }
-
-        /* ── TOP BAR ─────────────────────────────────────────── */
-        .top-bar {
-            background: var(--blue-dark);
-            color: rgba(255,255,255,.8);
-            font-size: 12.5px;
-            padding: 8px 0;
-            border-bottom: 2px solid var(--gold);
-        }
-        .top-bar-inner {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 24px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 12px;
-        }
-        .top-bar-left { display:flex; align-items:center; gap:24px; }
-        .top-bar-item { display:flex; align-items:center; gap:6px; }
-        .top-bar-item .ti { color:var(--gold); }
-        .top-bar a { color:inherit; text-decoration:none; transition:color .2s; }
-        .top-bar a:hover { color:var(--gold); }
-        .tb-pill {
-            background: var(--gold);
-            color: var(--blue-dark);
-            font-family: var(--font-heading);
-            font-size: 10px;
-            font-weight: 800;
-            letter-spacing: .8px;
-            text-transform: uppercase;
-            padding: 3px 12px;
-            border-radius: 20px;
-        }
-
-        /* ── HEADER ──────────────────────────────────────────── */
-        .header {
-            background: var(--blue);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            transition: box-shadow .3s;
-        }
-        .header.scrolled { box-shadow: 0 4px 28px rgba(13,34,102,.55); }
-
-        .header-inner {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 24px;
-            height: 68px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 16px;
-        }
-
-        /* Logo */
-        .logo { display:flex; align-items:center; gap:12px; text-decoration:none; flex-shrink:0; }
-        .logo-badge {
-            background: var(--gold);
-            color: var(--blue-dark);
-            font-family: var(--font-heading);
-            font-weight: 900;
-            font-size: 20px;
-            letter-spacing: -.5px;
-            padding: 7px 16px;
-            border-radius: 6px;
-            line-height: 1;
-            box-shadow: 0 3px 14px rgba(245,197,24,.38);
-            transition: transform .25s var(--ease), box-shadow .25s;
-        }
-        .logo-badge:hover { transform:translateY(-2px); box-shadow:0 6px 22px rgba(245,197,24,.5); }
-        .logo-sub {
-            color: rgba(255,255,255,.6);
-            font-size: 10.5px;
-            letter-spacing: 1.8px;
-            text-transform: uppercase;
-            line-height: 1.4;
-        }
-
-        /* Primary nav */
-        .primary-nav { display:flex; align-items:center; list-style:none; gap:2px; }
-        .primary-nav > li { position:relative; }
-        .primary-nav > li > a {
-            color: rgba(255,255,255,.88);
-            text-decoration: none;
-            font-family: var(--font-heading);
-            font-size: 12.5px;
-            font-weight: 600;
-            letter-spacing: .2px;
-            padding: 7px 11px;
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            transition: background .2s, color .2s;
-            white-space: nowrap;
-        }
-        .primary-nav > li > a:hover,
-        .primary-nav > li > a.active {
-            background: rgba(255,255,255,.12);
-            color: var(--gold);
-        }
-        .nav-pill {
-            background: var(--gold);
-            color: var(--blue-dark);
-            font-size: 8.5px;
-            font-weight: 800;
-            padding: 2px 6px;
-            border-radius: 10px;
-            letter-spacing: .5px;
-            text-transform: uppercase;
-        }
-        .arr { font-size: 9px; opacity:.65; transition: transform .2s; }
-        .primary-nav > li:hover .arr { transform:rotate(180deg); }
-
-        /* Dropdown */
-        .dropdown {
-            position: absolute;
-            top: calc(100% + 6px);
-            left: 0;
-            background: var(--white);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-lg);
-            padding: 8px;
-            min-width: 176px;
-            opacity: 0;
-            pointer-events: none;
-            transform: translateY(-8px);
-            transition: opacity .2s, transform .2s;
-            border-top: 3px solid var(--gold);
-        }
-        .primary-nav > li:hover .dropdown {
-            opacity: 1;
-            pointer-events: all;
-            transform: translateY(0);
-        }
-        .dropdown a {
-            display: block;
-            padding: 8px 12px;
-            color: var(--text-dark);
-            text-decoration: none;
-            font-family: var(--font-body);
-            font-size: 13.5px;
-            font-weight: 500;
-            border-radius: 4px;
-            transition: background .15s, padding-left .15s;
-        }
-        .dropdown a:hover { background:var(--light-gray); color:var(--blue); padding-left:16px; }
-
-        /* Header right */
-        .h-right { display:flex; align-items:center; gap:10px; }
-        .cart-btn {
-            background: var(--gold);
-            color: var(--blue-dark);
-            border: none;
-            padding: 8px 18px;
-            border-radius: 6px;
-            font-family: var(--font-heading);
-            font-size: 13px;
-            font-weight: 700;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: background .2s, transform .2s;
-        }
-        .cart-btn:hover { background:var(--gold-dark); transform:translateY(-1px); }
-        .cart-count {
-            background: var(--blue-dark);
-            color: white;
-            font-size: 10px;
-            width: 18px; height: 18px;
-            border-radius: 50%;
-            display: flex; align-items:center; justify-content:center;
-            font-weight: 700;
-        }
-        .hamburger {
-            display: none;
-            background: none; border: none; cursor: pointer;
-            padding: 8px; flex-direction: column; gap: 5px;
-        }
-        .hamburger span {
-            display: block; width: 24px; height: 2px;
-            background: white; border-radius: 2px;
-            transition: transform .25s, opacity .25s;
-        }
-
-        /* Mobile nav */
-        .mobile-nav {
-            display: none;
-            background: var(--blue-dark);
-            padding: 12px 20px 20px;
-            flex-direction: column;
-            gap: 2px;
-        }
-        .mobile-nav.open { display:flex; }
-        .mobile-nav a {
-            color: rgba(255,255,255,.82);
-            text-decoration: none;
-            font-family: var(--font-heading);
-            font-size: 13.5px;
-            font-weight: 600;
-            padding: 9px 12px;
-            border-radius: 6px;
-            transition: background .15s, color .15s;
-        }
-        .mobile-nav a:hover { background:rgba(255,255,255,.08); color:var(--gold); }
-        .mnav-sep {
-            font-size: 10px; font-weight: 700; letter-spacing: 2.5px;
-            text-transform: uppercase; color: var(--gold);
-            padding: 10px 12px 4px;
-        }
-
-        /* ── HERO ─────────────────────────────────────────────── */
-        .hero {
-            background: var(--blue-dark);
-            min-height: 88vh;
-            display: flex; align-items: center;
-            position: relative; overflow: hidden;
-        }
-        .hero-grid {
-            position: absolute; inset: 0;
-            background-image:
-                linear-gradient(rgba(245,197,24,.04) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(245,197,24,.04) 1px, transparent 1px);
-            background-size: 56px 56px;
-        }
-        .hero-glow {
-            position: absolute; top:10%; right:8%;
-            width: 600px; height: 600px;
-            background: radial-gradient(circle, rgba(245,197,24,.09) 0%, transparent 65%);
-            pointer-events: none;
-        }
-        /* Decorative large bottle silhouette */
-        .hero-deco {
-            position: absolute; right: 6%; bottom: 0;
-            display: flex; align-items: flex-end; gap: 18px;
-            opacity: .07; pointer-events: none;
-            filter: blur(1px);
-        }
-        .hero-deco-bottle {
-            background: var(--gold);
-            border-radius: 50% 50% 8px 8px / 40px 40px 8px 8px;
-            position: relative;
-        }
-        .hero-deco-bottle::before {
-            content:''; position:absolute; top:-44px; left:50%; transform:translateX(-50%);
-            width: 38%; height: 48px; background:var(--gold); border-radius:8px 8px 0 0;
-        }
-        .hero-deco-bottle::after {
-            content:''; position:absolute; top:-58px; left:50%; transform:translateX(-50%);
-            width: 24%; height: 18px; background:var(--gold); border-radius:4px 4px 0 0;
-        }
-
-        .hero-content {
-            position: relative; z-index: 2;
-            max-width: 1280px; margin: 0 auto;
-            padding: 100px 24px 80px;
-            width: 100%;
-        }
-        .hero-eyebrow {
-            display: inline-flex; align-items:center; gap:8px;
-            background: rgba(245,197,24,.14);
-            border: 1px solid rgba(245,197,24,.3);
-            color: var(--gold);
-            font-family: var(--font-heading);
-            font-size: 10.5px; font-weight:700; letter-spacing:2.5px;
-            text-transform: uppercase;
-            padding: 6px 16px; border-radius:20px;
-            margin-bottom: 28px;
-            animation: fadeUp .6s var(--ease) both;
-        }
-        .hero-title {
-            font-family: var(--font-heading);
-            font-size: clamp(44px, 7.5vw, 88px);
-            font-weight: 900;
-            color: white;
-            line-height: 1.03;
-            letter-spacing: -2.5px;
-            margin-bottom: 24px;
-            max-width: 720px;
-            animation: fadeUp .6s var(--ease) .1s both;
-        }
-        .hero-title .hl {
-            color: var(--gold);
-            position: relative;
-            display: inline-block;
-        }
-        .hero-title .hl::after {
-            content:'';
-            position:absolute; bottom:6px; left:0; right:0;
-            height:5px; background:var(--gold);
-            border-radius:3px; opacity:.3;
-        }
-        .hero-sub {
-            font-family: var(--font-body);
-            font-size: 18px; font-weight:300;
-            color: rgba(255,255,255,.6);
-            line-height: 1.75;
-            max-width: 500px;
-            margin-bottom: 44px;
-            animation: fadeUp .6s var(--ease) .2s both;
-        }
-        .hero-ctas {
-            display: flex; gap:14px; flex-wrap:wrap;
-            animation: fadeUp .6s var(--ease) .3s both;
-        }
-        .btn-blue {
-            background: rgba(255,255,255,.1);
-            color: white;
-            border: 2px solid rgba(255,255,255,.22);
-            padding: 14px 30px; border-radius:8px;
-            font-family: var(--font-heading); font-size:13.5px; font-weight:700;
-            letter-spacing:.3px; text-decoration:none;
-            display:inline-flex; align-items:center; gap:8px;
-            transition: background .25s, border-color .25s, transform .25s;
-        }
-        .btn-blue:hover { background:rgba(255,255,255,.18); border-color:rgba(255,255,255,.45); transform:translateY(-2px); }
-        .btn-gold {
-            background: var(--gold);
-            color: var(--blue-dark);
-            border: none;
-            padding: 14px 30px; border-radius:8px;
-            font-family: var(--font-heading); font-size:13.5px; font-weight:700;
-            letter-spacing:.3px; text-decoration:none;
-            display:inline-flex; align-items:center; gap:8px;
-            box-shadow: 0 4px 22px rgba(245,197,24,.32);
-            transition: background .25s, transform .25s, box-shadow .25s;
-        }
-        .btn-gold:hover { background:var(--gold-dark); transform:translateY(-2px); box-shadow:0 8px 32px rgba(245,197,24,.5); }
-
-        .hero-stats {
-            display: flex; gap: 44px;
-            margin-top: 60px; padding-top:40px;
-            border-top: 1px solid rgba(255,255,255,.1);
-            animation: fadeUp .6s var(--ease) .4s both;
-            flex-wrap: wrap;
-        }
-        .hs-num {
-            font-family: var(--font-heading);
-            font-size: 34px; font-weight:900;
-            color: var(--gold); line-height:1; margin-bottom:4px;
-        }
-        .hs-lbl { font-size:11px; color:rgba(255,255,255,.45); letter-spacing:1.2px; text-transform:uppercase; }
-
-        /* ── SERVICES ─────────────────────────────────────────── */
-        .services { background:var(--off-white); padding:80px 24px; }
-        .container { max-width:1280px; margin:0 auto; }
-        .section-hd { text-align:center; margin-bottom:52px; }
-        .sec-eyebrow {
-            display:block; font-family:var(--font-heading);
-            font-size:10.5px; font-weight:700; letter-spacing:3px;
-            text-transform:uppercase; color:var(--blue); margin-bottom:12px;
-        }
-        .sec-title {
-            font-family: var(--font-heading);
-            font-size: clamp(28px,4vw,42px); font-weight:800;
-            color: var(--text-dark); letter-spacing:-1px; line-height:1.15;
-        }
-        .sec-title span { color:var(--blue); }
-
-        .pillars { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
-        .pillar {
-            background:white; border-radius:var(--radius-lg);
-            padding:38px 32px;
-            border:1px solid rgba(26,58,143,.07);
-            border-top: 4px solid var(--gold);
-            box-shadow: var(--shadow-sm);
-            position:relative; overflow:hidden;
-            transition:transform .3s var(--ease), box-shadow .3s;
-        }
-        .pillar::after {
-            content:''; position:absolute; bottom:0; left:0; right:0; height:3px;
-            background:linear-gradient(90deg,var(--blue),var(--blue-mid));
-            transform:scaleX(0); transform-origin:left; transition:transform .4s;
-        }
-        .pillar:hover { transform:translateY(-7px); box-shadow:var(--shadow-lg); }
-        .pillar:hover::after { transform:scaleX(1); }
-        .pillar-ico { font-size:44px; margin-bottom:22px; display:block; }
-        .pillar h3 {
-            font-family:var(--font-heading); font-size:20px; font-weight:800;
-            color:var(--blue-dark); margin-bottom:10px; letter-spacing:-.3px;
-        }
-        .pillar p { font-size:14px; line-height:1.75; color:var(--text-mid); }
-        .pillar-tag {
-            display:inline-block; background:rgba(245,197,24,.18);
-            color:var(--blue-dark); font-family:var(--font-heading);
-            font-size:10.5px; font-weight:700; padding:4px 12px;
-            border-radius:20px; margin-top:18px; letter-spacing:.4px;
-        }
-
-        /* ── CATEGORIES ───────────────────────────────────────── */
-        .categories { background:white; padding:80px 24px; }
-        .cat-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
-        .cat-card {
-            border-radius:var(--radius-lg); overflow:hidden;
-            position:relative; aspect-ratio:3/4; cursor:pointer;
-        }
-        .cat-bg {
-            position:absolute; inset:0;
-            transition: transform .65s cubic-bezier(.4,0,.2,1);
-        }
-        .cat-card:hover .cat-bg { transform:scale(1.07); }
-        .cat-card.wine   .cat-bg { background:linear-gradient(155deg,#180820 0%,#46133a 40%,#891f52 70%,#be2e5d 100%); }
-        .cat-card.spirits .cat-bg { background:linear-gradient(155deg,#09162d 0%,#163360 40%,#245aa5 70%,#1a4690 100%); }
-        .cat-card.beer   .cat-bg { background:linear-gradient(155deg,#160e00 0%,#3c2200 40%,#7d4d04 70%,#c2860b 100%); }
-        .cat-overlay {
-            position:absolute; inset:0;
-            background:linear-gradient(to top,rgba(0,0,0,.86) 0%,rgba(0,0,0,.28) 50%,transparent 100%);
-        }
-        .cat-deco {
-            position:absolute; top:28px; right:28px; font-size:76px;
-            opacity:.14; transform:rotate(14deg);
-            transition: opacity .3s, transform .3s;
-        }
-        .cat-card:hover .cat-deco { opacity:.24; transform:rotate(4deg) scale(1.12); }
-        .cat-body {
-            position:absolute; bottom:0; left:0; right:0;
-            padding:32px; z-index:2;
-        }
-        .cat-lbl {
-            font-family:var(--font-heading); font-size:10px; font-weight:700;
-            letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:8px;
-        }
-        .cat-name {
-            font-family:var(--font-heading); font-size:38px; font-weight:900;
-            color:white; line-height:1; letter-spacing:-1.5px; margin-bottom:10px;
-        }
-        .cat-desc { font-size:13px; color:rgba(255,255,255,.68); line-height:1.55; margin-bottom:20px; }
-        .btn-wht {
-            display:inline-flex; align-items:center; gap:8px;
-            padding:10px 22px; border:2px solid rgba(255,255,255,.45); border-radius:6px;
-            color:white; font-family:var(--font-heading); font-size:13px; font-weight:700;
-            text-decoration:none; transition:background .2s, border-color .2s, color .2s;
-        }
-        .btn-wht:hover { background:var(--gold); border-color:var(--gold); color:var(--blue-dark); }
-
-        /* ── SALE BANNER ──────────────────────────────────────── */
-        .sale-strip {
-            background: var(--gold);
-            padding: 32px 24px;
-            text-align:center;
-            position:relative; overflow:hidden;
-        }
-        .sale-strip::before, .sale-strip::after {
-            content:'★  SALE  ★  SALE  ★  SALE  ★  SALE  ★  SALE  ★  SALE  ★';
-            position:absolute; left:0; right:0;
-            font-family:var(--font-heading); font-size:10px; font-weight:700;
-            letter-spacing:4px; color:rgba(13,34,102,.1); white-space:nowrap;
-        }
-        .sale-strip::before { top:7px; }
-        .sale-strip::after  { bottom:7px; }
-        .sale-headline {
-            font-family:var(--font-heading); font-weight:900; letter-spacing:-.5px;
-            font-size:clamp(18px,3vw,26px); color:var(--blue-dark);
-        }
-        .sale-sub { font-size:14px; color:rgba(13,34,102,.65); margin-top:5px; }
-        .sale-cta {
-            display:inline-flex; align-items:center; gap:8px; margin-top:18px;
-            background:var(--blue-dark); color:var(--gold);
-            padding:11px 26px; border-radius:7px;
-            font-family:var(--font-heading); font-size:13px; font-weight:700;
-            text-decoration:none; transition:background .2s, transform .2s;
-        }
-        .sale-cta:hover { background:var(--blue); transform:translateY(-2px); }
-
-        /* ── PRODUCTS ─────────────────────────────────────────── */
-        .products { background:var(--off-white); padding:80px 24px; }
-        .prod-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
-        .prod-card {
-            background:white; border-radius:var(--radius-lg); overflow:hidden;
-            box-shadow:var(--shadow-sm); border:1px solid rgba(26,58,143,.06);
-            transition:transform .3s var(--ease), box-shadow .3s;
-        }
-        .prod-card:hover { transform:translateY(-7px); box-shadow:var(--shadow-lg); }
-        .prod-img {
-            height:200px; display:flex; align-items:center; justify-content:center;
-            position:relative; overflow:hidden;
-        }
-        .prod-card.don-julio .prod-img { background:linear-gradient(135deg,#1a3a8f,#2a5fa3,#1e4aad); }
-        .prod-card.hennessy  .prod-img { background:linear-gradient(135deg,#291700,#5a3600,#8a5800); }
-        .prod-card.casamigos .prod-img { background:linear-gradient(135deg,#0d3320,#1a5a38,#2a7a50); }
-        .prod-card.johnnie   .prod-img { background:linear-gradient(135deg,#181818,#303030,#202020); }
-        .prod-card.kim       .prod-img { background:linear-gradient(135deg,#1a3c1a,#2a6028,#3a8040); }
-        .prod-card.bluemoon  .prod-img { background:linear-gradient(135deg,#001840,#002a66,#00347c); }
-        .prod-art {
-            font-size:66px;
-            filter:drop-shadow(0 8px 24px rgba(0,0,0,.38));
-            transition:transform .3s var(--ease);
-        }
-        .prod-card:hover .prod-art { transform:scale(1.1) translateY(-5px); }
-        .prod-img img {
-            max-height:160px; max-width:80%; object-fit:contain;
-            filter:drop-shadow(0 8px 28px rgba(0,0,0,.5));
-            transition:transform .3s var(--ease);
-        }
-        .prod-card:hover .prod-img img { transform:scale(1.08) translateY(-6px); }
-        .prod-badge {
-            position:absolute; top:12px; left:12px;
-            background:var(--gold); color:var(--blue-dark);
-            font-family:var(--font-heading); font-size:9px; font-weight:800;
-            padding:3px 10px; border-radius:20px; letter-spacing:1px; text-transform:uppercase;
-        }
-        .prod-body { padding:20px; }
-        .prod-cat {
-            font-family:var(--font-heading); font-size:9.5px; font-weight:700;
-            letter-spacing:2px; text-transform:uppercase; color:var(--blue); margin-bottom:5px;
-        }
-        .prod-name {
-            font-family:var(--font-heading); font-size:19px; font-weight:800;
-            color:var(--text-dark); letter-spacing:-.3px; line-height:1.2; margin-bottom:3px;
-        }
-        .prod-sub { font-size:12.5px; color:var(--text-light); margin-bottom:16px; }
-        .prod-foot { display:flex; align-items:center; justify-content:space-between; }
-        .prod-price {
-            font-family:var(--font-heading); font-size:25px; font-weight:900; color:var(--blue-dark);
-        }
-        .prod-price .price-unit { font-size:12px; font-weight:500; color:var(--text-light); }
-        .price-orig { font-size:16px; font-weight:500; color:var(--text-light); text-decoration:line-through; margin-right:4px; }
-        .price-sale { font-size:25px; font-weight:900; color:#c0392b; }
-        .btn-cart {
-            background:var(--gold); color:var(--blue-dark); border:none;
-            padding:9px 18px; border-radius:6px;
-            font-family:var(--font-heading); font-size:12px; font-weight:700;
-            cursor:pointer; transition:background .2s, color .2s, transform .2s;
-            letter-spacing:.3px;
-        }
-        .btn-cart:hover { background:var(--blue); color:white; transform:scale(1.05); }
-        .btn-call {
-            background: var(--gold); color: var(--blue-dark);
-            padding: 9px 18px; border-radius: 6px;
-            font-family: var(--font-heading); font-size: 12px; font-weight: 700;
-            text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
-            transition: background .2s, color .2s, transform .2s; letter-spacing: .3px;
-        }
-        .btn-call:hover { background: var(--blue); color: white; transform: scale(1.05); }
-        .prod-empty { grid-column:1/-1; text-align:center; padding:60px 20px; color:var(--text-mid); font-size:15px; }
-        .prod-stock {
-            margin-top: 10px; font-size: 11px; font-weight: 700;
-            font-family: var(--font-heading); letter-spacing: .4px; text-transform: uppercase;
-            display: flex; align-items: center; gap: 5px;
-        }
-        .prod-stock::before { content:''; width:7px; height:7px; border-radius:50%; flex-shrink:0; }
-        .filter-bar {
-            display: none; align-items: center; justify-content: space-between;
-            margin-bottom: 28px; padding: 12px 20px;
-            background: var(--light-gray); border-radius: var(--radius);
-            border-left: 4px solid var(--blue);
-        }
-        .filter-bar.visible { display: flex; }
-        .filter-label {
-            font-family: var(--font-heading); font-size: 13px; font-weight: 700;
-            color: var(--blue-dark); letter-spacing: .2px;
-        }
-        .filter-label span { color: var(--blue); }
-        .filter-clear {
-            background: var(--blue); color: white; border: none;
-            padding: 6px 14px; border-radius: 20px;
-            font-family: var(--font-heading); font-size: 11px; font-weight: 700;
-            cursor: pointer; letter-spacing: .5px; transition: background .2s;
-        }
-        .filter-clear:hover { background: var(--blue-dark); }
-        .search-wrap {
-            position: relative; max-width: 520px; margin: 0 auto 32px;
-        }
-        .search-wrap svg {
-            position: absolute; left: 16px; top: 50%; transform: translateY(-50%);
-            width: 18px; height: 18px; color: var(--text-light); pointer-events: none;
-            flex-shrink: 0;
-        }
-        .search-input {
-            width: 100%; padding: 14px 46px 14px 46px;
-            border: 2px solid var(--light-gray);
-            border-radius: 10px;
-            font-family: var(--font-body); font-size: 15px; color: var(--text-dark);
-            background: white; outline: none;
-            transition: border-color .2s, box-shadow .2s;
-        }
-        .search-input:focus {
-            border-color: var(--blue);
-            box-shadow: 0 0 0 4px rgba(26,58,143,.1);
-        }
-        .search-input::placeholder { color: var(--text-light); }
-        .search-clear {
-            position: absolute; right: 14px; top: 50%; transform: translateY(-50%);
-            background: var(--light-gray); border: none; border-radius: 50%;
-            width: 22px; height: 22px; cursor: pointer; font-size: 13px;
-            color: var(--text-mid); display: none; align-items: center; justify-content: center;
-            transition: background .15s;
-        }
-        .search-clear.visible { display: flex; }
-        .search-clear:hover { background: #ddd; }
-        .no-results {
-            grid-column: 1/-1; text-align: center; padding: 60px 20px;
-            color: var(--text-mid);
-        }
-        .no-results strong { display: block; font-size: 18px; color: var(--text-dark); margin-bottom: 8px; }
-
-        /* ── PRODUCT CARD (minimal) ───────────────────────────────── */
-        .prod-card { cursor: pointer; }
-        .prod-view {
-            font-family: var(--font-heading); font-size: 11px; font-weight: 700;
-            color: var(--blue); letter-spacing: .8px; text-transform: uppercase;
-            margin-top: 12px; opacity: 0; transform: translateY(5px);
-            transition: opacity .2s, transform .2s;
-        }
-        .prod-card:hover .prod-view { opacity: 1; transform: translateY(0); }
-
-        /* ── MODAL ────────────────────────────────────────────────── */
-        .modal-overlay {
-            position: fixed; inset: 0; z-index: 3000;
-            background: rgba(13,34,102,.6);
-            backdrop-filter: blur(5px);
-            display: flex; align-items: center; justify-content: center;
-            padding: 20px;
-            opacity: 0; pointer-events: none;
-            transition: opacity .25s;
-        }
-        .modal-overlay.open { opacity: 1; pointer-events: all; }
-        .modal {
-            background: white; border-radius: 20px;
-            max-width: 780px; width: 100%;
-            max-height: 90vh; overflow-y: auto;
-            position: relative;
-            transform: translateY(24px) scale(.97);
-            transition: transform .28s var(--ease);
-            box-shadow: 0 40px 100px rgba(13,34,102,.35);
-        }
-        .modal-overlay.open .modal { transform: translateY(0) scale(1); }
-        .modal-close {
-            position: absolute; top: 14px; right: 14px; z-index: 10;
-            background: rgba(0,0,0,.08); border: none; border-radius: 50%;
-            width: 36px; height: 36px; font-size: 18px; cursor: pointer;
-            display: flex; align-items: center; justify-content: center;
-            color: white; transition: background .15s;
-        }
-        .modal-close:hover { background: rgba(0,0,0,.22); }
-        .modal-inner { display: grid; grid-template-columns: 1fr 1fr; }
-        .modal-img-panel {
-            min-height: 320px; display: flex; align-items: center; justify-content: center;
-            border-radius: 20px 0 0 20px; padding: 40px; position: relative; overflow: hidden;
-        }
-        .modal-img-panel img {
-            max-width: 100%; max-height: 280px; object-fit: contain;
-            filter: drop-shadow(0 12px 36px rgba(0,0,0,.45));
-        }
-        .modal-img-panel .modal-art {
-            font-size: 110px;
-            filter: drop-shadow(0 12px 32px rgba(0,0,0,.4));
-        }
-        .modal-img-panel .prod-badge { top: 16px; left: 16px; font-size: 10px; }
-        .modal-info { padding: 40px 36px; display: flex; flex-direction: column; gap: 0; }
-        .modal-cat {
-            font-family: var(--font-heading); font-size: 10px; font-weight: 700;
-            letter-spacing: 2.5px; text-transform: uppercase; color: var(--blue); margin-bottom: 8px;
-        }
-        .modal-name {
-            font-family: var(--font-heading); font-size: 28px; font-weight: 900;
-            color: var(--text-dark); letter-spacing: -.5px; line-height: 1.15; margin-bottom: 14px;
-        }
-        .stars-row {
-            display: flex; align-items: center; gap: 3px; margin-bottom: 20px;
-        }
-        .star { font-size: 20px; line-height: 1; }
-        .star.full  { color: var(--gold); }
-        .star.empty { color: #ddd; }
-        .star.half  { position: relative; color: #ddd; }
-        .star.half::before {
-            content: '★'; position: absolute; left: 0; top: 0;
-            color: var(--gold); width: 50%; overflow: hidden; display: block;
-        }
-        .rating-num {
-            font-family: var(--font-heading); font-size: 13px; font-weight: 700;
-            color: var(--text-mid); margin-left: 6px;
-        }
-        .modal-desc {
-            font-size: 14.5px; line-height: 1.75; color: var(--text-mid);
-            margin-bottom: 24px; flex-grow: 1;
-        }
-        .modal-divider { border: none; border-top: 1px solid var(--light-gray); margin-bottom: 20px; }
-        .modal-price-row { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; flex-wrap: wrap; }
-        .modal-call-btn {
-            display: flex; align-items: center; justify-content: center; gap: 10px;
-            background: var(--gold); color: var(--blue-dark); text-decoration: none;
-            padding: 14px 24px; border-radius: 10px; width: 100%;
-            font-family: var(--font-heading); font-size: 15px; font-weight: 800;
-            letter-spacing: .3px; transition: background .2s, transform .2s;
-            box-shadow: 0 4px 18px rgba(245,197,24,.35);
-        }
-        .modal-call-btn:hover { background: var(--gold-dark); transform: translateY(-2px); }
-        @media (max-width: 640px) {
-            .modal-inner { grid-template-columns: 1fr; }
-            .modal-img-panel { border-radius: 20px 20px 0 0; min-height: 220px; }
-            .modal-close { color: var(--text-dark); }
-            .modal-info { padding: 28px 24px; }
-        }
-        .prod-stock.in-stock { color: #2a7a3a; }
-        .prod-stock.in-stock::before { background: #2a7a3a; }
-        .prod-stock.low-stock { color: #b86000; }
-        .prod-stock.low-stock::before { background: #b86000; }
-        .prod-stock.out-stock { color: #aaa; }
-        .prod-stock.out-stock::before { background: #ccc; }
-
-        /* ── ABOUT ────────────────────────────────────────────── */
-        .about { background:white; padding:80px 24px; }
-        .about-grid { display:grid; grid-template-columns:1fr 380px; gap:72px; align-items:start; }
-
-        .about-eyebrow {
-            display:inline-flex; align-items:center; gap:10px;
-            font-family:var(--font-heading); font-size:10.5px; font-weight:700;
-            letter-spacing:3px; text-transform:uppercase; color:var(--blue); margin-bottom:20px;
-        }
-        .about-eyebrow::before {
-            content:''; display:block; width:26px; height:2px; background:var(--gold);
-        }
-        .about-title {
-            font-family:var(--font-heading); font-size:clamp(30px,4vw,46px); font-weight:900;
-            color:var(--text-dark); letter-spacing:-1.2px; line-height:1.12; margin-bottom:24px;
-        }
-        .about-title span { color:var(--blue); }
-        .about-body { font-size:15.5px; line-height:1.82; color:var(--text-mid); margin-bottom:18px; }
-        .about-feats { display:flex; flex-direction:column; gap:10px; margin-top:26px; }
-        .about-feat {
-            display:flex; align-items:center; gap:12px;
-            font-size:14px; color:var(--text-dark); font-weight:500;
-        }
-        .about-feat::before {
-            content:''; display:block; width:8px; height:8px;
-            background:var(--gold); border-radius:50%; flex-shrink:0;
-        }
-
-        /* Store card */
-        .store-card {
-            background:var(--blue-dark); border-radius:var(--radius-lg);
-            overflow:hidden; box-shadow:var(--shadow-lg);
-        }
-        .sc-head {
-            background:var(--gold); padding:20px 24px;
-        }
-        .sc-head h3 {
-            font-family:var(--font-heading); font-size:17px; font-weight:800;
-            color:var(--blue-dark); letter-spacing:-.2px;
-        }
-        .sc-body { padding:28px 24px; display:flex; flex-direction:column; gap:20px; }
-        .sc-row { display:flex; align-items:flex-start; gap:14px; }
-        .sc-ico { font-size:20px; flex-shrink:0; margin-top:2px; }
-        .sc-content label {
-            display:block; font-family:var(--font-heading);
-            font-size:9.5px; font-weight:700; letter-spacing:2px;
-            text-transform:uppercase; color:var(--gold); margin-bottom:5px;
-        }
-        .sc-content p { font-size:13.5px; color:rgba(255,255,255,.82); line-height:1.65; }
-        .sc-content a { color:rgba(255,255,255,.82); text-decoration:none; }
-        .sc-content a:hover { color:var(--gold); }
-        .hours-tbl { display:flex; flex-direction:column; gap:4px; }
-        .hrow { display:flex; justify-content:space-between; font-size:13px; color:rgba(255,255,255,.78); }
-        .hrow .day { color:rgba(255,255,255,.45); }
-
-        /* ── FOOTER ───────────────────────────────────────────── */
-        .footer {
-            background:var(--blue-dark); color:rgba(255,255,255,.62);
-            padding:60px 24px 32px; border-top:3px solid var(--gold);
-        }
-        .foot-grid {
-            display:grid; grid-template-columns:220px 1fr 1fr;
-            gap:52px; max-width:1280px; margin:0 auto;
-            padding-bottom:48px; border-bottom:1px solid rgba(255,255,255,.08);
-        }
-        .foot-brand .logo-badge { margin-bottom:16px; display:inline-flex; }
-        .foot-tag { font-size:13px; line-height:1.75; color:rgba(255,255,255,.45); margin-bottom:20px; }
-        .socials { display:flex; gap:10px; }
-        .social-a {
-            width:36px; height:36px; border-radius:8px;
-            background:rgba(255,255,255,.08); display:flex; align-items:center; justify-content:center;
-            font-size:15px; text-decoration:none; color:rgba(255,255,255,.65);
-            transition:background .2s, color .2s, transform .2s;
-        }
-        .social-a:hover { background:var(--gold); color:var(--blue-dark); transform:translateY(-3px); }
-        .foot-col h4 {
-            font-family:var(--font-heading); font-size:12px; font-weight:700;
-            color:white; letter-spacing:1.2px; text-transform:uppercase; margin-bottom:20px;
-        }
-        .foot-col h4::after { content:''; display:block; width:22px; height:2px; background:var(--gold); margin-top:8px; }
-        .foot-links { list-style:none; display:flex; flex-direction:column; gap:8px; }
-        .foot-links a {
-            color:rgba(255,255,255,.5); text-decoration:none; font-size:13.5px;
-            transition:color .2s, padding-left .2s;
-        }
-        .foot-links a:hover { color:var(--gold); padding-left:4px; }
-        .fc-row { display:flex; gap:10px; margin-bottom:12px; font-size:13px; color:rgba(255,255,255,.5); line-height:1.55; }
-        .fc-ico { color:var(--gold); flex-shrink:0; margin-top:1px; }
-        .fc-row a { color:rgba(255,255,255,.5); text-decoration:none; }
-        .fc-row a:hover { color:var(--gold); }
-
-        .foot-bottom {
-            max-width:1280px; margin:30px auto 0;
-            display:flex; justify-content:space-between; align-items:center;
-            flex-wrap:wrap; gap:18px;
-        }
-        .foot-copy { font-size:11.5px; color:rgba(255,255,255,.28); }
-        .pay-icons { display:flex; gap:8px; align-items:center; }
-        .pay {
-            background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.12);
-            border-radius:4px; padding:4px 10px;
-            font-family:var(--font-heading); font-size:11px; font-weight:700;
-            color:rgba(255,255,255,.45); letter-spacing:.5px;
-        }
-        .foot-legal { display:flex; gap:18px; }
-        .foot-legal a { font-size:11.5px; color:rgba(255,255,255,.28); text-decoration:none; transition:color .2s; }
-        .foot-legal a:hover { color:var(--gold); }
-
-        /* ── ANIMATIONS ───────────────────────────────────────── */
-        @keyframes fadeUp {
-            from { opacity:0; transform:translateY(28px); }
-            to   { opacity:1; transform:translateY(0); }
-        }
-        .reveal {
-            opacity:0; transform:translateY(22px);
-            transition:opacity .6s var(--ease), transform .6s var(--ease);
-        }
-        .reveal.in { opacity:1; transform:translateY(0); }
-        .reveal:nth-child(2) { transition-delay:.1s; }
-        .reveal:nth-child(3) { transition-delay:.2s; }
-        .reveal:nth-child(4) { transition-delay:.3s; }
-        .reveal:nth-child(5) { transition-delay:.4s; }
-        .reveal:nth-child(6) { transition-delay:.5s; }
-
-        /* ── RESPONSIVE ───────────────────────────────────────── */
-        @media (max-width:1024px) {
-            .foot-grid { grid-template-columns:1fr 1fr; gap:40px; }
-            .about-grid { grid-template-columns:1fr; gap:48px; }
-        }
-        @media (max-width:768px) {
-            .top-bar-left .top-bar-item:not(:first-child) { display:none; }
-            .primary-nav, .h-desktop-cart { display:none; }
-            .hamburger { display:flex; }
-            .pillars { grid-template-columns:1fr; }
-            .cat-grid { grid-template-columns:1fr; }
-            .cat-card { aspect-ratio:16/9; }
-            .prod-grid { grid-template-columns:1fr 1fr; }
-            .foot-grid { grid-template-columns:1fr; gap:32px; }
-            .foot-bottom { flex-direction:column; align-items:flex-start; }
-            .hero-stats { gap:22px; }
-        }
-        @media (max-width:500px) {
-            .prod-grid { grid-template-columns:1fr; }
-            .hero-ctas { flex-direction:column; }
-            .hero-stats { flex-wrap:wrap; gap:18px; }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="a11y.css">
+    <script src="a11y.js"></script>
 </head>
 <body>
 
@@ -900,12 +29,12 @@
     <div class="top-bar-inner">
         <div class="top-bar-left">
             <div class="top-bar-item">
-                <span class="ti">📍</span>
-                <a href="https://www.google.com/maps/dir/?api=1&destination=4949+Stevenson+Blvd+%23+Q,+Fremont,+CA+94538" target="_blank" rel="noopener">4949 Stevenson Blvd # Q, Fremont, CA 94538</a>
+                <span class="ti" aria-hidden="true">📍</span>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=4949+Stevenson+Blvd+%23+Q,+Fremont,+CA+94538" target="_blank" rel="noopener">4949 Stevenson Blvd # Q, Fremont, CA 94538<span class="sr-only"> (opens in new tab)</span></a>
             </div>
             <div class="top-bar-item">
                 <span class="ti">📞</span>
-                <a href="tel:+14084221508">(408) 422-1508</a>
+                <a href="tel:+15106566367">(510) 656-6367</a>
             </div>
         </div>
         <div>
@@ -914,85 +43,133 @@
     </div>
 </div>
 
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
 <!-- ── HEADER ────────────────────────────────────────────────────── -->
 <header class="header" id="header">
     <div class="header-inner">
 
-        <a href="#" class="logo">
-            <span class="logo-badge">CJ's Liquors</span>
-            <span class="logo-sub">Fremont, CA<br>Est. 1998</span>
+        <a href="#home" class="logo" aria-label="CJ's Liquors – return to top">
+            <span class="logo-badge" aria-hidden="true">CJ's Liquors</span>
         </a>
 
         <nav aria-label="Primary">
             <ul class="primary-nav">
-                <li><a href="#" class="active">Home</a></li>
-                <li><a href="#shop">Shop All</a></li>
+                <li><a href="shop.html">Shop All</a></li>
                 <li>
-                    <a href="#products" onclick="filterByCategory('wine')">Wine <span class="arr">▾</span></a>
-                    <div class="dropdown">
-                        <a href="#products" onclick="filterByCategory('wine')">🍷 Red Wine</a>
-                        <a href="#products" onclick="filterByCategory('wine')">🥂 White Wine</a>
-                        <a href="#products" onclick="filterByCategory('wine')">🌸 Rosé</a>
-                        <a href="#products" onclick="filterByCategory('wine')">✨ Sparkling</a>
+                    <button class="nav-btn" aria-haspopup="menu" aria-expanded="false" aria-controls="dd-wine" id="dd-wine-trigger">Wine <span class="arr" aria-hidden="true">▾</span></button>
+                    <div class="dropdown" role="menu" id="dd-wine" aria-labelledby="dd-wine-trigger">
+                        <a href="shop.html?cat=wine" role="menuitem">All Wine</a>
+                        <a href="shop.html?cat=wine" role="menuitem">Red Wine</a>
+                        <a href="shop.html?cat=wine" role="menuitem">White Wine</a>
+                        <a href="shop.html?cat=wine" role="menuitem">Champagne</a>
+                        <a href="shop.html?cat=wine" role="menuitem">Sparkling</a>
                     </div>
                 </li>
                 <li>
-                    <a href="#products" onclick="filterByCategory('spirits')">Spirits <span class="arr">▾</span></a>
-                    <div class="dropdown">
-                        <a href="#products" onclick="filterByCategory('spirits')">🥃 Whiskey</a>
-                        <a href="#products" onclick="filterByCategory('spirits')">🍸 Vodka</a>
-                        <a href="#products" onclick="filterByCategory('spirits')">🌵 Tequila</a>
-                        <a href="#products" onclick="filterByCategory('spirits')">🍹 Rum</a>
-                        <a href="#products" onclick="filterByCategory('spirits')">🍋 Gin</a>
+                    <button class="nav-btn" aria-haspopup="menu" aria-expanded="false" aria-controls="dd-spirits" id="dd-spirits-trigger">Spirits <span class="arr" aria-hidden="true">▾</span></button>
+                    <div class="dropdown" role="menu" id="dd-spirits" aria-labelledby="dd-spirits-trigger">
+                        <a href="shop.html?cat=spirits" role="menuitem">All Spirits</a>
+                        <a href="shop.html?cat=spirits" role="menuitem">Whiskey</a>
+                        <a href="shop.html?cat=spirits" role="menuitem">Bourbon</a>
+                        <a href="shop.html?cat=spirits" role="menuitem">Scotch</a>
+                        <a href="shop.html?cat=spirits" role="menuitem">Vodka</a>
+                        <a href="shop.html?cat=spirits" role="menuitem">Tequila</a>
+                        <a href="shop.html?cat=spirits" role="menuitem">Rum</a>
+                        <a href="shop.html?cat=spirits" role="menuitem">Gin</a>
+                        <a href="shop.html?cat=spirits" role="menuitem">Indian Spirits</a>
+                        <a href="shop.html?cat=spirits" role="menuitem">Indian Whisky</a>
                     </div>
                 </li>
                 <li>
-                    <a href="#products" onclick="filterByCategory('beer')">Beer <span class="arr">▾</span></a>
-                    <div class="dropdown">
-                        <a href="#products" onclick="filterByCategory('beer')">🍺 IPA</a>
-                        <a href="#products" onclick="filterByCategory('beer')">🍻 Ale</a>
-                        <a href="#products" onclick="filterByCategory('beer')">🍺 Lager</a>
-                        <a href="#products" onclick="filterByCategory('beer')">🖤 Stout</a>
+                    <button class="nav-btn" aria-haspopup="menu" aria-expanded="false" aria-controls="dd-beer" id="dd-beer-trigger">Beer <span class="arr" aria-hidden="true">▾</span></button>
+                    <div class="dropdown" role="menu" id="dd-beer" aria-labelledby="dd-beer-trigger">
+                        <a href="shop.html?cat=beer" role="menuitem">All Beer</a>
+                        <a href="shop.html?cat=beer" role="menuitem">IPA</a>
+                        <a href="shop.html?cat=beer" role="menuitem">Ale</a>
+                        <a href="shop.html?cat=beer" role="menuitem">Lager</a>
+                        <a href="shop.html?cat=beer" role="menuitem">Stout</a>
+                        <a href="shop.html?cat=beer" role="menuitem">Indian Beer</a>
+                        <a href="shop.html?cat=beer" role="menuitem">Craft Beer</a>
                     </div>
                 </li>
-                <li><a href="#products" onclick="filterByCategory('sale')">On Sale <span class="nav-pill">HOT</span></a></li>
-                <li><a href="#products" onclick="filterByCategory('new')">New Arrivals <span class="nav-pill">NEW</span></a></li>
+                <li><a href="shop.html?cat=sale">On Sale <span class="nav-pill" aria-hidden="true">HOT</span></a></li>
+                <li><a href="shop.html?cat=new">New Arrivals <span class="nav-pill" aria-hidden="true">NEW</span></a></li>
+                <li><a href="#calculator">Party Calculator <span class="nav-pill" aria-hidden="true" style="background:var(--gold-dark);">🎉 FREE</span></a></li>
+                <li><a href="#corporate">Corporate Orders</a></li>
                 <li><a href="#about">Store Info</a></li>
             </ul>
         </nav>
 
+        <div class="nav-search" role="search" aria-label="Search products">
+            <svg class="nav-search-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+            <input id="nav-search-input" class="nav-search-input" type="search" placeholder="Search products…" autocomplete="off" aria-label="Search products">
+            <button class="nav-search-x" id="nav-search-x" aria-label="Clear search" type="button">×</button>
+        </div>
+
         <div class="h-right">
+            <button class="nav-srch-toggle" id="nav-srch-toggle" aria-label="Search products" aria-expanded="false" type="button">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                </svg>
+            </button>
             <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
                 <span></span><span></span><span></span>
             </button>
         </div>
     </div>
 
+    <!-- Mobile search panel -->
+    <div class="nav-search-panel" id="nav-search-panel" role="search" aria-label="Search products">
+        <div class="nav-search">
+            <svg class="nav-search-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+            <input id="nav-search-mobile" class="nav-search-input" type="search" placeholder="Search products, brands…" autocomplete="off" aria-label="Search products">
+            <button class="nav-search-x" id="nav-search-x-mob" aria-label="Clear search" type="button">×</button>
+        </div>
+    </div>
+
     <!-- Mobile nav -->
-    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
-        <a href="#">Home</a>
-        <a href="#shop">Shop All</a>
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation" aria-hidden="true">
+        <a href="#home">Home</a>
+        <a href="shop.html">Shop All</a>
         <span class="mnav-sep">Wine</span>
-        <a href="#" style="padding-left:28px">Red Wine</a>
-        <a href="#" style="padding-left:28px">White Wine</a>
-        <a href="#" style="padding-left:28px">Rosé</a>
-        <a href="#" style="padding-left:28px">Sparkling</a>
+        <a href="shop.html?cat=wine" style="padding-left:28px">Red Wine</a>
+        <a href="shop.html?cat=wine" style="padding-left:28px">White Wine</a>
+        <a href="shop.html?cat=wine" style="padding-left:28px">Champagne</a>
+        <a href="shop.html?cat=wine" style="padding-left:28px">Sparkling</a>
         <span class="mnav-sep">Spirits</span>
-        <a href="#" style="padding-left:28px">Whiskey</a>
-        <a href="#" style="padding-left:28px">Vodka</a>
-        <a href="#" style="padding-left:28px">Tequila</a>
-        <a href="#" style="padding-left:28px">Rum</a>
-        <a href="#" style="padding-left:28px">Gin</a>
+        <a href="shop.html?cat=spirits" style="padding-left:28px">Whiskey</a>
+        <a href="shop.html?cat=spirits" style="padding-left:28px">Vodka</a>
+        <a href="shop.html?cat=spirits" style="padding-left:28px">Tequila</a>
+        <a href="shop.html?cat=spirits" style="padding-left:28px">Rum</a>
+        <a href="shop.html?cat=spirits" style="padding-left:28px">Gin</a>
         <span class="mnav-sep">Beer</span>
-        <a href="#" style="padding-left:28px">IPA</a>
-        <a href="#" style="padding-left:28px">Ale</a>
-        <a href="#" style="padding-left:28px">Lager</a>
-        <a href="#" style="padding-left:28px">Stout</a>
-        <a href="#products" onclick="filterByCategory('sale')">🔥 On Sale</a>
-        <a href="#products" onclick="filterByCategory('new')">✨ New Arrivals</a>
+        <a href="shop.html?cat=beer" style="padding-left:28px">IPA</a>
+        <a href="shop.html?cat=beer" style="padding-left:28px">Ale</a>
+        <a href="shop.html?cat=beer" style="padding-left:28px">Lager</a>
+        <a href="shop.html?cat=beer" style="padding-left:28px">Stout</a>
+        <a href="shop.html?cat=sale"><span aria-hidden="true">🔥</span> On Sale</a>
+        <a href="shop.html?cat=new"><span aria-hidden="true">✨</span> New Arrivals</a>
+        <a href="#calculator">Party Calculator</a>
+        <a href="#corporate">Corporate Orders</a>
         <a href="#about">Store Info</a>
     </nav>
 </header>
+
+<!-- ── DOORDASH BANNER ───────────────────────────────────────────── -->
+<div class="dd-banner" id="dd-banner" role="region" aria-label="Delivery information">
+    <div class="dd-banner-inner">
+        <span class="dd-banner-text"><span aria-hidden="true">🛵</span> Now delivering via DoorDash — get your order brought to your door</span>
+        <a href="https://www.doordash.com" target="_blank" rel="noopener" class="dd-banner-cta">Order Delivery on DoorDash<span class="sr-only"> (opens in new tab)</span> →</a>
+    </div>
+    <button class="dd-banner-dismiss" onclick="document.getElementById('dd-banner').style.display='none'" aria-label="Dismiss delivery banner">×</button>
+</div>
+
+<main id="main-content">
 
 <!-- ── HERO ──────────────────────────────────────────────────────── -->
 <section class="hero" id="home">
@@ -1021,7 +198,8 @@
         </p>
         <div class="hero-ctas">
             <a href="#shop" class="btn-blue">Explore Our Selection →</a>
-            <a href="tel:+14084221508" class="btn-gold">📞 Call to Order</a>
+            <a href="tel:+15106566367" class="btn-gold"><span aria-hidden="true">📞</span> Call to Order</a>
+            <a href="https://www.doordash.com" target="_blank" rel="noopener" class="btn-doordash"><span aria-hidden="true">🛵</span> Order Delivery on DoorDash<span class="sr-only"> (opens in new tab)</span></a>
         </div>
         <div class="hero-stats">
             <div>
@@ -1080,7 +258,7 @@
                     <div class="cat-lbl">Featured Category</div>
                     <div class="cat-name">Wine</div>
                     <p class="cat-desc">Hand-selected California and imported labels. Reds, whites, rosés, and sparkling.</p>
-                    <a href="#products" class="btn-wht" onclick="filterByCategory('wine')">Browse Wine →</a>
+                    <a href="shop.html?cat=wine" class="btn-wht">Browse Wine →</a>
                 </div>
             </div>
             <div class="cat-card spirits reveal">
@@ -1091,7 +269,7 @@
                     <div class="cat-lbl">Featured Category</div>
                     <div class="cat-name">Spirits</div>
                     <p class="cat-desc">Rare bourbons, single malts, premium tequilas, and elite selections for every palate.</p>
-                    <a href="#products" class="btn-wht" onclick="filterByCategory('spirits')">Browse Spirits →</a>
+                    <a href="shop.html?cat=spirits" class="btn-wht">Browse Spirits →</a>
                 </div>
             </div>
             <div class="cat-card beer reveal">
@@ -1102,7 +280,7 @@
                     <div class="cat-lbl">Featured Category</div>
                     <div class="cat-name">Beer</div>
                     <p class="cat-desc">Craft IPAs, imported lagers, local ales, and classic favorites. Always ice cold.</p>
-                    <a href="#products" class="btn-wht" onclick="filterByCategory('beer')">Browse Beer →</a>
+                    <a href="shop.html?cat=beer" class="btn-wht">Browse Beer →</a>
                 </div>
             </div>
         </div>
@@ -1113,28 +291,162 @@
 <div class="sale-strip">
     <div class="sale-headline">🔥 This Week's Deals — Up to 30% Off Select Bottles</div>
     <p class="sale-sub">New deals every week on top brands. Limited quantities — don't miss out.</p>
-    <a href="#products" class="sale-cta" onclick="filterByCategory('sale')">View All Deals →</a>
+    <a href="shop.html?cat=sale" class="sale-cta">View All Deals →</a>
 </div>
 
-<!-- ── PRODUCTS ──────────────────────────────────────────────────── -->
-<section class="products" id="products">
+<!-- ── CALCULATOR PROMO ───────────────────────────────────────────── -->
+<div class="calc-promo">
+    <div class="calc-promo-inner">
+        <div class="calc-promo-left">
+            <span class="calc-promo-emoji">🎉</span>
+            <div>
+                <div class="calc-promo-title">Planning a party?</div>
+                <div class="calc-promo-sub">Our free Drink Calculator tells you exactly how much beer, wine &amp; spirits to buy — no guessing.</div>
+            </div>
+        </div>
+        <a href="#calculator" class="calc-promo-btn">Try the Calculator →</a>
+    </div>
+</div>
+
+<!-- ── SHOP CTA ─────────────────────────────────────────────────── -->
+<section class="shop-cta" id="products" aria-labelledby="shop-cta-title">
     <div class="container">
-        <div class="section-hd">
-            <span class="sec-eyebrow">Featured Products</span>
-            <h2 class="sec-title">Customer <span>Favorites</span></h2>
+        <div class="shop-cta-card reveal">
+            <div class="shop-cta-text">
+                <span class="sec-eyebrow">Our Inventory</span>
+                <h2 class="sec-title" id="shop-cta-title">Browse Every <span>Bottle We Carry</span></h2>
+                <p>Search and filter our full lineup of wine, spirits and beer on the shop page.</p>
+                <p class="shop-cta-note">Prices shown online are for reference and may differ in store. Please call <a href="tel:+15106566367">(510) 656-6367</a> to confirm.</p>
+            </div>
+            <div class="shop-cta-actions">
+                <a href="shop.html" class="btn-gold shop-cta-btn">Shop All Products →</a>
+                <div class="shop-cta-chips" role="list" aria-label="Shop by category">
+                    <a role="listitem" href="shop.html?cat=wine">Wine</a>
+                    <a role="listitem" href="shop.html?cat=spirits">Spirits</a>
+                    <a role="listitem" href="shop.html?cat=beer">Beer</a>
+                    <a role="listitem" href="shop.html?cat=sale">On Sale</a>
+                    <a role="listitem" href="shop.html?cat=new">New Arrivals</a>
+                </div>
+            </div>
         </div>
-        <div class="search-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-            </svg>
-            <input id="search-input" class="search-input" type="search" placeholder="Search products, brands, categories…" autocomplete="off" oninput="onSearch(this.value)">
-            <button class="search-clear" id="search-clear" aria-label="Clear search" onclick="clearSearch()">×</button>
+    </div>
+</section>
+
+<!-- ── PARTY DRINK CALCULATOR ─────────────────────────────────────── -->
+<section class="calculator" id="calculator">
+    <div class="container">
+        <div class="section-hd reveal">
+            <span class="sec-eyebrow">Party Planning Tool</span>
+            <h2 class="sec-title">Party Drink <span>Calculator</span></h2>
+            <p class="calc-intro">Use our calculator to figure out your event's alcohol needs. Adjust the sliders to match your crowd — results update instantly.</p>
         </div>
-        <div id="filter-bar" class="filter-bar">
-            <span class="filter-label">Showing: <span id="filter-label-text"></span></span>
-            <button class="filter-clear" onclick="clearFilter()">× Show All</button>
+        <div class="calc-grid">
+
+            <!-- ── LEFT: INPUTS ── -->
+            <div class="calc-panel reveal">
+                <div class="calc-panel-hd">🍾 Your Event</div>
+
+                <div class="calc-field">
+                    <label class="calc-lbl" for="calc-guests">Number of Guests</label>
+                    <input class="calc-input" id="calc-guests" type="number" min="1" max="2000"
+                           value="20" inputmode="numeric" oninput="calcLive()">
+                </div>
+
+                <div class="calc-field">
+                    <div class="calc-slider-hd">
+                        <label class="calc-lbl" for="calc-hours-range" style="margin-bottom:0">Event Length</label>
+                        <span class="calc-slider-val"><span id="cv-hours">3</span> hrs</span>
+                    </div>
+                    <input class="calc-range" id="calc-hours-range" type="range" min="1" max="12" value="3" step="0.5"
+                           aria-valuemin="1" aria-valuemax="12" aria-valuenow="3" aria-valuetext="3 hours"
+                           oninput="calcLive()">
+                </div>
+
+                <div class="calc-field">
+                    <div class="calc-slider-hd">
+                        <label class="calc-lbl" for="calc-wine-range" style="margin-bottom:0">Wine</label>
+                        <div class="calc-slider-right">
+                            <span class="calc-slider-val"><span id="cv-wine">30</span>%</span>
+                            <button class="calc-lock-btn" id="lock-wine" aria-label="Lock wine percentage" aria-pressed="false" onclick="toggleLock('wine')">🔒</button>
+                        </div>
+                    </div>
+                    <input class="calc-range" id="calc-wine-range" type="range" min="0" max="100" value="30"
+                           aria-valuemin="0" aria-valuemax="100" aria-valuenow="30" aria-valuetext="30% wine"
+                           oninput="onSlider('wine',this.value)">
+                </div>
+
+                <div class="calc-field">
+                    <div class="calc-slider-hd">
+                        <label class="calc-lbl" for="calc-spirits-range" style="margin-bottom:0">Spirits</label>
+                        <div class="calc-slider-right">
+                            <span class="calc-slider-val"><span id="cv-spirits">30</span>%</span>
+                            <button class="calc-lock-btn" id="lock-spirits" aria-label="Lock spirits percentage" aria-pressed="false" onclick="toggleLock('spirits')">🔒</button>
+                        </div>
+                    </div>
+                    <input class="calc-range" id="calc-spirits-range" type="range" min="0" max="100" value="30"
+                           aria-valuemin="0" aria-valuemax="100" aria-valuenow="30" aria-valuetext="30% spirits"
+                           oninput="onSlider('spirits',this.value)">
+                </div>
+
+                <div class="calc-field">
+                    <div class="calc-slider-hd">
+                        <label class="calc-lbl" for="calc-beer-range" style="margin-bottom:0">Beer</label>
+                        <div class="calc-slider-right">
+                            <span class="calc-slider-val"><span id="cv-beer">40</span>%</span>
+                            <button class="calc-lock-btn" id="lock-beer" aria-label="Lock beer percentage" aria-pressed="false" onclick="toggleLock('beer')">🔒</button>
+                        </div>
+                    </div>
+                    <input class="calc-range" id="calc-beer-range" type="range" min="0" max="100" value="40"
+                           aria-valuemin="0" aria-valuemax="100" aria-valuenow="40" aria-valuetext="40% beer"
+                           oninput="onSlider('beer',this.value)">
+                </div>
+
+                <div class="calc-check-row">
+                    <input type="checkbox" id="calc-champagne" onchange="calcLive()">
+                    <label for="calc-champagne">Include a Champagne toast (1 glass per guest)</label>
+                </div>
+            </div>
+
+            <!-- ── RIGHT: LIVE RESULTS ── -->
+            <div class="calc-results-panel reveal">
+                <div class="calc-results-hd" id="calc-results-hd">Results</div>
+                <div class="calc-big-stats" aria-live="polite" aria-atomic="true" aria-label="Summary">
+                    <div class="calc-big-stat">
+                        <span class="calc-big-num" id="r-total">40</span>
+                        <div class="calc-big-lbl">total drinks</div>
+                    </div>
+                    <div class="calc-big-stat">
+                        <span class="calc-big-num" id="r-per-guest">2</span>
+                        <div class="calc-big-lbl">drinks per guest</div>
+                    </div>
+                </div>
+                <div class="calc-purchase-hd">Purchase Recommendations</div>
+                <div class="calc-purchase-rows">
+                    <div class="calc-purchase-row">
+                        <span class="calc-row-num" id="r-wine">2</span>
+                        <span class="calc-row-lbl">750ml Wine</span>
+                        <a class="calc-row-link" href="shop.html?cat=wine">Shop wine →</a>
+                    </div>
+                    <div class="calc-purchase-row">
+                        <span class="calc-row-num" id="r-spirits">1</span>
+                        <span class="calc-row-lbl">750ml Spirits</span>
+                        <a class="calc-row-link" href="shop.html?cat=spirits">Shop spirits →</a>
+                    </div>
+                    <div class="calc-purchase-row">
+                        <span class="calc-row-num" id="r-beer">2</span>
+                        <span class="calc-row-lbl">6-pack Beer</span>
+                        <a class="calc-row-link" href="shop.html?cat=beer">Shop beer →</a>
+                    </div>
+                    <div class="calc-purchase-row" id="r-champ-row" style="display:none">
+                        <span class="calc-row-num" id="r-champ">0</span>
+                        <span class="calc-row-lbl">750ml Champagne</span>
+                        <a class="calc-row-link" href="shop.html?cat=wine">Shop →</a>
+                    </div>
+                </div>
+                <a href="tel:+15106566367" class="calc-call-strip">📞 Call to Order — (510) 656-6367</a>
+            </div>
+
         </div>
-        <div class="prod-grid" id="prod-grid"></div>
     </div>
 </section>
 
@@ -1169,41 +481,170 @@
 
             <div class="store-card">
                 <div class="sc-head">
-                    <h3>📍 Store Information</h3>
+                    <h3><span aria-hidden="true">📍</span> Store Information</h3>
                 </div>
                 <div class="sc-body">
                     <div class="sc-row">
-                        <span class="sc-ico">📍</span>
+                        <span class="sc-ico" aria-hidden="true">📍</span>
                         <div class="sc-content">
-                            <label>Address</label>
-                            <p><a href="https://www.google.com/maps/dir/?api=1&destination=4949+Stevenson+Blvd+%23+Q,+Fremont,+CA+94538" target="_blank" rel="noopener">Sundale Shopping Center<br>4949 Stevenson Blvd # Q<br>Fremont, CA 94538</a></p>
+                            <span class="sc-lbl">Address</span>
+                            <p><a href="https://www.google.com/maps/dir/?api=1&destination=4949+Stevenson+Blvd+%23+Q,+Fremont,+CA+94538" target="_blank" rel="noopener">Sundale Shopping Center<br>4949 Stevenson Blvd # Q<br>Fremont, CA 94538<span class="sr-only"> (opens in new tab)</span></a></p>
                         </div>
                     </div>
                     <div class="sc-row">
-                        <span class="sc-ico">📞</span>
+                        <span class="sc-ico" aria-hidden="true">📞</span>
                         <div class="sc-content">
-                            <label>Phone</label>
-                            <p><a href="tel:+14084221508">(408) 422-1508</a></p>
+                            <span class="sc-lbl">Phone</span>
+                            <p><a href="tel:+15106566367">(510) 656-6367</a></p>
                         </div>
                     </div>
                     <div class="sc-row">
-                        <span class="sc-ico">⏰</span>
+                        <span class="sc-ico" aria-hidden="true">⏰</span>
                         <div class="sc-content">
-                            <label>Hours</label>
+                            <span class="sc-lbl">Hours</span>
                             <div class="hours-tbl">
                                 <div class="hrow"><span class="day">Every Day</span><span>8:00 AM – 2:00 AM</span></div>
                             </div>
                         </div>
                     </div>
                     <div class="sc-row">
-                        <span class="sc-ico">✉️</span>
+                        <span class="sc-ico" aria-hidden="true">✉️</span>
                         <div class="sc-content">
-                            <label>Email</label>
-                            <p><a href="mailto:info@cjsliquors.com">info@cjsliquors.com</a></p>
+                            <span class="sc-lbl">Email</span>
+                            <p><a href="mailto:Cjliquor49@gmail.com">Cjliquor49@gmail.com</a></p>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── CORPORATE ORDERS ───────────────────────────────────────────── -->
+<section class="corporate" id="corporate">
+    <div class="container">
+        <div class="corp-grid">
+
+            <!-- Left: info -->
+            <div class="reveal">
+                <span class="corp-tag">Wholesale &amp; Events</span>
+                <h2 class="corp-title">Corporate &amp; Bulk<br><span>Orders Welcome</span></h2>
+                <p class="corp-desc">
+                    CJ's Liquors has been the go-to source for corporate events, weddings, and large
+                    gatherings in the East Bay for over 25 years. Whether you need 10 cases or 100,
+                    we'll work with your budget and timeline to make your event a success.
+                </p>
+                <p class="corp-desc">
+                    Fill out the form and our team will get back to you within one business day
+                    with a custom quote.
+                </p>
+                <ul class="corp-feats" role="list">
+                    <li class="corp-feat">Competitive bulk pricing on all categories</li>
+                    <li class="corp-feat">Dedicated account rep for event planning</li>
+                    <li class="corp-feat">Same-day and next-day fulfillment available</li>
+                    <li class="corp-feat">Custom curated selections for any occasion</li>
+                    <li class="corp-feat">Special orders for rare and hard-to-find bottles</li>
+                </ul>
+                <div class="corp-contact">
+                    <div class="corp-contact-row">
+                        <span class="corp-contact-ico">📞</span>
+                        <div class="corp-contact-txt">
+                            <span class="corp-contact-lbl">Call or Text</span>
+                            <a href="tel:+15106566367">(510) 656-6367</a>
+                        </div>
+                    </div>
+                    <div class="corp-contact-row">
+                        <span class="corp-contact-ico">⏰</span>
+                        <div class="corp-contact-txt">
+                            <span class="corp-contact-lbl">Available Daily</span>
+                            8:00 AM – 2:00 AM
+                        </div>
+                    </div>
+                    <div class="corp-contact-row">
+                        <span class="corp-contact-ico">📍</span>
+                        <div class="corp-contact-txt">
+                            <span class="corp-contact-lbl">Visit Us</span>
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=4949+Stevenson+Blvd+%23+Q,+Fremont,+CA+94538" target="_blank" rel="noopener">4949 Stevenson Blvd #Q, Fremont, CA</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: form -->
+            <div class="corp-form-card reveal">
+                <div id="corp-form-body">
+                    <h3 class="corp-form-hd">Submit an Inquiry</h3>
+                    <p class="corp-form-sub">All fields marked <span class="form-req" aria-hidden="true">*</span> are required.</p>
+
+                    <form id="corp-form" onsubmit="submitCorpForm(event)" novalidate>
+                        <!-- Web3Forms — delivers submissions to Cjliquor49@gmail.com -->
+                        <!-- Get your free access key at https://web3forms.com and paste it below -->
+                        <input type="hidden" name="access_key" id="corp-access-key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+                        <input type="hidden" name="subject" value="New Corporate Order Inquiry — CJ's Liquors">
+                        <input type="hidden" name="from_name" value="CJ's Liquors Website">
+                        <div class="form-row-2">
+                            <div class="form-field">
+                                <label class="form-lbl" for="corp-company">Company Name <span class="form-req" aria-hidden="true">*</span></label>
+                                <input class="form-ctrl" id="corp-company" type="text" placeholder="Acme Inc." required autocomplete="organization" aria-required="true" aria-describedby="corp-form-err">
+                            </div>
+                            <div class="form-field">
+                                <label class="form-lbl" for="corp-contact">Contact Name <span class="form-req" aria-hidden="true">*</span></label>
+                                <input class="form-ctrl" id="corp-contact" type="text" placeholder="Jane Smith" required autocomplete="name" aria-required="true" aria-describedby="corp-form-err">
+                            </div>
+                        </div>
+                        <div class="form-row-2">
+                            <div class="form-field">
+                                <label class="form-lbl" for="corp-email">Email Address <span class="form-req" aria-hidden="true">*</span></label>
+                                <input class="form-ctrl" id="corp-email" type="email" placeholder="jane@company.com" required autocomplete="email" aria-required="true" aria-describedby="corp-form-err">
+                            </div>
+                            <div class="form-field">
+                                <label class="form-lbl" for="corp-phone">Phone Number <span class="form-req" aria-hidden="true">*</span></label>
+                                <input class="form-ctrl" id="corp-phone" type="tel" placeholder="(510) 555-0100" required autocomplete="tel" aria-required="true" aria-describedby="corp-form-err">
+                            </div>
+                        </div>
+                        <div class="form-row-2">
+                            <div class="form-field">
+                                <label class="form-lbl" for="corp-date">Event Date</label>
+                                <input class="form-ctrl" id="corp-date" type="date">
+                            </div>
+                            <div class="form-field">
+                                <label class="form-lbl" for="corp-guests">Estimated Guest Count</label>
+                                <input class="form-ctrl" id="corp-guests" type="number" placeholder="e.g. 150" min="1" inputmode="numeric">
+                            </div>
+                        </div>
+                        <div class="form-field">
+                            <label class="form-lbl" for="corp-budget">Budget Range <span class="form-req" aria-hidden="true">*</span></label>
+                            <select class="form-ctrl" id="corp-budget" required aria-required="true" aria-describedby="corp-form-err">
+                                <option value="" disabled selected>Select a range…</option>
+                                <option value="under-500">Under $500</option>
+                                <option value="500-1000">$500 – $1,000</option>
+                                <option value="1000-2500">$1,000 – $2,500</option>
+                                <option value="2500-5000">$2,500 – $5,000</option>
+                                <option value="5000-10000">$5,000 – $10,000</option>
+                                <option value="10000-plus">$10,000+</option>
+                            </select>
+                        </div>
+                        <div class="form-field">
+                            <label class="form-lbl" for="corp-notes">Product Preferences or Notes</label>
+                            <textarea class="form-ctrl" id="corp-notes" placeholder="Tell us about your event, preferred brands, categories, or any special requirements…"></textarea>
+                        </div>
+                        <p id="corp-form-err" role="alert" aria-live="assertive" style="color:#c0392b;font-size:12.5px;font-family:var(--font-heading);font-weight:600;margin-bottom:12px;display:none;"></p>
+                        <button class="form-submit-btn" type="submit" id="corp-submit-btn">Send Inquiry →</button>
+                        <p class="form-note">We typically respond within 1 business day. You can also call us directly at (510) 656-6367.</p>
+                    </form>
+                </div>
+
+                <div class="form-success" id="corp-success">
+                    <div class="form-success-ico">✅</div>
+                    <h3 class="form-success-ttl">Inquiry Received!</h3>
+                    <p class="form-success-msg">
+                        Thank you — we've got your request and will be in touch within one business day
+                        with a custom quote. For urgent orders, call us directly.
+                    </p>
+                    <a href="tel:+15106566367" class="form-success-cta">📞 (510) 656-6367</a>
+                </div>
+            </div>
+
         </div>
     </div>
 </section>
@@ -1217,1205 +658,93 @@
         </div>
 
         <div class="foot-col">
-            <h4>Shop</h4>
+            <h3>Shop</h3>
             <ul class="foot-links">
-                <li><a href="#products" onclick="filterByCategory('wine')">Wine</a></li>
-                <li><a href="#products" onclick="filterByCategory('spirits')">Spirits</a></li>
-                <li><a href="#products" onclick="filterByCategory('beer')">Beer</a></li>
-                <li><a href="#products" onclick="filterByCategory('sale')">On Sale</a></li>
-                <li><a href="#products" onclick="filterByCategory('new')">New Arrivals</a></li>
-                <li><a href="#products" onclick="clearFilter()">All Products</a></li>
+                <li><a href="shop.html?cat=wine">Wine</a></li>
+                <li><a href="shop.html?cat=spirits">Spirits</a></li>
+                <li><a href="shop.html?cat=beer">Beer</a></li>
+                <li><a href="shop.html?cat=sale">On Sale</a></li>
+                <li><a href="shop.html?cat=new">New Arrivals</a></li>
+                <li><a href="shop.html">All Products</a></li>
             </ul>
         </div>
 
         <div class="foot-col">
-            <h4>Contact</h4>
+            <h3>Contact</h3>
             <div class="fc-row">
-                <span class="fc-ico">📍</span>
-                <a href="https://www.google.com/maps/dir/?api=1&destination=4949+Stevenson+Blvd+%23+Q,+Fremont,+CA+94538" target="_blank" rel="noopener">Sundale Shopping Center<br>4949 Stevenson Blvd # Q<br>Fremont, CA 94538</a>
+                <span class="fc-ico" aria-hidden="true">📍</span>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=4949+Stevenson+Blvd+%23+Q,+Fremont,+CA+94538" target="_blank" rel="noopener">Sundale Shopping Center<br>4949 Stevenson Blvd # Q<br>Fremont, CA 94538<span class="sr-only"> (opens in new tab)</span></a>
             </div>
             <div class="fc-row">
-                <span class="fc-ico">📞</span>
-                <a href="tel:+14084221508">(408) 422-1508</a>
+                <span class="fc-ico" aria-hidden="true">📞</span>
+                <a href="tel:+15106566367">(510) 656-6367</a>
             </div>
             <div class="fc-row">
-                <span class="fc-ico">⏰</span>
+                <span class="fc-ico" aria-hidden="true">⏰</span>
                 <span>Open Daily 8AM – 2AM</span>
             </div>
             <div class="fc-row">
-                <span class="fc-ico">ℹ️</span>
+                <span class="fc-ico" aria-hidden="true">ℹ️</span>
                 <a href="#about">About Us</a>
+            </div>
+            <div class="fc-row">
+                <span class="fc-ico" aria-hidden="true" style="color:#FF3008">🛵</span>
+                <a href="https://www.doordash.com" target="_blank" rel="noopener" style="color:#FF3008;font-weight:600;">Delivery via DoorDash<span class="sr-only"> (opens in new tab)</span></a>
             </div>
         </div>
     </div>
 
     <div class="foot-bottom">
-        <div class="foot-copy">© 2025 CJ's Liquors. All rights reserved. Must be 21+ to purchase alcohol.</div>
-        <div class="pay-icons">
-            <span class="pay">VISA</span>
-            <span class="pay">MC</span>
-            <span class="pay">AMEX</span>
-            <span class="pay">CASH</span>
+        <div class="foot-copy">© 2025 CJ's Liquors. All rights reserved. Must be 21+ to purchase alcohol. Alcohol can only be purchased by persons aged 21 or older.</div>
+        <div class="pay-icons" aria-label="Accepted payment methods">
+            <span class="pay" aria-label="Visa">VISA</span>
+            <span class="pay" aria-label="Mastercard">MC</span>
+            <span class="pay" aria-label="American Express">AMEX</span>
+            <span class="pay" aria-label="Cash">CASH</span>
+            <span class="pay" aria-label="Apple Pay"><span aria-hidden="true"> Pay</span></span>
+            <a href="https://www.doordash.com" target="_blank" rel="noopener" class="pay-dd" aria-label="Order via DoorDash (opens in new tab)"><span aria-hidden="true">🛵</span> DoorDash</a>
         </div>
     </div>
+    <p class="foot-disclaimer"><strong>Price &amp; availability notice:</strong> Prices, promotions and stock shown on this website are for reference only and may not be accurate or up to date. Actual in-store prices apply. Please call <a href="tel:+15106566367">(510) 656-6367</a> to confirm the current price and availability before you visit or order.</p>
 </footer>
 
-<!-- ── PRODUCT MODAL ──────────────────────────────────────────────── -->
-<div id="modal-overlay" class="modal-overlay" onclick="if(event.target===this)closeModal()">
-    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-        <button class="modal-close" onclick="closeModal()" aria-label="Close">×</button>
-        <div class="modal-inner" id="modal-inner"></div>
-    </div>
-</div>
+</main><!-- end #main-content -->
 
-<script>
-// ──── PRODUCT_IMAGES START ─────────────────────────────────────────
-    // Auto-generated image map (CC-licensed via Wikipedia).
-    // Re-run find_product_images.py + inject_images.py to update.
-    const PRODUCT_IMAGES = {
-      "1792 12yr old 750 ml": "images/0000_1792_12yr_old_750_ml.jpg",
-      "1792 Bond 750 ml": "https://static.whiskybase.com/storage/whiskies/1/4/6384/247943-big.jpg",
-      "1792 Bourbon Full Proof 750 ml": "images/0002_1792_bourbon_full_proof_750_ml.png",
-      "1792 Bourbon Small Batch 750 ml": "images/0003_1792_bourbon_small_batch_750_ml.png",
-      "1792 Single Barrel 750 ml": "images/0004_1792_single_barrel_750_ml.png",
-      "1792 Sweet Wheat 750 ml": "images/0005_1792_sweet_wheat_750_ml.jpg",
-      "1800 Reposado 750 ml": "images/0006_1800_reposado_750_ml.jpg",
-      "1800 RTD Ultimate Peach Margarita 1.75 L": "images/0007_1800_rtd_ultimate_peach_margarita_1_75_l.jpg",
-      "1800 Silver 750 ml": "images/0008_1800_silver_750_ml.jpg",
-      "19 CRIMES  CAB 750 ml": "images/0009_19_crimes_cab_750_ml.jpg",
-      "19 Crimes Snoop Dogg Cali Red Blend 750 ml": "https://www.bayfields.com.au/wp-content/uploads/19-Crimes-Cali-Red-750ml-Bayfields-Liquor-Superstore.png",
-      "7UP 2 LITER": "images/0011_7up_2_liter.jpg",
-      "805 12 pk": "images/0012_805_12_pk.png",
-      "805 6 pk": "images/0013_805_6_pk.png",
-      "Aberlour 12 year old 750 ml": "https://www.aberlour.com/wp-content/uploads/2024/11/Aberlour-Abunadh-Alba.jpg",
-      "Absolut Citro 1.75 L": "https://www.absolut.com/wp-content/uploads/Absolut-Citron-1000ml-Front-Standard-White-Background-HR.jpg",
-      "Absolut Citron 750 ml": "images/0016_absolut_citron_750_ml.png",
-      "Absolut Raspberry 750 ml": "https://www.raschvin.com/wp-content/uploads/2023/04/ingredient_absolut-raspberri_1000ml_ROW_packshot.jpg",
-      "Absolut Ruby Red 750 ml": "images/0018_absolut_ruby_red_750_ml.png",
-      "Absolut Ruby Red Vodka  750 ml": "images/0019_absolut_ruby_red_vodka_750_ml.jpg",
-      "Absolut Vanilia 750 ml": "images/0020_absolut_vanilia_750_ml.jpg",
-      "Absolut Vodka 750 ml": "https://www.absolut.com/wp-content/uploads/absolut-vodka-original-2021-against-white-background.jpg",
-      "Absolute Mandarine  750 ml": "images/0022_absolute_mandarine_750_ml.jpg",
-      "Alpine Beer Duet 6 pk": "images/0023_alpine_beer_duet_6_pk.jpg",
-      "Alpine Beer Nelson Ipa 6 pack": "images/0024_alpine_beer_nelson_ipa_6_pack.jpg",
-      "Alpine Beer Windows Up": "images/0025_alpine_beer_windows_up.jpg",
-      "Alpine Duet 6 pack": "images/0026_alpine_duet_6_pack.jpg",
-      "Altamont Drizzle Cascadian Dark Double IPA 16 oz 4 pack": "https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=2101886216524783",
-      "Altamont Mac Drizzle Gold 16 oz 4 pack": "images/0028_altamont_mac_drizzle_gold_16_oz_4_pack.webp",
-      "altamont maui waui 16 oz 4 pack": "images/0029_altamont_maui_waui_16_oz_4_pack.jpg",
-      "Amarula Cream Liqeur  750 ml": "images/0030_amarula_cream_liqeur_750_ml.png",
-      "Ancient Age 750 ml": "images/0031_ancient_age_750_ml.webp",
-      "ANDRE BRUT 750 ml": "images/0032_andre_brut_750_ml.jpg",
-      "ANDRE EX-DRY 750 ml": "images/0033_andre_ex_dry_750_ml.png",
-      "Angels Envy 86.9 proof 750 ml": "images/0034_angels_envy_86_9_proof_750_ml.jpg",
-      "Angels Envy Finished Rye 750 ml": "images/0035_angels_envy_finished_rye_750_ml.jpg",
-      "Angry Orchard Cider 6 pack": "images/0036_angry_orchard_cider_6_pack.png",
-      "ANGRY ORCHARD CRISP APPLE 6 PACK": "images/0037_angry_orchard_crisp_apple_6_pack.jpg",
-      "Angry Orchard Rose 12oz Bottles 6 pack": "images/0038_angry_orchard_rose_12oz_bottles_6_pack.png",
-      "Antojitos Michelada Cup Prep": "images/0039_antojitos_michelada_cup_prep.jpg",
-      "Antojitos Micheladas Micheladas": "images/0040_antojitos_micheladas_micheladas.png",
-      "Apothic Cab 750 ml": "images/0041_apothic_cab_750_ml.png",
-      "Apothic Crush 750 ml": "images/0042_apothic_crush_750_ml.jpg",
-      "Apothic Dark 750 ml": "images/0043_apothic_dark_750_ml.png",
-      "Apothic Inferno Bourbon Barrel Aged Red Blend  750 ml": "images/0044_apothic_inferno_bourbon_barrel_aged_red_blend_750_ml.jpg",
-      "Apothic Red 750 ml": "images/0045_apothic_red_750_ml.jpg",
-      "Apothic Rose  750 ml": "images/0046_apothic_rose_750_ml.jpg",
-      "Ardbeg 10 Year Single Malt  750 ml": "images/0047_ardbeg_10_year_single_malt_750_ml.png",
-      "Austin Hope Paso Robles C.S. 750 ml": "images/0048_austin_hope_paso_robles_c_s_750_ml.jpg",
-      "Bacardi Gold 750 ml": "images/0049_bacardi_gold_750_ml.jpg",
-      "Bacardi Superior 750 ml": "images/0050_bacardi_superior_750_ml.png",
-      "Bacardi Gold 1.75": "images/0051_bacardi_gold_1_75.jpg",
-      "Bacardi Superior 1.75": "images/0052_bacardi_superior_1_75.jpg",
-      "Baha Mix Michelada Cup 15g": "images/0053_baha_mix_michelada_cup_15g.png",
-      "Baileys Irish Cream 1 liter": "images/0054_baileys_irish_cream_1_liter.jpg",
-      "Baja Micheladas Caliente Mix Cup": "https://www.bajamicheladas.com/wp-content/uploads/2019/01/caliente-mix1-3-380x434.png",
-      "Baja Micheladas Original Mix Cup": "https://www.bajamicheladas.com/wp-content/uploads/2019/01/caliente-mix1-6.png",
-      "BALLATORE GRAN SPU 750 ml": "images/0057_ballatore_gran_spu_750_ml.png",
-      "BALLATORE ROSSO 750 ml": "images/0058_ballatore_rosso_750_ml.png",
-      "Bardstown Fusion Series 750 ml": "images/0059_bardstown_fusion_series_750_ml.png",
-      "Bare Foot Wt Zin 750 ml": "images/0060_bare_foot_wt_zin_750_ml.png",
-      "Barefoot Bubbly Brut Rose 1.5 liter": "https://drinxmarket.com/product/barefoot-bubbly-brut-rose-750-ml-bottle/101587.png",
-      "Barefoot Cabernet sauvignon 750 ml": "images/0062_barefoot_cabernet_sauvignon_750_ml.jpg",
-      "Barefoot Chardonnay 750 ml": "images/0063_barefoot_chardonnay_750_ml.jpg",
-      "Barefoot Moscato 750 ml": "images/0064_barefoot_moscato_750_ml.jpg",
-      "Barefoot Pink Moscato  750 ml": "images/0065_barefoot_pink_moscato_750_ml.jpg",
-      "Barefoot Pinot Gri  750 ml": "images/0066_barefoot_pinot_gri_750_ml.jpg",
-      "Barefoot Pinot Noir 1.5 liter": "images/0067_barefoot_pinot_noir_1_5_liter.jpg",
-      "Barefoot Riesling 1.5 liter": "images/0068_barefoot_riesling_1_5_liter.jpg",
-      "Barefoot Rose 1.5 liter": "images/0069_barefoot_rose_1_5_liter.jpg",
-      "Barefoot Wt Zin  750 ml": "images/0070_barefoot_wt_zin_750_ml.png",
-      "Basil Hayden's Dark Rye Whiskey  750 ml": "https://www.basilhaydenbourbon.com/sites/default/files/styles/original/public/2024-10/basil-hayden-bourbon-whiskey-bottle-dark-rye-v3.png.webp?itok=T-cpzVeh",
-      "Basil Hayden's Kentucky Straight Bourbon  750 ml": "images/0072_basil_hayden_s_kentucky_straight_bourbon_750_ml.png",
-      "Basil Hayden Toast 750 ml": "images/0073_basil_hayden_toast_750_ml.png",
-      "Bear Republic Racer 5 Ipa 12oz Cans": "images/0074_bear_republic_racer_5_ipa_12oz_cans.jpg",
-      "Bear Republic Thru The Haze Ipa 12oz Bottles": "images/0075_bear_republic_thru_the_haze_ipa_12oz_bottles.png",
-      "Beck's 12oz Bottles 12 pack": "images/0076_beck_s_12oz_bottles_12_pack.jpg",
-      "BELAIRE  BRUT  750 ml": "images/0077_belaire_brut_750_ml.jpg",
-      "BELAIRE ROSE 750 ml": "images/0078_belaire_rose_750_ml.jpg",
-      "Belvedere Vodka  750 ml": "https://www.clos19.com/on/demandware.static/-/Sites-mh-master/default/dw3f737a2a/images/large/belvedere/packshots/BELVEDERE-VODKA-PURE-NEW-LABEL-70CL-1076497_1.jpg",
-      "Beringer Allluim R  750 ml": "images/0080_beringer_allluim_r_750_ml.jpg",
-      "Beringer Distinct Napa Valley Cabernet Sauvignon  750 ml": "images/0081_beringer_distinct_napa_valley_cabernet_sauvignon_750_ml.jpg",
-      "Beringer Founders  750 ml": "https://empirewine.imgix.net/item-hqid/8973.jpg?auto=format,compress&fit=max&fill-color=FFFFFF&pad=20&h=600&w=600",
-      "Beringer Sonoma Coast Pinot Noir 750 ml": "images/0083_beringer_sonoma_coast_pinot_noir_750_ml.png",
-      "Bird Dog Kentucky Bourbon Select Stock  750 ml": "images/0084_bird_dog_kentucky_bourbon_select_stock_750_ml.jpg",
-      "Birddog 84 Proof 750 ml": "images/0085_birddog_84_proof_750_ml.jpg",
-      "Birddog 88 Proof Small Batch 7 year old 750 ml": "images/0086_birddog_88_proof_small_batch_7_year_old_750_ml.jpg",
-      "Black Velvet 750 ml": "images/0087_black_velvet_750_ml.jpg",
-      "Blanton's straight barrel Bourbond 750 ml": "images/0088_blanton_s_straight_barrel_bourbond_750_ml.jpg",
-      "Blanton Gold 750 ml": "images/0089_blanton_gold_750_ml.jpg",
-      "BLUE MOON 12 / 12 OZ": "images/0090_blue_moon_12_12_oz.jpg",
-      "BLUE MOON 6 PACK BOTTLE": "images/0091_blue_moon_6_pack_bottle.jpg",
-      "Bogle 2015 Merlot  750 ml": "images/0092_bogle_2015_merlot_750_ml.png",
-      "BOGLE CABERNET 750 ml": "images/0093_bogle_cabernet_750_ml.jpg",
-      "Bogle Chardonnay 750 ml": "images/0094_bogle_chardonnay_750_ml.jpg",
-      "BOGLE ESSENTIAL RED 750 ml": "images/0095_bogle_essential_red_750_ml.jpg",
-      "Bogle Merlot 750 ml": "images/0096_bogle_merlot_750_ml.jpg",
-      "Bogle Old Vine Zinfandel 750 ml": "images/0097_bogle_old_vine_zinfandel_750_ml.png",
-      "Bogle Sauvignon Blanc 7  750 ml": "images/0098_bogle_sauvignon_blanc_7_750_ml.jpg",
-      "Bogle Pinot Noir": "images/0099_bogle_pinot_noir.png",
-      "Bombay Sapphire 750 ml": "images/0100_bombay_sapphire_750_ml.jpg",
-      "Booker Little Book Chapter 05": "images/0101_booker_little_book_chapter_05.jpg",
-      "Booker's Small Batch 750 ml": "https://www.beamdistilling.com/sites/default/files/styles/media_library/public/2025-06/41782ce641155b9c72ddc18e0b5ca8d5ef0cc171.png.webp?itok=B8JUVQpj",
-      "Bowmore 17 Years Old  750 ml": "images/0103_bowmore_17_years_old_750_ml.jpg",
-      "Branson Cognac Xo Cent Cognac  750 ml": "images/0104_branson_cognac_xo_cent_cognac_750_ml.jpg",
-      "Breckenridge Colorado  750 ml": "images/0105_breckenridge_colorado_750_ml.jpg",
-      "Breckenridge High Proof Blend  750 ml": "images/0106_breckenridge_high_proof_blend_750_ml.png",
-      "Breckenridge Port Cask Finish  750 ml": "images/0107_breckenridge_port_cask_finish_750_ml.png",
-      "Breckenridge PX Cask Finish  750 ml": "images/0108_breckenridge_px_cask_finish_750_ml.jpg",
-      "Buchanan's Duluxe 12 y.o. 750 ml": "images/0109_buchanan_s_duluxe_12_y_o_750_ml.jpg",
-      "Buchanan's Master 750 ml": "images/0110_buchanan_s_master_750_ml.png",
-      "Buchanan's Red Seal 750 ml": "images/0111_buchanan_s_red_seal_750_ml.jpg",
-      "Buchanan's Select 15 Years Old Blended Scotch Whiskey  750 ml": "images/0112_buchanan_s_select_15_years_old_blended_scotch_whiskey_750_ml.jpg",
-      "Buchanan Pineapple": "images/0113_buchanan_pineapple.png",
-      "Buchanans 18 Years Old  750 ml": "images/0114_buchanans_18_years_old_750_ml.jpg",
-      "BUD LIGHT 6 PACK BOTTLES (SINGLE BREAK)": "images/0115_bud_light_6_pack_bottles_single_break.png",
-      "Bud Light 6pk Can": "images/0116_bud_light_6pk_can.png",
-      "BUD LIGHT PLATINUM 12 PACK BOTTLE": "images/0117_bud_light_platinum_12_pack_bottle.jpg",
-      "BUD LIGHT PLATINUM 6 PACK": "images/0118_bud_light_platinum_6_pack.jpg",
-      "Bud Lnnr 12pk": "images/0119_bud_lnnr_12pk.png",
-      "Bud Lt 12x16 Oz": "images/0120_bud_lt_12x16_oz.webp",
-      "Bud Lt 18 Pk Bot": "images/0121_bud_lt_18_pk_bot.png",
-      "BUDLIGHT CAN 12 OZ 12 PACK": "images/0122_budlight_can_12_oz_12_pack.png",
-      "BUDLIGHT CAN 12 OZ 18 PACK": "images/0123_budlight_can_12_oz_18_pack.png",
-      "BUDWEISER 18 PK 12 FL. OZ BOTTLES": "images/0124_budweiser_18_pk_12_fl_oz_bottles.jpg",
-      "BUDWEISER 3 PACK 25 OZ": "images/0125_budweiser_3_pack_25_oz.webp",
-      "BUDWISER BOTTLES 12 OZ 12 PACK": "images/0126_budwiser_bottles_12_oz_12_pack.jpg",
-      "BUDWISER BOTTLES 6 pack": "images/0127_budwiser_bottles_6_pack.jpg",
-      "BUDWISER CAN 12 OZ 12 pack": "images/0128_budwiser_can_12_oz_12_pack.png",
-      "BUDWISER CAN 18/12 OZ": "images/0129_budwiser_can_18_12_oz.jpg",
-      "Bufflo Trace 750 ml": "images/0130_bufflo_trace_750_ml.jpg",
-      "Bulleit Barrel Strength Bourbon  750 ml": "images/0131_bulleit_barrel_strength_bourbon_750_ml.jpg",
-      "Bulleit Bourbon  750 ml": "images/0132_bulleit_bourbon_750_ml.jpg",
-      "Bushmills Irish Whiskey  750 ml": "images/0133_bushmills_irish_whiskey_750_ml.png",
-      "Bushmills 1608 400th year": "images/0134_bushmills_1608_400th_year.jpg",
-      "Butter C.S. 750 ml": "images/0135_butter_c_s_750_ml.jpg",
-      "Butter Chardonnay 750ml": "images/0136_butter_chardonnay_750ml.webp",
-      "BV COASTAL CAB 750 ml": "images/0137_bv_coastal_cab_750_ml.png",
-      "BV COASTAL MERLOT 750 ml": "images/0138_bv_coastal_merlot_750_ml.png",
-      "CAKEBREAD CAB 750 ml": "images/0139_cakebread_cab_750_ml.jpg",
-      "CAKEBREAD CHARD 750 ml": "images/0140_cakebread_chard_750_ml.jpg",
-      "Calmato": "images/0141_calmato.jpg",
-      "Canadian Club  750 ml": "images/0142_canadian_club_750_ml.jpg",
-      "Candian Mist 750 ml": "images/0143_candian_mist_750_ml.jpg",
-      "Captain Morgan Original Spiced Rum 750 ml": "images/0144_captain_morgan_original_spiced_rum_750_ml.png",
-      "Captain Morgan Rum Original Spiced 1.75 LITER": "images/0145_captain_morgan_rum_original_spiced_1_75_liter.jpg",
-      "Cardhu \"Gold Reserve\" Game Of Thrones House Targaryen Single Malt 750 ml": "images/0146_cardhu_gold_reserve_game_of_thrones_house_targaryen_single_m.webp",
-      "Caribou Crossing 750 ml": "images/0147_caribou_crossing_750_ml.jpg",
-      "Carmel Road Chardonnay 750 ml": "https://www.arionwinecompany.com/pages/wp-content/uploads/2023/03/000-CR-2-682x1024.png",
-      "Casamigos Blanco 750 ml": "images/0149_casamigos_blanco_750_ml.png",
-      "Casamigos Mezcal 750 ml": "images/0150_casamigos_mezcal_750_ml.png",
-      "Casamigos Reposado Tequila 750 ml": "images/0151_casamigos_reposado_tequila_750_ml.jpg",
-      "Casamigos Anejo 750 ml": "images/0152_casamigos_anejo_750_ml.jpg",
-      "Caymus Napa Valley Cabernet Sauvignon 750 ml": "images/0153_caymus_napa_valley_cabernet_sauvignon_750_ml.jpg",
-      "Cazadores Anejo 750 ml": "images/0154_cazadores_anejo_750_ml.png",
-      "Cazadores Reposado 750 ml": "images/0155_cazadores_reposado_750_ml.png",
-      "Cazadors Blanc 750 ml": "images/0156_cazadors_blanc_750_ml.jpg",
-      "Chambord 750 ml": "images/0157_chambord_750_ml.jpg",
-      "CHANDON BLANC DE 750 ml": "images/0158_chandon_blanc_de_750_ml.jpg",
-      "CHANDON BRUT 750 ML": "images/0159_chandon_brut_750_ml.jpg",
-      "Chandon Rose 750 ml": "images/0160_chandon_rose_750_ml.jpg",
-      "Château Montelena Cabernet Sauvignon Napa 750 ml": "images/0161_ch_teau_montelena_cabernet_sauvignon_napa_750_ml.png",
-      "Chivas Regal 12YR Blended Scotch Whisky 750 ml": "images/0162_chivas_regal_12yr_blended_scotch_whisky_750_ml.jpg",
-      "Christon Bros Brandy 750 ml": "images/0163_christon_bros_brandy_750_ml.jpg",
-      "Cincoro Blanco Tequila 750 ml": "images/0164_cincoro_blanco_tequila_750_ml.jpg",
-      "Cincoro Reposado Tequila 750 ml": "https://www.cincoro.com/wp-content/uploads/2024/02/BoxReposado-scaled.jpg",
-      "Cincoro Tequila Añejo 750 ml": "images/0166_cincoro_tequila_a_ejo_750_ml.jpg",
-      "Ciroc Apple 750 ml": "images/0167_ciroc_apple_750_ml.jpg",
-      "Ciroc Black Raspberry Vodka 750 ml": "images/0168_ciroc_black_raspberry_vodka_750_ml.jpg",
-      "Ciroc Limited Edition Summer Watermelon Vodka 750 ml": "images/0169_ciroc_limited_edition_summer_watermelon_vodka_750_ml.jpg",
-      "Ciroc Mango Vodka 750 ml": "images/0170_ciroc_mango_vodka_750_ml.jpg",
-      "Ciroc Peach 750 ml": "images/0171_ciroc_peach_750_ml.png",
-      "Ciroc Pineapple 750 ml": "images/0172_ciroc_pineapple_750_ml.png",
-      "Ciroc Red Berry 750 ml": "images/0173_ciroc_red_berry_750_ml.png",
-      "Ciroc Summer Citrus 750 ml": "images/0174_ciroc_summer_citrus_750_ml.jpg",
-      "Ciroc Vodka 750 ml": "images/0175_ciroc_vodka_750_ml.jpg",
-      "Ciroc VS French Brandy 750 ml": "images/0176_ciroc_vs_french_brandy_750_ml.jpg",
-      "Ciroc White Grape 750 ml": "images/0177_ciroc_white_grape_750_ml.jpg",
-      "CLAMATO 32OZ": "images/0178_clamato_32oz.jpg",
-      "CLAMATO PICANTE 32": "images/0179_clamato_picante_32.jpg",
-      "CLOS DU BOIS CABERNET 750 ml": "images/0180_clos_du_bois_cabernet_750_ml.png",
-      "CLOS DU BOIS Chardonnay 750 ml": "images/0181_clos_du_bois_chardonnay_750_ml.jpg",
-      "COCA COLA  12PK": "images/0182_coca_cola_12pk.png",
-      "COKE CLASSIC 2 LT": "https://cvalimited.com/pharmacy/wp-content/uploads/2022/05/COCA-COLA-CLASIC-2L-1024x1024.jpg",
-      "Colonel E.H. Taylor Single Barrel 750 ml": "images/0184_colonel_e_h_taylor_single_barrel_750_ml.jpg",
-      "Colonel E.H. Taylor Small Batch 750 ml": "images/0185_colonel_e_h_taylor_small_batch_750_ml.jpg",
-      "Colonel E.H. Taylor Straight Rye 750 ml": "images/0186_colonel_e_h_taylor_straight_rye_750_ml.png",
-      "Colonel E.H. Taylor Barrel Proof uncut 750 ml": "images/0187_colonel_e_h_taylor_barrel_proof_uncut_750_ml.png",
-      "Cooks Brut": "https://drinxmarket.com/wp-content/uploads/2022/11/101854.png",
-      "Cooks Extra Dry 750 ml": "images/0189_cooks_extra_dry_750_ml.webp",
-      "Coors 12pk Bottle": "images/0190_coors_12pk_bottle.png",
-      "COORS BANQ STUB 12 PACK BOTTLE": "images/0191_coors_banq_stub_12_pack_bottle.png",
-      "COORS BANQUET 18 PK BTL": "images/0192_coors_banquet_18_pk_btl.jpg",
-      "COORS BANQUET 3 PACK": "images/0193_coors_banquet_3_pack.png",
-      "COORS LIGHT 3 PACK": "images/0194_coors_light_3_pack.jpg",
-      "COORS LIGHT BOTTLES 6 PACK 12 OZ": "images/0195_coors_light_bottles_6_pack_12_oz.jpg",
-      "COORS LIGHT CAN 12 PACK 12 OZ": "images/0196_coors_light_can_12_pack_12_oz.png",
-      "COORS LIGHT CAN 18 PACK 12 OZ": "images/0197_coors_light_can_18_pack_12_oz.png",
-      "COORS LIGHT LONG NECK 12OZ 18 PACK": "images/0198_coors_light_long_neck_12oz_18_pack.jpg",
-      "COORS ORIGINAL CAN 12 PACK 12 OZ": "images/0199_coors_original_can_12_pack_12_oz.png",
-      "Coorslt 12pkbttl": "images/0200_coorslt_12pkbttl.png",
-      "Copper Tongue 16 yr 750 ml": "images/0201_copper_tongue_16_yr_750_ml.jpg",
-      "Coppla Claret Diamond 750 ml": "images/0202_coppla_claret_diamond_750_ml.png",
-      "Coppla Diamond Chardonay 750 ml": "images/0203_coppla_diamond_chardonay_750_ml.jpg",
-      "Coppola Diamond Cabernet Sauvignon 750 ml": "images/0204_coppola_diamond_cabernet_sauvignon_750_ml.png",
-      "Coppola Diamond CS 750 ml": "images/0205_coppola_diamond_cs_750_ml.png",
-      "Coppola Diamond Pinot Noir Oregon 750 ml": "images/0206_coppola_diamond_pinot_noir_oregon_750_ml.png",
-      "Coppola Sauvignon Blanc Yellow Label 750 ml": "images/0207_coppola_sauvignon_blanc_yellow_label_750_ml.jpg",
-      "Corazon Reposado 750 ml": "images/0208_corazon_reposado_750_ml.jpg",
-      "Corona 12pk Bottle": "images/0209_corona_12pk_bottle.webp",
-      "CORONA 18 PACK Bottle": "images/0210_corona_18_pack_bottle.jpg",
-      "CORONA EXTRA 24 PACK": "images/0211_corona_extra_24_pack.jpg",
-      "CORONA EXTRA 6 PACK BOTTLE": "images/0212_corona_extra_6_pack_bottle.webp",
-      "Corona Extra Coronita 7oz Bottles": "images/0213_corona_extra_coronita_7oz_bottles.webp",
-      "Corona Familiar 12oz Bottles 12PK": "images/0214_corona_familiar_12oz_bottles_12pk.webp",
-      "Corona Familiar 12oz Bottles 6PK": "images/0215_corona_familiar_12oz_bottles_6pk.webp",
-      "CORONA LIGHT BOTTLES 6PACK 12 OZ": "images/0216_corona_light_bottles_6pack_12_oz.jpg",
-      "CORONA PREMIER 12 BTL": "images/0217_corona_premier_12_btl.png",
-      "Corona Premier 12oz Bottles 12 pack": "images/0218_corona_premier_12oz_bottles_12_pack.webp",
-      "Corona Premier 12oz Bottles 6 pack": "images/0219_corona_premier_12oz_bottles_6_pack.webp",
-      "Corralejo Anejo 750 ml": "images/0220_corralejo_anejo_750_ml.jpg",
-      "Corralejo Silver 750 ml": "images/0221_corralejo_silver_750_ml.png",
-      "Courvoiser Xo 750 ml": "images/0222_courvoiser_xo_750_ml.webp",
-      "Courvoisier VS 750 ml": "images/0223_courvoisier_vs_750_ml.jpg",
-      "Courvoisier VSOP 750 ml": "images/0224_courvoisier_vsop_750_ml.jpg",
-      "Crown Royal 750 ml": "images/0225_crown_royal_750_ml.jpg",
-      "Crown Royal Peach 750 ml": "images/0226_crown_royal_peach_750_ml.jpg",
-      "Crown Royal Apple 750 ml": "images/0227_crown_royal_apple_750_ml.jpg",
-      "Crown Royal Black 750 ml": "images/0228_crown_royal_black_750_ml.jpg",
-      "Crown Royal Bourbon Mash Whisky 750 ml": "images/0229_crown_royal_bourbon_mash_whisky_750_ml.jpg",
-      "Crown Royal Canadian Whisky Noble Collection 13 Year Blenders Mash 750 ml": "images/0230_crown_royal_canadian_whisky_noble_collection_13_year_blender.jpg",
-      "Crown Royal Reserve 750 ml": "images/0231_crown_royal_reserve_750_ml.jpg",
-      "Crown Royal Vanilla 750 ml": "images/0232_crown_royal_vanilla_750_ml.jpg",
-      "Cuervo Margarita 750ML": "images/0233_cuervo_margarita_750ml.jpg",
-      "Caymus-Suisun red blend 750ml": "images/0234_caymus_suisun_red_blend_750ml.jpg",
-      "Dalmore 12 Year Highland Single Malt Scotch Whisky 750 ml": "https://image.invaluable.com/housePhotos/ejsauction/76/799476/H8897-L415596626.jpg",
-      "Dalwhinnie Winter’s Frost Game of Thrones House Stark Single Malt Scotch Whisky 750 ml": "images/0236_dalwhinnie_winter_s_frost_game_of_thrones_house_stark_single.jpg",
-      "De Luze 750 ml": "images/0237_de_luze_750_ml.jpg",
-      "De Luze XO 750 ml": "images/0238_de_luze_xo_750_ml.jpg",
-      "Decoy Cabernet Sauvignon 750 ml": "images/0239_decoy_cabernet_sauvignon_750_ml.jpg",
-      "Decoy Cabernet Sauvignon Limited Napa Valley 750 ml": "images/0240_decoy_cabernet_sauvignon_limited_napa_valley_750_ml.png",
-      "Decoy Limited Red Wine 750 ml": "images/0241_decoy_limited_red_wine_750_ml.webp",
-      "Decoy Chardonay": "images/0242_decoy_chardonay.jpg",
-      "Decoy Rose 750 ml": "images/0243_decoy_rose_750_ml.jpg",
-      "Decoy Merlot 750 ml": "images/0244_decoy_merlot_750_ml.webp",
-      "Decoy Pinot Noir 750 ml": "images/0245_decoy_pinot_noir_750_ml.jpg",
-      "Duckhorn C.S. 750ml": "images/0246_duckhorn_c_s_750ml.jpg",
-      "Dewar Aged 19 Years": "images/0247_dewar_aged_19_years.png",
-      "Dekuyper Blue Cura 750 ml": "images/0248_dekuyper_blue_cura_750_ml.jpg",
-      "Mirassou Pinot Noir 750 ml": "images/0249_mirassou_pinot_noir_750_ml.png",
-      "Mirassou Chardonay 750 ml": "images/0250_mirassou_chardonay_750_ml.png",
-      "Dekuyper Peppermint 100 proof 750 ml": "https://drinxmarket.com/wp-content/uploads/2023/05/105770.png",
-      "Deschutes Fresh Haze 12oz Cans": "images/0252_deschutes_fresh_haze_12oz_cans.png",
-      "DIET COKE  12PK": "images/0253_diet_coke_12pk.jpg",
-      "Dipadrino Dry Vermouth 750 ml": "images/0254_dipadrino_dry_vermouth_750_ml.jpg",
-      "Dipadrino Rosso Vermouth 750 ml": "images/0255_dipadrino_rosso_vermouth_750_ml.jpg",
-      "Disaronno Originale Liqueor 750 ml": "images/0256_disaronno_originale_liqueor_750_ml.jpg",
-      "Dk Triple Sec 750 ml": "images/0257_dk_triple_sec_750_ml.jpg",
-      "Dole Pinapple Jui": "images/0258_dole_pinapple_jui.jpg",
-      "Don Julio 1942 750 ml": "images/0259_don_julio_1942_750_ml.jpg",
-      "Don Julio 70 750 ml": "images/0260_don_julio_70_750_ml.png",
-      "Don Julio Blanco 750 ml": "https://winenliquor.com/wp-content/uploads/don-julio-blanco-750ml.jpg",
-      "Don Julio Reposoda 750 ml": "images/0262_don_julio_reposoda_750_ml.jpg",
-      "Don Pedro Brandy 750 ml": "images/0263_don_pedro_brandy_750_ml.jpg",
-      "Don Perignon 750 ml": "images/0264_don_perignon_750_ml.jpg",
-      "DOS EQUIS 12 PK BTL 12 FL. OZ": "images/0265_dos_equis_12_pk_btl_12_fl_oz.jpg",
-      "Dos Equis Lager 6 pack": "images/0266_dos_equis_lager_6_pack.jpg",
-      "DR PEPPER 2L": "images/0267_dr_pepper_2l.jpg",
-      "Drakes Pilsner 6x12oz Bttl 6 pack": "images/0268_drakes_pilsner_6x12oz_bttl_6_pack.webp",
-      "DT COKE 2 LTR": "images/0269_dt_coke_2_ltr.jpg",
-      "Duckhorn Napa Valley CS 750 ml": "images/0270_duckhorn_napa_valley_cs_750_ml.jpg",
-      "Duckhorn Napa Valley Chardonnay 750 ml": "images/0271_duckhorn_napa_valley_chardonnay_750_ml.jpg",
-      "Duckhorn Napa Valley Merlot 750 ml": "images/0272_duckhorn_napa_valley_merlot_750_ml.jpg",
-      "Dusse 750 ml": "images/0273_dusse_750_ml.png",
-      "Dusse XO": "images/0274_dusse_xo.jpg",
-      "E & J Brandy 750 ml": "images/0275_e_j_brandy_750_ml.jpg",
-      "E & J Peach Brandy 750 ml": "images/0276_e_j_peach_brandy_750_ml.jpg",
-      "E & J VSOP Grand Blue 750 ml": "images/0277_e_j_vsop_grand_blue_750_ml.jpg",
-      "Eagle Rare 17 year old 750 ml": "images/0278_eagle_rare_17_year_old_750_ml.jpg",
-      "Eagle Rare 750 ml": "images/0279_eagle_rare_750_ml.jpg",
-      "Elmer T. Lee single barrel": "images/0280_elmer_t_lee_single_barrel.jpg",
-      "Eagle Rare 12 Year old": "images/0281_eagle_rare_12_year_old.jpg",
-      "El Jimador Reposado 750 ml": "images/0282_el_jimador_reposado_750_ml.png",
-      "El Jimador Silver 750 ml": "images/0283_el_jimador_silver_750_ml.jpg",
-      "Elijah Craig Small Batch 136.8 Proof 750 ml": "images/0284_elijah_craig_small_batch_136_8_proof_750_ml.png",
-      "Elijah Craig Small Batch 94 Proof 750 ml": "images/0285_elijah_craig_small_batch_94_proof_750_ml.png",
-      "Elysian Rolling Stone Lager Cans": "images/0286_elysian_rolling_stone_lager_cans.jpg",
-      "ELYSIAN SPACE DUST 1PA 6 PACK": "images/0287_elysian_space_dust_1pa_6_pack.jpg",
-      "Espolon Blanco 750 ml": "https://winenliquor.com/wp-content/uploads/espolon-tequila-blanco-1l.png",
-      "Espolon Reposado 750 ml": "images/0289_espolon_reposado_750_ml.jpg",
-      "Espolon Anejo": "images/0290_espolon_anejo.png",
-      "Evan Williams Single Barrel 750 ml": "images/0291_evan_williams_single_barrel_750_ml.jpg",
-      "Everclear Grain Alcohol 120 Proof": "images/0292_everclear_grain_alcohol_120_proof.png",
-      "FETZ VALLEY OAK C.S. 750 ml": "images/0293_fetz_valley_oak_c_s_750_ml.jpg",
-      "FETZER VALLEY OAK Merlot 750 ml": "images/0294_fetzer_valley_oak_merlot_750_ml.jpg",
-      "Few Small Batch Rye Whiskey 750 ml": "images/0295_few_small_batch_rye_whiskey_750_ml.jpg",
-      "FEW Straight Bourbon Whiskey 750 ml": "images/0296_few_straight_bourbon_whiskey_750_ml.jpg",
-      "Fireball Cinnamon 750 ml": "images/0297_fireball_cinnamon_750_ml.jpg",
-      "Fireball Cinnamon Whisky 1.75 L": "images/0298_fireball_cinnamon_whisky_1_75_l.jpg",
-      "Four Roses Single Barrel 750 ml": "images/0299_four_roses_single_barrel_750_ml.png",
-      "Four Roses Small Batch 750 ml": "images/0300_four_roses_small_batch_750_ml.png",
-      "Four Roses Small Select 750 ml": "images/0301_four_roses_small_select_750_ml.png",
-      "Four Roses Straight 750 ml": "images/0302_four_roses_straight_750_ml.jpg",
-      "Francis Coppola Pinot Noir 750 ml": "images/0303_francis_coppola_pinot_noir_750_ml.webp",
-      "Freakshow 750 ml": "images/0304_freakshow_750_ml.jpg",
-      "Freakshow Cabernet Sauvignon 750 ml": "images/0305_freakshow_cabernet_sauvignon_750_ml.jpg",
-      "Frey Ranch 750 ml": "images/0306_frey_ranch_750_ml.jpg",
-      "GEKKEIKAN JUNMAI SAKE 750 ml": "images/0307_gekkeikan_junmai_sake_750_ml.png",
-      "GEKKEIKAN JUNMAI SAKE BLACK & GOLD 750 ml": "images/0308_gekkeikan_junmai_sake_black_gold_750_ml.jpg",
-      "Gentleman Jack 750 ml": "images/0309_gentleman_jack_750_ml.jpg",
-      "George Dickel": "images/0310_george_dickel.jpg",
-      "George Dickel Bottled in Bond 750 ml": "images/0311_george_dickel_bottled_in_bond_750_ml.jpg",
-      "George Dickel Sour Mash 8 750 ml": "images/0312_george_dickel_sour_mash_8_750_ml.jpg",
-      "George T. Stagg Barrel Proof 750 ml": "images/0313_george_t_stagg_barrel_proof_750_ml.jpg",
-      "Glendronach 12 yr 750 ml": "images/0314_glendronach_12_yr_750_ml.png",
-      "Glendronach 15 year old 750 ml": "images/0315_glendronach_15_year_old_750_ml.png",
-      "Glendronach 18 yr 750 ml": "images/0316_glendronach_18_yr_750_ml.png",
-      "Glendronach Peated Single Malt 12 Year Scotch 750 ml": "https://www.htfw.com/media/catalog/product/cache/801b826746c417a51e3d96b449906a0f/l/p/lp18437_2_1.jpg",
-      "Glenfiddich 12 yr 750 ml": "images/0318_glenfiddich_12_yr_750_ml.jpg",
-      "Glenfiddich 14 yr 750 ml": "images/0319_glenfiddich_14_yr_750_ml.jpg",
-      "Glenfiddich 15 Y 750 ml": "images/0320_glenfiddich_15_y_750_ml.jpg",
-      "Glenfiddich 18yr 750 ml": "images/0321_glenfiddich_18yr_750_ml.jpg",
-      "Glenfiddich India Pale Ale Cask Single Malt Scotch Whisky 750 ml": "images/0322_glenfiddich_india_pale_ale_cask_single_malt_scotch_whisky_75.jpg",
-      "Glenlivet 12 year old 750 ml": "images/0323_glenlivet_12_year_old_750_ml.jpg",
-      "Gnarly Head 750 ml": "images/0324_gnarly_head_750_ml.gif",
-      "Gnarly Head Chardonnay 750 ml": "images/0325_gnarly_head_chardonnay_750_ml.jpg",
-      "Gran Centenario Anejo 750 ml": "images/0326_gran_centenario_anejo_750_ml.jpg",
-      "Gran Centenario Leyenda 750 ml": "images/0327_gran_centenario_leyenda_750_ml.jpg",
-      "Gran centenario Reposado 750 ml": "images/0328_gran_centenario_reposado_750_ml.jpg",
-      "Grey Goose 750 ml": "images/0329_grey_goose_750_ml.png",
-      "Grgich Napa Valley Cab 750 ml": "images/0330_grgich_napa_valley_cab_750_ml.jpg",
-      "GROLSCH LAGER 4 PK 16 FL OZ": "https://www.a2zdrinks.com/pub/media/catalog/product/cache/9838dd690d7e56a9b6c5bd49a456e5a6/g/r/grolschcase.jpg",
-      "Groth Cabernet Sauvignon Oakville 750 ml": "images/0332_groth_cabernet_sauvignon_oakville_750_ml.jpg",
-      "Guinness Black 6 pack": "images/0333_guinness_black_6_pack.jpg",
-      "GUINNESS BLONDE BOTTLE  6 PACK 12 OZ": "images/0334_guinness_blonde_bottle_6_pack_12_oz.jpg",
-      "GUINNESS DRAUGHT BOTTLE  6 PACK 12 OZ": "images/0335_guinness_draught_bottle_6_pack_12_oz.jpg",
-      "GUINNESS STOUT 6 PACK 12 OZ BOTTLE": "images/0336_guinness_stout_6_pack_12_oz_bottle.jpg",
-      "Hancock's President's Reserve 750 ml": "images/0337_hancock_s_president_s_reserve_750_ml.jpg",
-      "Hartley VSOP 750 ml": "images/0338_hartley_vsop_750_ml.jpg",
-      "Heaven Hill Bottled In Bond 7 Year Kentucky Straight Bourbon 750 ml": "images/0339_heaven_hill_bottled_in_bond_7_year_kentucky_straight_bourbon.jpg",
-      "Heineken 0.0 Non Alcoholic 12oz Bottles 6 pk": "images/0340_heineken_0_0_non_alcoholic_12oz_bottles_6_pk.webp",
-      "HEINEKEN 24 PACK 12 OZ": "images/0341_heineken_24_pack_12_oz.png",
-      "HEINEKEN NON ALCOHOL 6BTL": "images/0342_heineken_non_alcohol_6btl.jpg",
-      "HEINKEN LIGHT 6 PACK 12 OZ BTL": "images/0343_heinken_light_6_pack_12_oz_btl.webp",
-      "Hendrick's 750 ml": "images/0344_hendrick_s_750_ml.jpg",
-      "HENINEKEN  BEER BOTTLE 12 PACK 12 OZ": "images/0345_henineken_beer_bottle_12_pack_12_oz.png",
-      "HENINEKEN  BEER BOTTLE 6 PACK 12 OZ": "images/0346_henineken_beer_bottle_6_pack_12_oz.png",
-      "Hennessy 750 ml": "images/0347_hennessy_750_ml.jpg",
-      "Hennessy Black 750 ml": "https://www.hennessy.com/sites/hennessy_us/files/styles/square_2000x2000/public/2020-01/BLACK.png",
-      "Hennessy Master Blenders No 1 750 ml": "https://www.wineandtoast.com/wp-content/uploads/2024/12/hennessy-master-blender-s-selection-no-1-cognac-375ml-1734163335-800x800.webp",
-      "Hennessy Master Blenders No 2 750 ml": "images/0350_hennessy_master_blenders_no_2_750_ml.jpg",
-      "Hennessy VSOP 200 Years Anniversary Special Edition 750 ml": "images/0351_hennessy_vsop_200_years_anniversary_special_edition_750_ml.webp",
-      "Hennessy VSOP 750 ml": "https://www.hennessy.com/sites/hennessy/files/2023-04/HENNESSY-VSOP-BOTTLE.png",
-      "Hennessy Xo 750 ml": "images/0353_hennessy_xo_750_ml.jpg",
-      "Herradura Anejo 750 ml": "https://drinxmarket.com/wp-content/uploads/2022/11/102718.jpg",
-      "Herradura Reposado 750 ml": "images/0355_herradura_reposado_750_ml.jpg",
-      "Hess Select Chardonnay 750 ml": "images/0356_hess_select_chardonnay_750_ml.webp",
-      "Hibiki Japanese Blended Suntory Whisky 750 ml": "images/0357_hibiki_japanese_blended_suntory_whisky_750_ml.jpg",
-      "High West Whisky": "images/0358_high_west_whisky.webp",
-      "Highland Park 12 Year Single Malt Scotch Whiskey 750 ml": "images/0359_highland_park_12_year_single_malt_scotch_whiskey_750_ml.png",
-      "Highland Park Full 17 year old 750 ml": "images/0360_highland_park_full_17_year_old_750_ml.jpg",
-      "Homo Milk Gallo": "images/0361_homo_milk_gallo.jpg",
-      "Hornitos 1.75 L": "images/0362_hornitos_1_75_l.webp",
-      "Hornitos Reposado 750 ml": "images/0363_hornitos_reposado_750_ml.webp",
-      "Hpnotiq 750 ml": "images/0364_hpnotiq_750_ml.jpg",
-      "I.W. Happer 15 yr 750 ml": "images/0365_i_w_happer_15_yr_750_ml.png",
-      "J. Lohr Cabernet Sauvignon 750 ml": "images/0366_j_lohr_cabernet_sauvignon_750_ml.jpg",
-      "J.W. Gold Label Reserve 750 ml": "images/0367_j_w_gold_label_reserve_750_ml.jpg",
-      "Jack Daniel 1850 750 ml": "images/0368_jack_daniel_1850_750_ml.jpg",
-      "Jack Daniel 750 ml": "images/0369_jack_daniel_750_ml.jpg",
-      "Jack Daniel Gentleman Jack 750 ml": "images/0370_jack_daniel_gentleman_jack_750_ml.jpg",
-      "Jack Daniel Single Barrel Select 750 ml": "images/0371_jack_daniel_single_barrel_select_750_ml.png",
-      "Jack Daniel's No. 27 Gold Double Barreled Tennessee Whiskey 750 ml": "images/0372_jack_daniel_s_no_27_gold_double_barreled_tennessee_whiskey_7.jpg",
-      "Jack Daniel's Straight Rye Whiskey 750 ml": "images/0373_jack_daniel_s_straight_rye_whiskey_750_ml.jpg",
-      "Jack Daniel's Tennessee Apple Whisky 750 ml": "images/0374_jack_daniel_s_tennessee_apple_whisky_750_ml.jpg",
-      "Jack Daniel's Tennessee Straight Rye Whisky Gift Set 750 ml": "images/0375_jack_daniel_s_tennessee_straight_rye_whisky_gift_set_750_ml.jpg",
-      "Jack Daniel's Tennessee Whiskey Legacy Edition 750 ml": "images/0376_jack_daniel_s_tennessee_whiskey_legacy_edition_750_ml.jpg",
-      "Jack Daniel's Tennessee Whiskey Old No 7 Legacy Edition 750 ml": "images/0377_jack_daniel_s_tennessee_whiskey_old_no_7_legacy_edition_750_.jpg",
-      "Jack Daniels Apple 750 ml": "images/0378_jack_daniels_apple_750_ml.jpg",
-      "Jack Daniels Fire 750 ml": "images/0379_jack_daniels_fire_750_ml.jpg",
-      "Jack Daniels Honey 750 ml": "images/0380_jack_daniels_honey_750_ml.jpg",
-      "Jack Daniels No 7 750 ml": "images/0381_jack_daniels_no_7_750_ml.jpg",
-      "Jack Daniels Bonded": "images/0382_jack_daniels_bonded.png",
-      "Jack Daniels Single Barrel 750 ml": "images/0383_jack_daniels_single_barrel_750_ml.jpg",
-      "Jack DanielsTanyard Hil Rye": "images/0384_jack_danielstanyard_hil_rye.png",
-      "Jagermeilter 56 750 ml": "images/0385_jagermeilter_56_750_ml.png",
-      "Jameson 750 ml": "images/0386_jameson_750_ml.jpg",
-      "Jameson Black Barrel Irish Whisky 750 ml": "images/0387_jameson_black_barrel_irish_whisky_750_ml.webp",
-      "Jameson Caskmates IPA Edition Irish Whiskey 750 ml": "images/0388_jameson_caskmates_ipa_edition_irish_whiskey_750_ml.jpg",
-      "Jameson Caskmates Stout Edition Irish Whiskey 750 ml": "images/0389_jameson_caskmates_stout_edition_irish_whiskey_750_ml.jpg",
-      "Jameson Cold Brew Irish Whisky 750 ml": "images/0390_jameson_cold_brew_irish_whisky_750_ml.jpg",
-      "Jim Beam 750 ml": "images/0391_jim_beam_750_ml.jpg",
-      "Jim Beam Black 750 ml": "images/0392_jim_beam_black_750_ml.jpg",
-      "Jim Beam Red Stag 750 ml": "images/0393_jim_beam_red_stag_750_ml.png",
-      "Joel Gott 815 Cabernet Sauvignon 750 ml": "images/0394_joel_gott_815_cabernet_sauvignon_750_ml.png",
-      "Joel Gott Chardonnay 750 ml": "images/0395_joel_gott_chardonnay_750_ml.webp",
-      "Joel Gott Merlot 750 ml": "images/0396_joel_gott_merlot_750_ml.webp",
-      "Joel Gott Pinot Noir California 750 ml": "images/0397_joel_gott_pinot_noir_california_750_ml.webp",
-      "John Barr Scotch W 750 ml": "images/0398_john_barr_scotch_w_750_ml.png",
-      "Johnnie W Blue Label 750 ml": "images/0399_johnnie_w_blue_label_750_ml.jpg",
-      "Johnnie Walker Black Label 12 Year Blended Scotch 750ml": "images/0400_johnnie_walker_black_label_12_year_blended_scotch_750ml.jpg",
-      "Johnnie Walker Double Black 750 ml": "images/0401_johnnie_walker_double_black_750_ml.webp",
-      "Johnnie Walker Green Label 750 ml": "images/0402_johnnie_walker_green_label_750_ml.png",
-      "Johnnie Walker Platium 750 ml": "images/0403_johnnie_walker_platium_750_ml.jpg",
-      "Johnnie Walker Red 750 ml": "images/0404_johnnie_walker_red_750_ml.png",
-      "Johnnie Walker Blk Squad Game 750 ml": "images/0405_johnnie_walker_blk_squad_game_750_ml.png",
-      "Jordan C.S. 750 ml": "images/0406_jordan_c_s_750_ml.jpg",
-      "Jose Cuervo Especi 750 ml": "images/0407_jose_cuervo_especi_750_ml.jpg",
-      "Jose Cuervo Gold Tequila 1.75 L": "images/0408_jose_cuervo_gold_tequila_1_75_l.jpg",
-      "Jose Cuervo Golden Margarita 1.75 L": "images/0409_jose_cuervo_golden_margarita_1_75_l.jpg",
-      "Jose Cuervo Margarita Strawberry 750 ml": "https://drinxmarket.com/wp-content/uploads/2022/11/102730.jpg",
-      "Jose Cuervo Oranjo 1.75 Liter": "images/0411_jose_cuervo_oranjo_1_75_liter.jpg",
-      "Jose Cuervo Reserva De La Familia Extra Anejo 750 ml": "images/0412_jose_cuervo_reserva_de_la_familia_extra_anejo_750_ml.png",
-      "Jose Cuervo Tequila Tradicional Silver 750 ml": "images/0413_jose_cuervo_tequila_tradicional_silver_750_ml.png",
-      "Jose Cuervo Tradicional Anejo 750 ml": "images/0414_jose_cuervo_tradicional_anejo_750_ml.jpg",
-      "Jose Cuervo Tradicional Reposado 750 ml": "images/0415_jose_cuervo_tradicional_reposado_750_ml.jpg",
-      "Jose Cuervo Tradicional Silver 750 ml": "images/0416_jose_cuervo_tradicional_silver_750_ml.png",
-      "Josh Reserve C.S. 750 m": "images/0417_josh_reserve_c_s_750_m.png",
-      "Josh Cellar Chardonnay 750 ml": "images/0418_josh_cellar_chardonnay_750_ml.jpg",
-      "Josh Cellar Melot 750 ml": "images/0419_josh_cellar_melot_750_ml.jpg",
-      "Josh Cellar SB 750 ml": "images/0420_josh_cellar_sb_750_ml.png",
-      "Josh Pinot 750 ml": "images/0421_josh_pinot_750_ml.jpg",
-      "Josh Legacy Red Blend 750ml": "images/0422_josh_legacy_red_blend_750ml.jpg",
-      "Josh Rose": "images/0423_josh_rose.jpg",
-      "Josh Zinfandel 750 ml": "images/0424_josh_zinfandel_750_ml.jpg",
-      "Josh Cellar C.S. 750 ml": "images/0425_josh_cellar_c_s_750_ml.jpg",
-      "Justin C.S. 750 ml": "images/0426_justin_c_s_750_ml.jpg",
-      "Kahlua Liqeuor": "images/0427_kahlua_liqeuor.png",
-      "KENDAL JACKSON   750 ml": "images/0428_kendal_jackson_750_ml.png",
-      "Kendall Jackson 2015 Grand Reserve Chardonnay 750 ml": "images/0429_kendall_jackson_2015_grand_reserve_chardonnay_750_ml.jpg",
-      "Kendall Jackson Grand Reserve Cabernet Sauvignon 750 ml": "images/0430_kendall_jackson_grand_reserve_cabernet_sauvignon_750_ml.jpg",
-      "Kendall Jackson Zinfindel": "images/0431_kendall_jackson_zinfindel.jpg",
-      "Kendall Jackson Pinot Noir": "images/0432_kendall_jackson_pinot_noir.jpg",
-      "Kendall Jackson Vintner's Reserve Cabernet Sauvignon 750 ml": "https://www.arionwinecompany.com/pages/wp-content/uploads/2019/10/vivino-2024-04-09T164550.960.jpg",
-      "Kenwood Six Ridges Cabernet Sauvignon 750 ml": "images/0434_kenwood_six_ridges_cabernet_sauvignon_750_ml.jpg",
-      "Kessler 750 ml": "images/0435_kessler_750_ml.jpg",
-      "Ketal One 1.75": "images/0436_ketal_one_1_75.jpg",
-      "Ketel One 750 ml": "images/0437_ketel_one_750_ml.jpg",
-      "Kim Crawford Illuminate 750 ml": "images/0438_kim_crawford_illuminate_750_ml.webp",
-      "Kimcrawford Sauvignon Blanc 750 ml": "images/0439_kimcrawford_sauvignon_blanc_750_ml.jpg",
-      "KJ VINT RSR CHARD 750 ml": "images/0440_kj_vint_rsr_chard_750_ml.jpg",
-      "KJ Vinters Reserve C.S. 750 ml": "images/0441_kj_vinters_reserve_c_s_750_ml.png",
-      "KJ Vinters Reserve Merlot 750 ml": "images/0442_kj_vinters_reserve_merlot_750_ml.png",
-      "KJ Vinters Reserve SB 750 ml": "https://www.arionwinecompany.com/pages/wp-content/uploads/2019/10/vivino-2024-04-09T164550.960.jpg",
-      "KJ Vinters Reserve Zinfandel 750 ml": "images/0444_kj_vinters_reserve_zinfandel_750_ml.jpg",
-      "KJ Vintners Reserve Pinot Noir 750 ml": "images/0445_kj_vintners_reserve_pinot_noir_750_ml.png",
-      "Knob Creek  Straight 9 yr": "images/0446_knob_creek_straight_9_yr.jpg",
-      "Knob Creek 12yr Old Kentucky Straight Bourbon Whiskey 750 ml": "images/0447_knob_creek_12yr_old_kentucky_straight_bourbon_whiskey_750_ml.png",
-      "Knob Creek Rye Whiskey 750 ml": "https://www.knobcreek.com/sites/default/files/2024-07/7-year-old-kentucky-rye-bottle-whiskey-knob-creek.png",
-      "Knob Creek Small Batch 100 pf 750 ml": "images/0449_knob_creek_small_batch_100_pf_750_ml.jpg",
-      "KONA BIG WAVE PALE ALE 6 PACK": "images/0450_kona_big_wave_pale_ale_6_pack.jpg",
-      "Kona Longboard Island Lager 6 Pack": "images/0451_kona_longboard_island_lager_6_pack.png",
-      "Korbel Brandy 750 ml": "images/0452_korbel_brandy_750_ml.jpg",
-      "Korbel Brut Champagne 750 ml": "images/0453_korbel_brut_champagne_750_ml.jpg",
-      "Korbel Ex Dry 750 ml": "images/0454_korbel_ex_dry_750_ml.png",
-      "LA CREMA Pinot 750 ml": "images/0455_la_crema_pinot_750_ml.jpg",
-      "La Crema Sonoma County Chardonnay 750 ml": "images/0456_la_crema_sonoma_county_chardonnay_750_ml.png",
-      "Lagavulin 750 ml": "images/0457_lagavulin_750_ml.jpg",
-      "Lagavulin 9 Years Game of Thrones House Lannister Single Malt Scotch Whisky 750 ml": "images/0458_lagavulin_9_years_game_of_thrones_house_lannister_single_mal.jpg",
-      "Lagavulin Distiller's Edition Islay Single Malt Scotch Whisky 750 ml": "images/0459_lagavulin_distiller_s_edition_islay_single_malt_scotch_whisk.jpg",
-      "LAGUNITAS AUNT SALLY 6 PACK": "https://image.influenster.com/eyJidWNrZXQiOiAiaW5mbHVlbnN0ZXJfcHJvZHVjdGlvbiIsICJrZXkiOiAibWVkaWEvcHJvZHVjdC9pbWFnZS9wcm9kdWN0L2ltYWdlL0dVRVNUXzJiMmJiMTdjLTkxYmYtNDYyMi1iMzcwLTgwNzdmYjVjMTg5ZV9pcWM4dlNhIiwgImVkaXRzIjogeyJyb3RhdGUiOiBudWxsLCAicmVzaXplIjogeyJ3aWR0aCI6IDc1MCwgImhlaWdodCI6IDc1MCwgImZpdCI6ICJpbnNpZGUiLCAiYmFja2dyb3VuZCI6IHsiciI6IDEsICJnIjogMSwgImIiOiAxLCAiYWxwaGEiOiAwfSwgIndpdGhvdXRFbmxhcmdlbWVudCI6IHRydWV9fSwgImV4dGVuZCI6IHt9fQ==",
-      "Lagunitas Ipa 12oz Cans": "images/0461_lagunitas_ipa_12oz_cans.jpg",
-      "LAGUNITAS IPA 6/12 OZ BOTTLE": "images/0462_lagunitas_ipa_6_12_oz_bottle.jpg",
-      "Lagunitas Little Sumpin Ale 12oz Cans": "images/0463_lagunitas_little_sumpin_ale_12oz_cans.jpg",
-      "LAMARCA PROSECCO 750 ml": "images/0464_lamarca_prosecco_750_ml.jpg",
-      "Lamarca Rose 750 ml": "images/0465_lamarca_rose_750_ml.jpg",
-      "Langers Orange Juice 64 oz": "images/0466_langers_orange_juice_64_oz.jpg",
-      "Larceny Barrel Proof Bourbon": "images/0467_larceny_barrel_proof_bourbon.jpg",
-      "Larceny Small Batch 92 proof 750 ml": "images/0468_larceny_small_batch_92_proof_750_ml.jpg",
-      "Little Book 2019 750 ml": "https://static.whiskybase.com/storage/whiskies/1/3/8730/238363-big.jpg",
-      "Little Book Chapter 2 Crafted By Freddie Noe Blended Straight Whisky": "images/0470_little_book_chapter_2_crafted_by_freddie_noe_blended_straigh.jpg",
-      "Little Book Chapter 4": "images/0471_little_book_chapter_4.jpg",
-      "Lrg Ice": "images/0472_lrg_ice.jpg",
-      "Luc Belaire Brut Gold": "images/0473_luc_belaire_brut_gold.jpg",
-      "Luc Belaire Luxe Rose": "images/0474_luc_belaire_luxe_rose.jpg",
-      "Irishman Whiskey": "images/0475_irishman_whiskey.jpg",
-      "Mac Drizzle Diamond IIPA 16 oz 4 pack": "images/0476_mac_drizzle_diamond_iipa_16_oz_4_pack.jpg",
-      "Macallan 12 Year Double Cask Single Malt Scotch Whisky 750 ml": "images/0477_macallan_12_year_double_cask_single_malt_scotch_whisky_750_m.jpg",
-      "Macallan 12 year old 750 ml": "images/0478_macallan_12_year_old_750_ml.jpg",
-      "Macallan 18 Year Sherry Casks Single Malt Scotch Whisky 750 ml": "images/0479_macallan_18_year_sherry_casks_single_malt_scotch_whisky_750_.png",
-      "Maker's Mark 46 Bourbon": "https://www.makersmark.com/sites/default/files/2024-07/makers-mark-bottle-bourbon-whiskey-46.png",
-      "Maker's Mark 750 ml": "https://www.makersmark.com/sites/default/files/styles/original/public/2024-07/makers-mark-bottle-bourbon-whiskey-classic.png.webp?itok=X9ccg_W8",
-      "Makers Mark Rc6 Limited Release Bourbon": "images/0482_makers_mark_rc6_limited_release_bourbon.png",
-      "Malibu750": "images/0483_malibu750.png",
-      "Martell Blue Swift": "images/0484_martell_blue_swift.jpg",
-      "Martell Cordon Blue 750 ml": "images/0485_martell_cordon_blue_750_ml.jpg",
-      "Martell VS": "images/0486_martell_vs.jpg",
-      "Martell VSOP Cognac Matured In Red Barrels": "images/0487_martell_vsop_cognac_matured_in_red_barrels.jpg",
-      "Master Of Mixes Cocktail Essentials Grenadine Syrup": "images/0488_master_of_mixes_cocktail_essentials_grenadine_syrup.jpg",
-      "Master Of Mixes Cocktail Essentials Simple Syrup Pet": "images/0489_master_of_mixes_cocktail_essentials_simple_syrup_pet.jpg",
-      "Master Of Mixes Cocktail Essentials Sweetened Lime Juice": "images/0490_master_of_mixes_cocktail_essentials_sweetened_lime_juice.jpg",
-      "Master Of Mixes Cocktail Essentials Triple Sec Non Alcoholic Liqueur": "images/0491_master_of_mixes_cocktail_essentials_triple_sec_non_alcoholic.jpg",
-      "Meiomi P.N. 750 ml": "images/0492_meiomi_p_n_750_ml.jpg",
-      "Menage A Trios Sil": "images/0493_menage_a_trios_sil.jpg",
-      "Menage a Trois Cabernet Sauvignon 750 ml": "images/0494_menage_a_trois_cabernet_sauvignon_750_ml.jpg",
-      "Menage A Trois Chateau": "images/0495_menage_a_trois_chateau.jpg",
-      "Menage A Trois Decadence Cabernet": "images/0496_menage_a_trois_decadence_cabernet.jpg",
-      "Menage a Trois Gold Chardonnay 750 ml": "images/0497_menage_a_trois_gold_chardonnay_750_ml.jpg",
-      "Menage A Trois Lavish Merlot": "images/0498_menage_a_trois_lavish_merlot.png",
-      "Menage a Trois Midnight Dark Red 750 ml": "images/0499_menage_a_trois_midnight_dark_red_750_ml.webp",
-      "Menage A Trois Pinot Grigio Limelight": "images/0500_menage_a_trois_pinot_grigio_limelight.png",
-      "Menage a Trois Pinot Noir": "images/0501_menage_a_trois_pinot_noir.webp",
-      "Menage a Trois Red Blend 750 ml": "images/0502_menage_a_trois_red_blend_750_ml.jpg",
-      "Menage a Trois Sauvignon Blanc 750 ml": "images/0503_menage_a_trois_sauvignon_blanc_750_ml.webp",
-      "Menage Bourbon Barrel Cab 750 ml": "images/0504_menage_bourbon_barrel_cab_750_ml.webp",
-      "Metaxa 7 Years Old Brandy": "images/0505_metaxa_7_years_old_brandy.jpg",
-      "Mextaxa Ouzo750 ml": "images/0506_mextaxa_ouzo750_ml.jpg",
-      "Michael David 7 Deadly Sins 2015 Zinfandel Lodi": "images/0507_michael_david_7_deadly_sins_2015_zinfandel_lodi.jpg",
-      "Michelob Ultra": "images/0508_michelob_ultra.jpg",
-      "MICHELOB ULTRA BOTTLES 6 PACK 12 OZ": "images/0509_michelob_ultra_bottles_6_pack_12_oz.png",
-      "Michter's Small Batch Bourbon Whisky": "images/0510_michter_s_small_batch_bourbon_whisky.jpg",
-      "Michter's Straight Rye Whisky": "images/0511_michter_s_straight_rye_whisky.webp",
-      "Mitchter Unblended": "images/0512_mitchter_unblended.jpg",
-      "Midori Melon Liqueur 750 ml": "images/0513_midori_melon_liqueur_750_ml.jpg",
-      "Milagro Anejo": "images/0514_milagro_anejo.jpg",
-      "Modelo 18 Bottls": "images/0515_modelo_18_bottls.jpg",
-      "MODELO 24 CN": "images/0516_modelo_24_cn.jpg",
-      "MODELO BEER CAN 12 PACK 12OZ": "images/0517_modelo_beer_can_12_pack_12oz.jpg",
-      "MODELO BEER CAN 6 PACK 12OZ": "images/0518_modelo_beer_can_6_pack_12oz.jpg",
-      "MODELO BOTTLES 24 PACK 12 OZ": "images/0519_modelo_bottles_24_pack_12_oz.jpg",
-      "MODELO ESPECIAL 12/12 OZ BOTTLE": "images/0520_modelo_especial_12_12_oz_bottle.jpg",
-      "MODELO NEGRO 12PK": "images/0521_modelo_negro_12pk.jpg",
-      "Moet & Chand Brut Im": "images/0522_moet_chand_brut_im.jpg",
-      "Moet & Chandon Nectar Imperial Rose": "images/0523_moet_chandon_nectar_imperial_rose.jpg",
-      "MOET Champange 750 ml": "https://www.clos19.com/on/demandware.static/-/Sites-mh-master/default/dwd1319c66/images/large/moet_chandon/packshots/MOET-CHANDON-CHAMPAGNE-IMPERIAL-BRUT-75CL-100063_1.jpg?",
-      "Mumm Napa Brut Prestige 750 ml": "images/0525_mumm_napa_brut_prestige_750_ml.png",
-      "NB VOODOO RNGR IPA 6PK": "images/0526_nb_voodoo_rngr_ipa_6pk.jpg",
-      "Negro Modelo 6pk": "images/0527_negro_modelo_6pk.jpg",
-      "New Amsterdam Apple Vodka": "images/0528_new_amsterdam_apple_vodka.webp",
-      "New Amsterdam Gluten Free Vodka": "images/0529_new_amsterdam_gluten_free_vodka.jpg",
-      "New Amsterdam Grapefruit Vodka": "images/0530_new_amsterdam_grapefruit_vodka.jpg",
-      "New Amsterdam London Dry Gin": "images/0531_new_amsterdam_london_dry_gin.webp",
-      "New Amsterdam Mango 750 ml": "images/0532_new_amsterdam_mango_750_ml.png",
-      "New Amsterdam Oran": "images/0533_new_amsterdam_oran.jpg",
-      "New Amsterdam Peach 750 ml": "images/0534_new_amsterdam_peach_750_ml.png",
-      "New Amsterdam Pineapple 750 ml": "images/0535_new_amsterdam_pineapple_750_ml.png",
-      "New Amsterdam Pink Whitney Lemonade Vodka": "images/0536_new_amsterdam_pink_whitney_lemonade_vodka.png",
-      "New Amsterdam Red Berry 750 ml": "images/0537_new_amsterdam_red_berry_750_ml.jpg",
-      "New Amsterdam Watermelon Vodka": "images/0538_new_amsterdam_watermelon_vodka.png",
-      "New Amstredam Gin 750 ml": "http://www.acebevdc.com/cdn/shop/files/New-Amsterdam-Gin-175-l_1.png?v=1722460181",
-      "New Amstredam Vodka 750 ml": "images/0540_new_amstredam_vodka_750_ml.jpg",
-      "O.F.C. 1995 750 ml": "images/0541_o_f_c_1995_750_ml.jpg",
-      "Old Barton 100 Proof 750 ml": "images/0542_old_barton_100_proof_750_ml.jpg",
-      "Old Barton 80 Proof 750 ml": "images/0543_old_barton_80_proof_750_ml.jpg",
-      "Old Charter Oak French Oak 750 ml": "images/0544_old_charter_oak_french_oak_750_ml.jpg",
-      "Old Fitzgerald 100 Proof Bottled In Bond 9 Year Bourbon": "images/0545_old_fitzgerald_100_proof_bottled_in_bond_9_year_bourbon.png",
-      "Old Fitzgerald Bottled In Bond 11 Years Kentucky Bourgon 100 Proof Spring": "images/0546_old_fitzgerald_bottled_in_bond_11_years_kentucky_bourgon_100.png",
-      "Old Forester 100 proof 750 ml": "images/0547_old_forester_100_proof_750_ml.jpg",
-      "Old Forester 1870 90 Proof 750 ml": "images/0548_old_forester_1870_90_proof_750_ml.png",
-      "Old Forester 1897 100 Proof 750 ml": "images/0549_old_forester_1897_100_proof_750_ml.jpg",
-      "Old Forester 1920 Bourbon": "images/0550_old_forester_1920_bourbon.jpg",
-      "Old Forester 86 proof 750 ml": "images/0551_old_forester_86_proof_750_ml.jpg",
-      "Old Forester 1924": "images/0552_old_forester_1924.jpg",
-      "Old Monk Xxx Rum": "images/0553_old_monk_xxx_rum.jpg",
-      "Orphan Brl BBN Copper Ton 16y 750 ml": "images/0554_orphan_brl_bbn_copper_ton_16y_750_ml.png",
-      "Ouzo 750 ml": "images/0555_ouzo_750_ml.jpg",
-      "Oyster Bay SB 750 ml": "https://www.bayfields.com.au/wp-content/uploads/Oyster-Bay-Sauvignon-Blanc-750ml-Bayfields-Liquor-Superstore-500x1000.png",
-      "PACIFICO 12 OZ 6 PACK BOTTLE": "images/0557_pacifico_12_oz_6_pack_bottle.jpg",
-      "PACIFICO BOTTLES 12 PACK 12 OZ": "images/0558_pacifico_bottles_12_pack_12_oz.jpg",
-      "Pacifico Clara 12oz Cans": "images/0559_pacifico_clara_12oz_cans.jpg",
-      "Paddy Old Irish Whiskey": "https://static.whiskybase.com/storage/whiskies/2/7/541/72101-big.jpg",
-      "Pappa Van Winkle's Family Rserve 15 y.o. 750 ml": "images/0561_pappa_van_winkle_s_family_rserve_15_y_o_750_ml.jpg",
-      "Party Cups": "images/0562_party_cups.jpg",
-      "Patron Anejo 750 ml": "images/0563_patron_anejo_750_ml.jpg",
-      "Patron Reposado 750 ml": "images/0564_patron_reposado_750_ml.png",
-      "Patron Silver 750 ml": "images/0565_patron_silver_750_ml.jpg",
-      "Patron Silver Tequila": "images/0566_patron_silver_tequila.jpg",
-      "Paulmasson VSOP 3": "images/0567_paulmasson_vsop_3.jpg",
-      "PEPSI 12PK": "images/0568_pepsi_12pk.jpg",
-      "PEPSI 2 LTR": "images/0569_pepsi_2_ltr.jpg",
-      "Peroni 6 Pk": "images/0570_peroni_6_pk.jpg",
-      "PERONI 6PK BTL 12 OZ": "images/0571_peroni_6pk_btl_12_oz.png",
-      "Petite Petit Sirah": "images/0572_petite_petit_sirah.png",
-      "Pickering's 1947 Gin 750ml new": "images/0573_pickering_s_1947_gin_750ml_new.jpg",
-      "Platinum 1.75 liter": "images/0574_platinum_1_75_liter.jpg",
-      "Platinum 7x Vodka": "images/0575_platinum_7x_vodka.jpg",
-      "Presidente 750 ml": "https://centralsupercenter.com/wp-content/uploads/1970/01/Presidente-Beer.jpg",
-      "Proper Twelve 750 ml": "images/0577_proper_twelve_750_ml.jpg",
-      "Rabbit Hole Cavehill 750 ml": "images/0578_rabbit_hole_cavehill_750_ml.jpg",
-      "RedBreast 750 ml": "https://www.redbreastwhiskey.com/wp-content/uploads/2022/06/12-yo-cask-strength-bottle-aspect-ratio-314-646-1.png",
-      "Remy Martin 1738 750 ml": "images/0580_remy_martin_1738_750_ml.jpg",
-      "Remy Martin Cognac XO": "images/0581_remy_martin_cognac_xo.jpg",
-      "Remy Martin VSOP": "images/0582_remy_martin_vsop.png",
-      "Reno As Fuck 4 pack": "images/0583_reno_as_fuck_4_pack.jpg",
-      "Revision 4 pack": "images/0584_revision_4_pack.png",
-      "Risata Pink Moscato": "images/0585_risata_pink_moscato.jpg",
-      "Risata Moscato d' Asti": "images/0586_risata_moscato_d_asti.jpg",
-      "Robert Mndavi Pin": "images/0587_robert_mndavi_pin.jpg",
-      "Robert Mondavi Pin": "https://drinxmarket.com/product/robert-mondavi-pinot-noir-private-selection-750-ml-bottle/102156.png",
-      "Robert Mondavi Private Selection Bourbon Barrel Aged Cabernet Sauvignon": "images/0589_robert_mondavi_private_selection_bourbon_barrel_aged_caberne.jpg",
-      "Robert Mondavi 100% C.S. 750 ml": "images/0590_robert_mondavi_100_c_s_750_ml.jpg",
-      "RODNEY STRONG CH 750 ml": "images/0591_rodney_strong_ch_750_ml.png",
-      "Rombauer Cabernet Sauvignon 750 ml": "images/0592_rombauer_cabernet_sauvignon_750_ml.jpg",
-      "Rombauer Cabernet Sauvignon Diamond": "images/0593_rombauer_cabernet_sauvignon_diamond.jpg",
-      "ROMBAUER CHARD 750 ml": "images/0594_rombauer_chard_750_ml.png",
-      "Rombauer Napa Valley C.S. 750 ml": "images/0595_rombauer_napa_valley_c_s_750_ml.jpg",
-      "Rombauer Zinfandel 750 ml": "images/0596_rombauer_zinfandel_750_ml.jpg",
-      "Roses Lime Juice 2": "images/0597_roses_lime_juice_2.png",
-      "Rum Chata 750 ml": "images/0598_rum_chata_750_ml.jpg",
-      "Russian River Brewing Blind Pig West Coast Ipa": "images/0599_russian_river_brewing_blind_pig_west_coast_ipa.png",
-      "Russian River Brewing Happy Hops": "https://www.russianriverbrewing.com/wp-content/uploads/2024/05/RRBC-HappyHops-BottleMockup-510ml-731x1024.webp",
-      "Russian River Brewing Redemption Blonde Ale": "images/0601_russian_river_brewing_redemption_blonde_ale.jpg",
-      "RUTHERFORD HILL CAB 750 ml": "images/0602_rutherford_hill_cab_750_ml.jpg",
-      "Sailor Jerry 750 ml": "images/0603_sailor_jerry_750_ml.jpg",
-      "Santa Margherita Chianti Classico Riserva": "images/0604_santa_margherita_chianti_classico_riserva.jpg",
-      "Sauza Gold 750 ml": "images/0605_sauza_gold_750_ml.jpg",
-      "Sauza Hornitos Cristalino Anejo Tequila": "images/0606_sauza_hornitos_cristalino_anejo_tequila.png",
-      "Sazerac 18 year old 750 ml": "images/0607_sazerac_18_year_old_750_ml.png",
-      "Sazerac Rye 750 ml": "images/0608_sazerac_rye_750_ml.jpg",
-      "Sazerag 18 year old 750 ml": "images/0609_sazerag_18_year_old_750_ml.jpg",
-      "Seagram's 7 750 ml": "images/0610_seagram_s_7_750_ml.jpg",
-      "Seagram's Extra Smooth Vodka": "images/0611_seagram_s_extra_smooth_vodka.jpg",
-      "Seagram's Gin 750 ml": "images/0612_seagram_s_gin_750_ml.jpg",
-      "Seagram's VO 750 ml": "images/0613_seagram_s_vo_750_ml.png",
-      "Seagrams Gin 1.75": "images/0614_seagrams_gin_1_75.jpg",
-      "Seven Deadly Red Blend": "images/0615_seven_deadly_red_blend.jpg",
-      "SEVEN UP 12 PK": "images/0616_seven_up_12_pk.jpg",
-      "Shibui 10 Year Old 750 ml": "images/0617_shibui_10_year_old_750_ml.jpg",
-      "Shibui Sherry  8 yr 750 ml": "images/0618_shibui_sherry_8_yr_750_ml.jpg",
-      "SIERA NEVADA PALE ALE BOTTLES 6PACK 12 OZ": "images/0619_siera_nevada_pale_ale_bottles_6pack_12_oz.webp",
-      "SIERRA NEVADA PALE ALE 12/12 OZ BOTTLE": "images/0620_sierra_nevada_pale_ale_12_12_oz_bottle.webp",
-      "Sierra Nevada Sierraveza 12oz Cans": "images/0621_sierra_nevada_sierraveza_12oz_cans.png",
-      "SIERRA NEVADA TORPEDO 6PK 12 OZ BTL": "images/0622_sierra_nevada_torpedo_6pk_12_oz_btl.jpg",
-      "SIERRA NEVADA TORPEDO EXTRA ALE 12 PK": "images/0623_sierra_nevada_torpedo_extra_ale_12_pk.jpg",
-      "Silk & Spice Red Blend": "images/0624_silk_spice_red_blend.webp",
-      "SILVER OAK  CAB 750 ml": "images/0625_silver_oak_cab_750_ml.jpg",
-      "Simi C.S. 750 ml": "images/0626_simi_c_s_750_ml.jpg",
-      "Simi Chard 750 ml": "images/0627_simi_chard_750_ml.jpg",
-      "Simi S.B 750 ml": "images/0628_simi_s_b_750_ml.jpg",
-      "SIMIRNOFF RASPBERRY TWESTED 6 PK": "images/0629_simirnoff_raspberry_twested_6_pk.jpg",
-      "Singleton Reserve Game Of Thrones House Tully Single Malt Scotch Whisky": "https://www.htfw.com/media/catalog/product/cache/801b826746c417a51e3d96b449906a0f/l/p/lp9914_2_1.jpg",
-      "Six Grape 750 ml": "images/0631_six_grape_750_ml.png",
-      "Skrewball Peanut Butter Whiskey": "images/0632_skrewball_peanut_butter_whiskey.png",
-      "Slane Castle Irish Whiskey": "images/0633_slane_castle_irish_whiskey.jpg",
-      "Smirnoff 100 proof 750 ml": "images/0634_smirnoff_100_proof_750_ml.jpg",
-      "Smirnoff Cherry 750 ml": "images/0635_smirnoff_cherry_750_ml.jpg",
-      "SMIRNOFF ICE BOTTLE 6 PACK 12 OZ": "images/0636_smirnoff_ice_bottle_6_pack_12_oz.webp",
-      "Smirnoff Raspberry 750 ml": "images/0637_smirnoff_raspberry_750_ml.jpg",
-      "Smirnoff Red 750 ml": "images/0638_smirnoff_red_750_ml.png",
-      "Smoke Wagon Small Batch 750ml new": "images/0639_smoke_wagon_small_batch_750ml_new.jpg",
-      "Smoke Wagon Straight bourbon 750ml new": "images/0640_smoke_wagon_straight_bourbon_750ml_new.png",
-      "Sonoma-Cutrer Chardonnay 750 ml": "images/0641_sonoma_cutrer_chardonnay_750_ml.jpg",
-      "Southern Comfort 750 ml": "https://www.bayfields.com.au/wp-content/uploads/Southern-Comfort-Original-700ml-Bayfields-Liquor-Superstore-500x1000.png",
-      "Southern Comfort 80 Proof": "images/0643_southern_comfort_80_proof.webp",
-      "Southern Comfort L": "images/0644_southern_comfort_l.jpg",
-      "SPRITE  12PK": "images/0645_sprite_12pk.jpg",
-      "SPRITE 2 LTR": "images/0646_sprite_2_ltr.jpg",
-      "Squirt 2L": "images/0647_squirt_2l.jpg",
-      "Stag's Leap Napa Valley C.S. 750 ml": "images/0648_stag_s_leap_napa_valley_c_s_750_ml.jpg",
-      "Stag's Leap Wine Cellar Fay Cabernet 750 ml": "images/0649_stag_s_leap_wine_cellar_fay_cabernet_750_ml.png",
-      "Stagg jr 128.4 proof 750 ml": "images/0650_stagg_jr_128_4_proof_750_ml.jpg",
-      "Stags Leap Merlot": "images/0651_stags_leap_merlot.jpg",
-      "STAGS LEAP NAPA CH 750 ml": "https://bassins.com/images/thumbs/009/0092517_2022-stags-leap-chardonnay-napa_600.jpeg",
-      "STAGSLEAP CAB  ART 750 ml": "images/0653_stagsleap_cab_art_750_ml.png",
-      "STAGSLEAP CAB NAPA 750 ml": "images/0654_stagsleap_cab_napa_750_ml.png",
-      "Stela Rosa M Dasti": "images/0655_stela_rosa_m_dasti.jpg",
-      "Stela Rosa Pink": "images/0656_stela_rosa_pink.jpg",
-      "Stella Artois 11.2oz  12 pack": "images/0657_stella_artois_11_2oz_12_pack.webp",
-      "STELLA ARTOIS 12 CN 11.2 OZ": "images/0658_stella_artois_12_cn_11_2_oz.jpg",
-      "STELLA ARTOIS 12 PACK BOTTLE": "https://www.amoragh.com/storage/products/grocery/beverages/stella.jpg",
-      "STELLA ARTOIS 22 OZ SINGLE BOTTLE": "images/0660_stella_artois_22_oz_single_bottle.jpg",
-      "Stella Artois 6 Pack": "images/0661_stella_artois_6_pack.webp",
-      "STELLA ARTOIS 6 PK 12 OZ BOTTELS": "images/0662_stella_artois_6_pk_12_oz_bottels.png",
-      "Stella Rosa Black 750 ml": "images/0663_stella_rosa_black_750_ml.jpg",
-      "Stella Rosa Blueberry": "images/0664_stella_rosa_blueberry.png",
-      "Stella Rosa Peach": "images/0665_stella_rosa_peach.jpg",
-      "Stella Rosa Pineapple": "images/0666_stella_rosa_pineapple.png",
-      "Stella Rosa Pink 750 ml": "images/0667_stella_rosa_pink_750_ml.jpg",
-      "Stella Rosa Rosé": "images/0668_stella_rosa_ros.jpg",
-      "Stella Rosa Rosso Lux Sparkling Semi Sweet": "images/0669_stella_rosa_rosso_lux_sparkling_semi_sweet.jpg",
-      "Stella Rosa Tropical Mango": "https://worldwineliquors.com/wp-content/uploads/2020/10/578a3154-6344-4bb1-bd88-ab86864495c1-500x1024.png",
-      "Stella Rosa Watermelon": "images/0671_stella_rosa_watermelon.jpg",
-      "Stella Royale Rosso Semi Sweet": "images/0672_stella_royale_rosso_semi_sweet.jpg",
-      "Stolichnaya 1.75L": "images/0673_stolichnaya_1_75l.jpg",
-      "Stolichnaya 750 ml": "images/0674_stolichnaya_750_ml.jpg",
-      "Strike Happy Holihaze Hazy Double IPA 16 oz 4 pack": "images/0675_strike_happy_holihaze_hazy_double_ipa_16_oz_4_pack.jpg",
-      "Strike Reflection Hazy Can": "images/0676_strike_reflection_hazy_can.jpg",
-      "Strike Santa Cruz Classic Dot Blonde Ale": "images/0677_strike_santa_cruz_classic_dot_blonde_ale.jpg",
-      "Strike Santa Cruz Double IPA 16 oz 4 pack": "images/0678_strike_santa_cruz_double_ipa_16_oz_4_pack.jpg",
-      "Strike Santa Cruz Hazy Double IPA 16 oz 4 pack": "images/0679_strike_santa_cruz_hazy_double_ipa_16_oz_4_pack.jpg",
-      "Suntory The Hakushu 12 Year Single Malt Japanese Whisky": "images/0680_suntory_the_hakushu_12_year_single_malt_japanese_whisky.jpg",
-      "Suntory Toki Japanese Whiskey": "https://house.suntory.com/sites/default/files/2022-12/PDP_Toki_Product_1.png",
-      "Sutter Home Cabernet Sauvignon 4 pack": "images/0682_sutter_home_cabernet_sauvignon_4_pack.png",
-      "Sutter Home Chardonnay 4 pack": "images/0683_sutter_home_chardonnay_4_pack.png",
-      "Sutter Home Merlot 4 pack": "images/0684_sutter_home_merlot_4_pack.png",
-      "Sutter Home Pink Moscato 4 pack": "images/0685_sutter_home_pink_moscato_4_pack.jpg",
-      "Sutter Home Pink Moscato 4pk": "images/0686_sutter_home_pink_moscato_4pk.jpg",
-      "Sutter Home Pinot Grigio 4 pack": "images/0687_sutter_home_pinot_grigio_4_pack.png",
-      "Sutter Home Pinot Noir 4 pk": "images/0688_sutter_home_pinot_noir_4_pk.jpg",
-      "Sutter Home Sauvignon Blanc 4 pack": "images/0689_sutter_home_sauvignon_blanc_4_pack.jpg",
-      "Sutter Home White Zinfandel 4 pack": "images/0690_sutter_home_white_zinfandel_4_pack.jpg",
-      "Sutterhome chard 1.5L": "images/0691_sutterhome_chard_1_5l.jpg",
-      "Sutterhome P": "images/0692_sutterhome_p.jpg",
-      "Sutterhome Pinot G": "images/0693_sutterhome_pinot_g.webp",
-      "Sutterhome S B": "images/0694_sutterhome_s_b.jpg",
-      "Sutter Home S.B. 750 ml": "https://images.freshop.com/00085200000760/97bc8f3f8d1641789ec72e220f7c432b_large.png",
-      "Sutter Home C.S. 750 ml": "images/0696_sutter_home_c_s_750_ml.jpg",
-      "Sutter Home Merlot 750 ml": "images/0697_sutter_home_merlot_750_ml.jpg",
-      "Sutter Home Chardonnay 750 ml": "images/0698_sutter_home_chardonnay_750_ml.webp",
-      "Tanqueray 750 ml": "images/0699_tanqueray_750_ml.jpg",
-      "Tecate 12pk Bottle": "images/0700_tecate_12pk_bottle.webp",
-      "TECATE BOTTLES 6 PACK 12 OZ": "images/0701_tecate_bottles_6_pack_12_oz.jpg",
-      "TECATE CAN 12 PACK 12 OZ": "images/0702_tecate_can_12_pack_12_oz.jpg",
-      "Teeling Irish Whiskey Small Batch 750ml": "images/0703_teeling_irish_whiskey_small_batch_750ml.png",
-      "Templeton Rye 115.8 Proof 750 ml": "images/0704_templeton_rye_115_8_proof_750_ml.png",
-      "Tenjaku Blend Whisky 750 ml": "images/0705_tenjaku_blend_whisky_750_ml.webp",
-      "Tenjaku Japanese Whisky 750 ml": "images/0706_tenjaku_japanese_whisky_750_ml.jpg",
-      "Tequila Clase Azul Reposado 750 ml": "images/0707_tequila_clase_azul_reposado_750_ml.jpg",
-      "Teremana Small Batch Blanco Tequila 750 ml": "images/0708_teremana_small_batch_blanco_tequila_750_ml.png",
-      "Teremana Small Batch Reposado Tequila 750 ml": "images/0709_teremana_small_batch_reposado_tequila_750_ml.png",
-      "The Botanist Islay Dry Gin 750 ml": "https://www.aries-wineny.com/wp-content/uploads/2014/08/the-botanist-islay-dry-gin.jpg",
-      "The Glenlivet Caribbean Reserve Rum Barrel Single Malt Scotch Whisky 750 ml": "images/0711_the_glenlivet_caribbean_reserve_rum_barrel_single_malt_scotc.png",
-      "The Glenlivet Nadu 750 ml": "images/0712_the_glenlivet_nadu_750_ml.jpg",
-      "Thomas H Handy Sazerac Barrel Proof 750 ml": "https://goodbottleauctions.com/wp-content/uploads/2025/10/604-1.jpg",
-      "Thomas S. Mooore Chardonnay Cask 750 ml": "https://static.whiskybase.com/storage/whiskies/1/8/3404/320300-big.jpg",
-      "Thomas S. Moore 750 ml": "images/0715_thomas_s_moore_750_ml.jpg",
-      "Thomas S. Moore Port Casks 750 ml": "images/0716_thomas_s_moore_port_casks_750_ml.jpg",
-      "Three Olives Vodka 1.75 L": "images/0717_three_olives_vodka_1_75_l.png",
-      "Tito's 750 ml": "images/0718_tito_s_750_ml.jpg",
-      "Truly Berry Variety 12oz Cans": "images/0719_truly_berry_variety_12oz_cans.jpg",
-      "Truly Citrus Variety 12oz Cans 12 pk": "images/0720_truly_citrus_variety_12oz_cans_12_pk.jpg",
-      "Truly Seltzer Lemonade Variety 12oz Cans 12pk": "images/0721_truly_seltzer_lemonade_variety_12oz_cans_12pk.jpg",
-      "Truly Tropical Variety 12oz Cans 12pk": "images/0722_truly_tropical_variety_12oz_cans_12pk.jpg",
-      "Truly Wild Berry 12oz Cans 6pk": "images/0723_truly_wild_berry_12oz_cans_6pk.jpg",
-      "Truly Vodka": "images/0724_truly_vodka.jpg",
-      "Tullamore Dew Irish Whisky 750 ml": "images/0725_tullamore_dew_irish_whisky_750_ml.jpg",
-      "UV Blue Vodka 750 ml": "images/0726_uv_blue_vodka_750_ml.jpg",
-      "UV Silver Vodka 750 ml": "images/0727_uv_silver_vodka_750_ml.png",
-      "Van Winkle Family Reserve Rye 13 y.o. 750 ml": "images/0728_van_winkle_family_reserve_rye_13_y_o_750_ml.jpg",
-      "Van Winkle Special Reserve 12 y.o. 750 ml": "images/0729_van_winkle_special_reserve_12_y_o_750_ml.jpg",
-      "Veuve Clicquot Brut 750 ml": "images/0730_veuve_clicquot_brut_750_ml.jpg",
-      "VICTORIA 12PK BTL 12 OZ": "images/0731_victoria_12pk_btl_12_oz.jpg",
-      "VICTORIA 6PK BTL 12 OZ": "images/0732_victoria_6pk_btl_12_oz.png",
-      "Weller aged 12 years 750 ml": "images/0733_weller_aged_12_years_750_ml.jpg",
-      "Weller CYPB 750 ml": "images/0734_weller_cypb_750_ml.png",
-      "Weller Full Proof 750 ml": "images/0735_weller_full_proof_750_ml.jpg",
-      "Weller Single Barrel": "images/0736_weller_single_barrel.jpg",
-      "Weller Special Reserve 750 ml": "images/0737_weller_special_reserve_750_ml.jpg",
-      "Wente Chardonnay 750 ml": "images/0738_wente_chardonnay_750_ml.png",
-      "Wente Merlot 750 ml": "images/0739_wente_merlot_750_ml.jpg",
-      "Wente morning fog Chardonnay 750 ml": "images/0740_wente_morning_fog_chardonnay_750_ml.jpg",
-      "Wente Sandstone Merlot 750 ml": "images/0741_wente_sandstone_merlot_750_ml.jpg",
-      "Wente Soutern Hill CS 750 ml": "images/0742_wente_soutern_hill_cs_750_ml.png",
-      "WhistlePig 10 year old 750 ml": "images/0743_whistlepig_10_year_old_750_ml.jpg",
-      "Whistlepig Piggy Back 6YR Pot Distilled Rye Whiskey 750 ml": "https://images.liquorapps.com/wp/bg/259050-Whistlepig-6-Year-Piggyback-Rye-Whiskey25.webp",
-      "White Claw Black Cherry 12oz Cans": "images/0745_white_claw_black_cherry_12oz_cans.jpg",
-      "White Claw Lime 12oz Cans 6 pk": "images/0746_white_claw_lime_12oz_cans_6_pk.png",
-      "White Claw Mango 12oz Cans 12 pk": "images/0747_white_claw_mango_12oz_cans_12_pk.png",
-      "White Claw Mango 12oz Cans 6pk": "images/0748_white_claw_mango_12oz_cans_6pk.png",
-      "White Claw Raspberry 12oz Cans 6pk": "images/0749_white_claw_raspberry_12oz_cans_6pk.png",
-      "White Claw Ruby Grapefruit 12oz Cans 6pk": "images/0750_white_claw_ruby_grapefruit_12oz_cans_6pk.png",
-      "White Claw Variety 12oz Cans 12pk": "https://images.liquorapps.com/wp/bg/pk/368701-White-Claw-Variety-Pack-3-12Pk-12Oz-Can03.webp",
-      "White Claw Variety Pack No 2 12oz Cans 12 pk": "images/0752_white_claw_variety_pack_no_2_12oz_cans_12_pk.jpg",
-      "Wild Turkey 101 750 ml": "images/0753_wild_turkey_101_750_ml.png",
-      "Wild Turkey Master's Keep Revival Kentucky Straight Bourbon Whiskey 750 ml": "images/0754_wild_turkey_master_s_keep_revival_kentucky_straight_bourbon_.jpg",
-      "William Larue Weller Barrel Proof 750 ml": "images/0755_william_larue_weller_barrel_proof_750_ml.jpg",
-      "Wyoming Whiskey": "images/0756_wyoming_whiskey.jpg",
-      "Woodford Double Double Oaked": "images/0757_woodford_double_double_oaked.png",
-      "Yamazaki Single Malt aged 12 year 750 ml": "images/0758_yamazaki_single_malt_aged_12_year_750_ml.jpg",
-      "ZD Wines Cabernet Sauvignon Napa Valley 750 ml": "images/0759_zd_wines_cabernet_sauvignon_napa_valley_750_ml.png",
-      "ZD Wines Pinot Noir Carneros 750 ml": "https://www.winecountryconnection.net/wp-content/uploads/2021/05/2019-Pinot-Noir-Carneros-Bottle-Shot_360x.jpg",
-      "Revision Vegas as Fuck 4 pack": "images/0761_revision_vegas_as_fuck_4_pack.jpg",
-      "Altamont Maui Waui 4 pack": "images/0762_altamont_maui_waui_4_pack.jpg",
-      "Diablo Black Cabernet Sauvignon 750 ml": "images/0763_diablo_black_cabernet_sauvignon_750_ml.webp",
-      "Sea-Sun Chardonay 750 ml": "images/0764_sea_sun_chardonay_750_ml.jpg",
-      "Mer Soleil Chardonnay 750 ml": "images/0765_mer_soleil_chardonnay_750_ml.png",
-      "Cupcake Peach 750 ml": "images/0766_cupcake_peach_750_ml.jpg",
-      "Z Alexander Brown Uncaged 750 ml": "images/0767_z_alexander_brown_uncaged_750_ml.webp",
-      "Three Finger Jack 750 ml": "images/0768_three_finger_jack_750_ml.jpg",
-      "Coppola Red Blend 750 ml": "images/0769_coppola_red_blend_750_ml.png",
-      "Harken Chardonnay 750 ml": "images/0770_harken_chardonnay_750_ml.png",
-      "Russells Reserve Single Rickhouse": "https://slash5.winenliquor.com/wp-content/uploads/russells-reserve-single-rickhouse-bourbon.png",
-      "George T Stagg Junior 750 ml": "images/0772_george_t_stagg_junior_750_ml.png",
-      "Buzzballz Spirits Berry Cherry Limeade 200 ml": "images/0773_buzzballz_spirits_berry_cherry_limeade_200_ml.jpg",
-      "Buzzballz Lemon Tea": "images/0774_buzzballz_lemon_tea.jpg",
-      "Buzzball Passionfruit 200 ml": "images/0775_buzzball_passionfruit_200_ml.png",
-      "Buzzball Tequila 1.75": "images/0776_buzzball_tequila_1_75.jpg",
-      "EH Taylor Jr Barrel Proof 750 ml": "images/0777_eh_taylor_jr_barrel_proof_750_ml.png",
-      "Paulaner Oktoberfest Bier 4 pk": "images/0778_paulaner_oktoberfest_bier_4_pk.png",
-      "Paulaner Hefe-Weizen 4 pk": "images/0779_paulaner_hefe_weizen_4_pk.webp",
-      "Glenmorangie 12 year 750": "images/0780_glenmorangie_12_year_750.jpg",
-      "EH Taylor bottled 100 pf In Bond": "images/0781_eh_taylor_bottled_100_pf_in_bond.jpg",
-      "William Larue Weller Barrel Proof 750 ml (2025)": "images/0782_william_larue_weller_barrel_proof_750_ml_2025.jpg",
-      "George T Stagg Barrel Proof (2025)": "images/0783_george_t_stagg_barrel_proof_2025.jpg",
-      "Thomas H Handy Sazerac Barrel Proof 750 ml (2025)": "images/0784_thomas_h_handy_sazerac_barrel_proof_750_ml_2025.jpg",
-      "George Dickel Three Chamber": "images/0785_george_dickel_three_chamber.png",
-      "Weller Antique 107": "images/0786_weller_antique_107.jpg",
-    };
-    // ──── PRODUCT_IMAGES END ───────────────────────────────────────────
+<script src="shared.js"></script>
+<script src="home.js"></script>
 
-    // ═══════════════════════════════════════════════════════════════════
-    //  CJ'S LIQUORS — STORE CONFIGURATION
-    //  Edit the values in this section to update the website.
-    // ═══════════════════════════════════════════════════════════════════
-
-    // Store phone number — appears on "Call to Order" buttons
-    const PHONE = '+14084221508';
-
-    // ── GOOGLE SHEET SETUP ───────────────────────────────────────────
-    // To show products from a Google Sheet:
-    //   1. Open your Google Sheet
-    //   2. Go to File → Share → Publish to web
-    //   3. Choose your products tab → select "Comma-separated values (.csv)"
-    //   4. Click Publish, then copy the URL shown
-    //   5. Paste it below (between the quotes)
-    //
-    // The sheet must have these column headers in row 1:
-    //   Name | Category | Price | Sale Price | Unit | Description | Badge | Image | Emoji | Stock | Rating
-    //
-    //   Name        — e.g.  Don Julio 1942
-    //   Category    — e.g.  Tequila, Scotch Whisky, Red Wine, Craft Beer
-    //   Price       — number only, no $ sign  (e.g.  159.99)
-    //   Unit        — short label after price  (e.g.  btl, 6-pk, 750ml)
-    //   Description — one-line detail  (e.g.  Añejo Tequila · 750ml)
-    //   Badge       — optional promo tag  (e.g.  Top Seller, On Sale) — leave blank for none
-    //   Image       — direct URL to the product photo (paste any image link, e.g. from the brand's
-    //                 website or Google Drive). To use a Google Drive image: upload the photo, click
-    //                 "Share" → "Anyone with the link", then change the URL from
-    //                 .../file/d/FILE_ID/view  →  https://drive.google.com/uc?id=FILE_ID
-    //                 Leave blank to show the emoji instead.
-    //   Emoji       — fallback emoji shown if Image is blank  (e.g.  🥃  🍷  🍺  🍾  🌵)
-    //   Stock       — quantity in stock (e.g.  24). Shows green "X in stock", orange "X left — order
-    //                 soon" when 5 or fewer, and grayed out "Out of stock" when 0. Leave blank to
-    //                 hide the indicator entirely.
-    //   Rating      — customer rating out of 5, supports one decimal (e.g.  4.5). Shown as stars
-    //                 in the product detail popup. Leave blank to hide the rating.
-    const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vToDgWVzefEfIypyl2AtUdAGksHtSuD0LRp8NLE6pZ_KjGXHDhiyUI02PGcXbZhqKtEPuYRUfaBUK1m/pub?gid=0&single=true&output=csv'; // ← Paste your Google Sheet CSV URL here
-
-    // ── DEFAULT PRODUCTS ─────────────────────────────────────────────
-    // Displayed when the Google Sheet is not connected (or as a fallback).
-    // Edit these directly, or leave them until the sheet is set up.
-    const DEFAULT_PRODUCTS = [
-        { name: 'Don Julio 1942',       category: 'Tequila',       price: '159.99', unit: 'btl',  description: 'Añejo Tequila · 750ml',      badge: 'Top Seller',   image: '', emoji: '🥃', stock: '', rating: '' },
-        { name: 'Hennessy VS',          category: 'Cognac',        price: '39.99',  unit: 'btl',  description: 'Cognac · 750ml',             badge: 'Fan Favorite', image: '', emoji: '🍾', stock: '', rating: '' },
-        { name: 'Casamigos Blanco',     category: 'Tequila',       price: '44.99',  unit: 'btl',  description: 'Blanco Tequila · 750ml',     badge: '',             image: '', emoji: '🌵', stock: '', rating: '' },
-        { name: 'Johnnie Walker Black', category: 'Scotch Whisky', price: '32.99',  unit: 'btl',  description: 'Blended Scotch · 750ml',     badge: 'On Sale',      image: '', emoji: '🥃', stock: '', rating: '' },
-        { name: 'Kim Crawford',         category: 'White Wine',    price: '14.99',  unit: 'btl',  description: 'Sauvignon Blanc · 750ml',    badge: '',             image: '', emoji: '🍷', stock: '', rating: '' },
-        { name: 'Blue Moon',            category: 'Craft Beer',    price: '11.99',  unit: '6-pk', description: 'Belgian White Ale · 6-Pack', badge: '',             image: '', emoji: '🍺', stock: '', rating: '' },
-    ];
-
-    // ═══════════════════════════════════════════════════════════════════
-    //  END OF CONFIGURATION — no changes needed below this line
-    // ═══════════════════════════════════════════════════════════════════
-
-    // Category → background gradient mapping
-    function getGradient(category) {
-        const c = (category || '').toLowerCase();
-        if (c.includes('tequila'))                                                              return 'linear-gradient(135deg,#1a3a8f,#2a5fa3,#1e4aad)';
-        if (c.includes('cognac') || c.includes('brandy'))                                      return 'linear-gradient(135deg,#291700,#5a3600,#8a5800)';
-        if (c.includes('bourbon') || c.includes('whiskey') || c.includes('whisky') || c.includes('scotch')) return 'linear-gradient(135deg,#181818,#303030,#202020)';
-        if (c.includes('white wine') || c.includes('sauvignon') || c.includes('chardonnay'))   return 'linear-gradient(135deg,#1a3c1a,#2a6028,#3a8040)';
-        if (c.includes('wine') || c.includes('rosé') || c.includes('rose'))                    return 'linear-gradient(135deg,#180820,#46133a,#891f52)';
-        if (c.includes('beer'))                                                                 return 'linear-gradient(135deg,#001840,#002a66,#00347c)';
-        if (c.includes('vodka'))                                                                return 'linear-gradient(135deg,#1a1a2e,#2a2a4e,#16213e)';
-        if (c.includes('gin'))                                                                  return 'linear-gradient(135deg,#0d3320,#1a5a38,#2a7a50)';
-        if (c.includes('rum'))                                                                  return 'linear-gradient(135deg,#2d1400,#5c2800,#8a3d00)';
-        return 'linear-gradient(135deg,#1a3a8f,#2a5fa3,#1e4aad)';
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LiquorStore",
+  "name": "CJ's Liquors",
+  "alternateName": ["CJs Liquors", "CJ Liquors", "Fremont Liquor Store"],
+  "url": "https://cjsliquors.com",
+  "telephone": "+15106566367",
+  "foundingDate": "1998",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "4949 Stevenson Blvd #Q",
+    "addressLocality": "Fremont",
+    "addressRegion": "CA",
+    "postalCode": "94538",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 37.5076,
+    "longitude": -121.9571
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens": "08:00",
+      "closes": "02:00"
     }
-
-    // Stock quantity indicator
-    function stockHtml(stock) {
-        if (stock === '' || stock === undefined || stock === null) return '';
-        const n = parseInt(stock, 10);
-        if (isNaN(n)) return '';
-        if (n === 0) return '<div class="prod-stock out-stock">Out of stock</div>';
-        if (n <= 5)  return `<div class="prod-stock low-stock">${n} left — order soon</div>`;
-        return `<div class="prod-stock in-stock">${n} in stock</div>`;
-    }
-
-    // Escape HTML to prevent XSS from sheet data
-    function esc(s) {
-        return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-    }
-
-    // Scroll-reveal observer (declared here so renderProducts can use it)
-    let revealObserver;
-    let renderedProducts = [];
-
-    // Star rating HTML
-    function starsHtml(rating) {
-        if (!rating) return '';
-        const r = Math.min(5, Math.max(0, parseFloat(rating) || 0));
-        if (!r) return '';
-        const full  = Math.floor(r);
-        const half  = (r - full) >= 0.5 ? 1 : 0;
-        const empty = 5 - full - half;
-        return `<div class="stars-row">
-            ${'<span class="star full">★</span>'.repeat(full)}
-            ${half ? '<span class="star half">★</span>' : ''}
-            ${'<span class="star empty">★</span>'.repeat(empty)}
-            <span class="rating-num">${r.toFixed(1)} / 5</span>
-        </div>`;
-    }
-
-    function priceHtml(p, large) {
-        const regular = parseFloat(p.price || 0).toFixed(2);
-        const sale = p['sale price'] ? parseFloat(p['sale price']).toFixed(2) : null;
-        const unit = `<span class="price-unit">/${esc(p.unit || 'btl')}</span>`;
-        if (sale) {
-            return `<div class="prod-price"><span class="price-orig">$${regular}</span> <span class="price-sale">$${sale}</span> ${unit}</div>`;
-        }
-        return `<div class="prod-price">$${regular} ${unit}</div>`;
-    }
-
-    // Open product detail modal
-    function openModal(index) {
-        const p = renderedProducts[index];
-        if (!p) return;
-        document.getElementById('modal-inner').innerHTML = `
-            <div class="modal-img-panel" style="background:${getGradient(p.category)}">
-                ${(p.image || PRODUCT_IMAGES[p.name])
-                    ? `<img src="${esc(p.image || PRODUCT_IMAGES[p.name])}" alt="${esc(p.name)}" loading="lazy">`
-                    : `<span class="modal-art">${esc(p.emoji || '🍾')}</span>`}
-                ${p.badge ? `<span class="prod-badge">${esc(p.badge)}</span>` : ''}
-            </div>
-            <div class="modal-info">
-                <div class="modal-cat">${esc(p.category)}</div>
-                <h2 class="modal-name">${esc(p.name)}</h2>
-                ${starsHtml(p.rating)}
-                <p class="modal-desc">${esc(p.description) || 'No description available.'}</p>
-                <hr class="modal-divider">
-                <div class="modal-price-row">
-                    ${priceHtml(p)}
-                    ${stockHtml(p.stock)}
-                </div>
-                <a href="tel:${PHONE}" class="modal-call-btn">📞 Call to Order</a>
-            </div>
-        `;
-        document.getElementById('modal-overlay').classList.add('open');
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closeModal() {
-        document.getElementById('modal-overlay').classList.remove('open');
-        document.body.style.overflow = '';
-    }
-
-    // Build and inject product cards into the grid
-    function renderProducts(products) {
-        renderedProducts = products;
-        const grid = document.getElementById('prod-grid');
-        if (!products.length) {
-            grid.innerHTML = '<p class="prod-empty">No products found. Check your Google Sheet setup.</p>';
-            return;
-        }
-        grid.innerHTML = products.map((p, i) => `
-            <div class="prod-card reveal" onclick="openModal(${i})" role="button" tabindex="0"
-                 aria-label="View details for ${esc(p.name)}">
-                <div class="prod-img" style="background:${getGradient(p.category)}">
-                    ${(p.image || PRODUCT_IMAGES[p.name]) ? `<img src="${esc(p.image || PRODUCT_IMAGES[p.name])}" alt="${esc(p.name)}" loading="lazy">` : `<span class="prod-art">${esc(p.emoji || '🍾')}</span>`}
-                    ${p.badge ? `<span class="prod-badge">${esc(p.badge)}</span>` : ''}
-                </div>
-                <div class="prod-body">
-                    <div class="prod-cat">${esc(p.category)}</div>
-                    <div class="prod-name">${esc(p.name)}</div>
-                    ${priceHtml(p)}
-                    <div class="prod-view">View Details →</div>
-                </div>
-            </div>
-        `).join('');
-        if (revealObserver) {
-            grid.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-        }
-    }
-
-    // Minimal CSV parser — handles quoted fields with commas inside
-    function parseCSVRow(line) {
-        const result = []; let cur = '', inQ = false;
-        for (const ch of line) {
-            if (ch === '"') { inQ = !inQ; continue; }
-            if (ch === ',' && !inQ) { result.push(cur); cur = ''; continue; }
-            cur += ch;
-        }
-        result.push(cur);
-        return result;
-    }
-    function parseCSV(text) {
-        const lines = text.split('\n').map(l => l.trimEnd()).filter(Boolean);
-        if (lines.length < 2) return [];
-        const headers = parseCSVRow(lines[0]).map(h => h.trim().toLowerCase());
-        return lines.slice(1).map(line => {
-            const vals = parseCSVRow(line);
-            const obj = {};
-            headers.forEach((h, i) => { obj[h] = (vals[i] || '').trim(); });
-            return obj;
-        }).filter(p => p.name);
-    }
-
-    // Fetch products from Google Sheet, fall back silently to defaults
-    async function loadFromSheet() {
-        if (!SHEET_CSV_URL) return;
-        try {
-            const res = await fetch(SHEET_CSV_URL + '&t=' + Date.now(), { cache: 'no-store' });
-            if (!res.ok) throw new Error('HTTP ' + res.status);
-            const products = parseCSV(await res.text());
-            if (products.length) { allProducts = products; applyFilter(); }
-        } catch (e) {
-            console.warn("[CJ's Liquors] Could not load Google Sheet:", e.message);
-        }
-    }
-
-    // ── STICKY HEADER ────────────────────────────────────────────────
-    const header = document.getElementById('header');
-    window.addEventListener('scroll', () => {
-        header.classList.toggle('scrolled', window.scrollY > 10);
-    }, { passive: true });
-
-    // ── HAMBURGER MENU ───────────────────────────────────────────────
-    const hamburger = document.getElementById('hamburger');
-    const mobileNav = document.getElementById('mobileNav');
-    hamburger.addEventListener('click', () => {
-        const open = mobileNav.classList.toggle('open');
-        hamburger.setAttribute('aria-expanded', open);
-        const [s1, s2, s3] = hamburger.querySelectorAll('span');
-        if (open) {
-            s1.style.transform = 'rotate(45deg) translate(5px,5px)';
-            s2.style.opacity   = '0';
-            s3.style.transform = 'rotate(-45deg) translate(5px,-5px)';
-        } else {
-            s1.style.transform = s3.style.transform = '';
-            s2.style.opacity = '';
-        }
-    });
-
-    // ── SCROLL REVEAL ────────────────────────────────────────────────
-    revealObserver = new IntersectionObserver(entries => {
-        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-    // ── ACTIVE NAV ON SCROLL ─────────────────────────────────────────
-    const secs = [...document.querySelectorAll('section[id]')];
-    const navAs = [...document.querySelectorAll('.primary-nav > li > a')];
-    window.addEventListener('scroll', () => {
-        let cur = '';
-        secs.forEach(s => { if (window.scrollY >= s.offsetTop - 110) cur = s.id; });
-        navAs.forEach(a => {
-            a.classList.toggle('active', a.getAttribute('href') === `#${cur}`);
-        });
-    }, { passive: true });
-
-    // ── SEARCH & FILTERING ───────────────────────────────────────────
-    let allProducts  = [];
-    let activeFilter = null;
-    let searchQuery  = '';
-    let searchTimer  = null;
-
-    function onSearch(val) {
-        clearTimeout(searchTimer);
-        searchTimer = setTimeout(() => {
-            searchQuery = val.trim();
-            const clearBtn = document.getElementById('search-clear');
-            if (clearBtn) clearBtn.classList.toggle('visible', searchQuery.length > 0);
-            applyFilter();
-        }, 180);
-    }
-
-    function clearSearch() {
-        const input = document.getElementById('search-input');
-        const clearBtn = document.getElementById('search-clear');
-        if (input) input.value = '';
-        if (clearBtn) clearBtn.classList.remove('visible');
-        searchQuery = '';
-        applyFilter();
-    }
-
-    function matchesSearch(p, q) {
-        const lower = q.toLowerCase();
-        return (p.name        || '').toLowerCase().includes(lower) ||
-               (p.category    || '').toLowerCase().includes(lower) ||
-               (p.description || '').toLowerCase().includes(lower) ||
-               (p.badge       || '').toLowerCase().includes(lower);
-    }
-
-    const CATEGORY_GROUPS = {
-        wine:    ['wine', 'rosé', 'rose', 'champagne', 'sparkling', 'sauvignon', 'chardonnay', 'merlot', 'pinot', 'cava', 'prosecco', 'riesling', 'moscato'],
-        spirits: ['tequila', 'mezcal', 'whiskey', 'whisky', 'scotch', 'bourbon', 'cognac', 'brandy', 'vodka', 'gin', 'rum', 'spirits', 'liqueur', 'schnapps'],
-        beer:    ['beer', 'ale', 'lager', 'ipa', 'stout', 'porter', 'pilsner', 'bock', 'sour', 'craft', 'cider'],
-        sale:    [], // matched via badge field
-        new:     [], // matched via badge field
-    };
-
-    function matchesFilter(product, group) {
-        if (group === 'sale') return (product.badge || '').toLowerCase().includes('sale');
-        if (group === 'new')  return (product.badge || '').toLowerCase().includes('new');
-        const c = (product.category || '').toLowerCase();
-        return (CATEGORY_GROUPS[group] || []).some(k => c.includes(k));
-    }
-
-    function filterByCategory(group) {
-        activeFilter = group;
-        applyFilter();
-    }
-
-    function clearFilter() {
-        activeFilter = null;
-        applyFilter();
-    }
-
-    function applyFilter() {
-        const bar   = document.getElementById('filter-bar');
-        const label = document.getElementById('filter-label-text');
-
-        let filtered = activeFilter
-            ? allProducts.filter(p => matchesFilter(p, activeFilter))
-            : allProducts;
-
-        if (searchQuery) {
-            filtered = filtered.filter(p => matchesSearch(p, searchQuery));
-        }
-
-        if (activeFilter && bar && label) {
-            const names = { wine: 'Wine', spirits: 'Spirits', beer: 'Beer', sale: 'On Sale', new: 'New Arrivals' };
-            label.textContent = names[activeFilter] || activeFilter;
-            bar.classList.add('visible');
-        } else if (bar) {
-            bar.classList.remove('visible');
-        }
-
-        if (!filtered.length && (activeFilter || searchQuery)) {
-            document.getElementById('prod-grid').innerHTML =
-                `<div class="no-results"><strong>No products found</strong>Try a different search or <button class="filter-clear" style="display:inline-flex" onclick="clearSearch();clearFilter()">clear all filters</button></div>`;
-        } else {
-            renderProducts(filtered);
-        }
-    }
-
-    // ── MODAL KEYBOARD SUPPORT ───────────────────────────────────────
-    document.addEventListener('keydown', e => {
-        if (e.key === 'Escape') closeModal();
-    });
-    document.addEventListener('keydown', e => {
-        if ((e.key === 'Enter' || e.key === ' ') && e.target.classList.contains('prod-card')) {
-            e.preventDefault();
-            e.target.click();
-        }
-    });
-
-    // ── INIT ─────────────────────────────────────────────────────────
-    allProducts = DEFAULT_PRODUCTS;
-    renderProducts(DEFAULT_PRODUCTS); // show defaults immediately
-    loadFromSheet();                   // then replace with sheet data if available
+  ],
+  "sameAs": ["https://fremontliquor.com"]
+}
 </script>
-
 </body>
 </html>
