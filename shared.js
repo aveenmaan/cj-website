@@ -78,11 +78,14 @@ let revealObserver;
         if (ON_SHOP) {
             input.addEventListener('input', () => handleNavSearch(input));
         } else {
-            input.addEventListener('keydown', e => {
-                if (e.key === 'Enter' && input.value.trim()) {
-                    e.preventDefault();
-                    window.location.href = 'shop.html?q=' + encodeURIComponent(input.value.trim());
-                }
+            // Off the shop page: go to the shop page once they pause typing (or press Enter)
+            let goTimer;
+            const go = () => { const q = input.value.trim(); if (q) window.location.href = 'shop.html?q=' + encodeURIComponent(q); };
+            input.addEventListener('input', () => { clearTimeout(goTimer); goTimer = setTimeout(go, 700); });
+            input.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); clearTimeout(goTimer); go(); } });
+            input.addEventListener('input', () => {
+                const x = document.getElementById(input === navSearchInput ? 'nav-search-x' : 'nav-search-x-mob');
+                if (x) x.classList.toggle('visible', input.value.length > 0);
             });
         }
     });
